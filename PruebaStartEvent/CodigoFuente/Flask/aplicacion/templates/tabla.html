@@ -1,0 +1,14 @@
+<table border="1">
+    <tr>
+        <th>Nombre del Documento</th>
+        <th>Acción</th>
+    </tr>
+    {% for documento in documentos %}
+    <tr>
+        <td>{{ documento.id_documento_evento }}</td>
+        <td>{{ documento.ruta_archivo }}</td>
+        <td>
+            <button hx-get="{{ url_for('mostrar', ruta=documento.ruta_archivo) }}" hx-target="#div-pdf" >Ver</button>
+        </td>
+    {% endfor %}
+</table>

@@ -1,0 +1,17 @@
+.logo {
+    width: 100px; 
+    height: 100px; 
+}
+.texto {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 900;
+    color: blueviolet;
+}
+
+.nombre-ponente{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(226, 43, 43);
+}
