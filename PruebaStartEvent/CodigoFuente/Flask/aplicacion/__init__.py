@@ -23,8 +23,8 @@ def crear_app():
     db.init_app(app)
 
     with app.app_context():
-        from aplicacion.controlador import archivos
-        from aplicacion.controlador import documento_evento
+        from aplicacion.rutas import archivos
+        from aplicacion.rutas import documento_evento
         
         from aplicacion.modelo.evento_academico import EventoAcademico
         from aplicacion.modelo.tema_evento import TemaEvento
