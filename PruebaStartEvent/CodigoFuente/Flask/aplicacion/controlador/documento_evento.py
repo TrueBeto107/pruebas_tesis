@@ -34,4 +34,12 @@ class DocumentoControlador:
     
     def renderizar_documento_creado(self, texto):
         resultado = self._crear_documento(texto)
-        return self.rederizar_gestion_documentos(resultado.ruta_archivo)
+
+        html_pdf = self.renderizar_documento(resultado.ruta_archivo)
+        html_pdf = '<div id="div-pdf" hx-swap-oob="true">\n' + html_pdf + '</div>'
+
+        html_tabla = self.renderizar_tabla()
+        html_tabla = '<div id="div-tabla" hx-swap-oob="true">\n' + html_tabla + '</div>'
+
+        return html_pdf + html_tabla
+
