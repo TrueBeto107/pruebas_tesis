@@ -1,9 +1,12 @@
 from flask import render_template
 from aplicacion.dto.documento_evento import CrearDocumentoDto
 from aplicacion.dto.documento_evento import BuscarDocumentoDto
+from aplicacion.servicio.documento_evento import DocumentoEventoServicio
+
+
 
 class DocumentoControlador:
-    def __init__(self, servicio):
+    def __init__(self, servicio: DocumentoEventoServicio):
         self.servicio = servicio
 
     def _crear_documento(self, texto):
@@ -17,9 +20,9 @@ class DocumentoControlador:
         dto = BuscarDocumentoDto(id_documento_evento=id_documento)
         return self.servicio.buscar_documento(dto)
     
-    def rederizar_gestion_documentos(self):           
+    def rederizar_gestion_documentos(self, nombre):           
         documentos = self._buscar_todos_documentos()
-        return render_template('buscar_documento.html', documentos=documentos)
+        return render_template('buscar_documento.html', documentos=documentos, nombre=nombre)
     
     def renderizar_tabla(self):
         documentos = self._buscar_todos_documentos()

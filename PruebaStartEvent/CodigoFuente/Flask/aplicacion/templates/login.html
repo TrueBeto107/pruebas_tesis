@@ -8,10 +8,10 @@
 <body>
     <form action="{{ url_for('login') }}" method="post">
         <h2>Iniciar sesión</h2>
-        <label>Usuario:</label>
-        <input type="text" required><br><br>
+        <label>Correo:</label>
+        <input name="correo" type="text" required><br><br>
         <label>Contraseña:</label>
-        <input type="password" required><br><br>
+        <input name="password" type="password" required><br><br>
         <button type="submit">Entrar</button>
         <br><br>
         <a href="#">¿Olvidaste tu contraseña?</a>

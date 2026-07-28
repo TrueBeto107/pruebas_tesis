@@ -3,11 +3,21 @@ from flask import request
 from aplicacion.servicio.documento_evento import DocumentoEventoServicio
 from aplicacion.controlador.documento_evento import DocumentoControlador
 
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import get_jwt
+import hashlib
+
 controlador = DocumentoControlador(DocumentoEventoServicio())
 
 @app.route('/documento')
+@jwt_required()
 def gestion_documentos():
-    return controlador.rederizar_gestion_documentos()
+    #id = get_jwt_identity()
+    claims = get_jwt()
+    nombre = claims['nombre']
+    
+    return controlador.rederizar_gestion_documentos(nombre)
 
 @app.route('/tabla')
 def actualizar_tabla():
@@ -54,11 +64,11 @@ def crear_persona():
     from aplicacion.modelo.automovil import Automovil
     from aplicacion.config import db
 
-    ponente = PersonaAcademica(nombre='Pepe')
+    ponente = PersonaAcademica(nombre='Edwar', correo='edwar2@gmail.com', contrasenia=hashlib.sha256('123'.encode()).hexdigest(), es_administrador=False)
     auto = Automovil(placa='1122D1', 
                       modelo='Honda',
                       anio='2018',
-                      color='Negro')
+                      color='Negro',)
 
     ponente.automovil = auto
 

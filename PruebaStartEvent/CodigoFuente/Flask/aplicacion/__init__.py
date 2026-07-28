@@ -17,6 +17,7 @@ def crear_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin_agent:9q70MdN915@localhost/isolated_db_test'
     app.config['DEBUG'] = True
     app.config['JWT_SECRET_KEY'] = '123'
+    app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
 
     app.config['DIRECTORIO_DOCUMENTOS'] = DIRECTORIO_DOCUMENTOS
     app.config['DIRECTORIO_BASE_FLASK'] = DIRECTORIO_BASE_FLASK

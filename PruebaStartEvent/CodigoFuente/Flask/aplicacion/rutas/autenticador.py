@@ -9,9 +9,10 @@ controlador = AutenticadorControlador(AutenticadorServicio())
 
 @app.route("/login", methods=["POST"])
 def login():
-    correo = request.json.get("username", None)
-    password = request.json.get("password", None)
-    controlador.validar_credenciales(correo, password)
+    correo = request.form["correo"]
+    password = request.form["password"]
+    return controlador.iniciar_sesion(correo, password)
+    
 
 @app.route('/')
 def home():
