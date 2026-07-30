@@ -13,8 +13,9 @@ def crear_app():
     DIRECTORIO_BASE_FLASK = ARCHIVO_EJECUTANDODSE.parents[2]  # "/Flask"
     
     app = Flask(__name__)
-                                                                   #usuario :  contraseña              /nombre_bd
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin_agent:9q70MdN915@localhost/isolated_db_test'
+                                                                   #usuario :  contraseña           :puerto/nombre_bd
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin_agent:9q70MdN915@localhost:5432/isolated_db_test'
+    
     app.config['DEBUG'] = True
     app.config['JWT_SECRET_KEY'] = '123'
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
@@ -39,4 +40,11 @@ def crear_app():
         from aplicacion.modelo.documento_evento import DocumentoEvento
         
         db.create_all()
-        return app
+    # Comando para backup
+    from aplicacion.backup import hacer_backup
+    @app.cli.command('backup') 
+    def backup_command():
+        hacer_backup()
+
+        
+    return app
