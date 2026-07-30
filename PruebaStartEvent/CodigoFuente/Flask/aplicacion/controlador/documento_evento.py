@@ -2,13 +2,14 @@ from flask import render_template
 from aplicacion.dto.documento_evento import CrearDocumentoDto
 from aplicacion.dto.documento_evento import BuscarDocumentoDto
 from aplicacion.servicio.documento_evento import DocumentoEventoServicio
-
+from flask_jwt_extended import get_jwt
+from flask import request
 
 
 class DocumentoControlador:
     def __init__(self, servicio: DocumentoEventoServicio):
         self.servicio = servicio
-
+    
     def _crear_documento(self, texto):
         dto = CrearDocumentoDto(texto=texto)
         return self.servicio.crear_documento(dto)
@@ -20,7 +21,10 @@ class DocumentoControlador:
         dto = BuscarDocumentoDto(id_documento_evento=id_documento)
         return self.servicio.buscar_documento(dto)
     
-    def rederizar_gestion_documentos(self, nombre):           
+    def rederizar_gestion_documentos(self, nombre):
+        #id = get_jwt_identity()
+        claims = get_jwt()
+        nombre = claims['nombre']
         documentos = self._buscar_todos_documentos()
         return render_template('buscar_documento.html', documentos=documentos, nombre=nombre)
     
@@ -31,8 +35,9 @@ class DocumentoControlador:
     def renderizar_documento(self, ruta):
         return render_template('visor.html', ruta_archivo=ruta)
 
-    def renderizar_documento_por_id(self, id_documento):
-        resultado = self._buscar_documento_por_id(id_documento)
+    def renderizar_documento_por_id(self):
+        id = request.args.get('id_documento')
+        resultado = self._buscar_documento_por_id(id)
         return self.renderizar_documento(resultado.ruta_archivo)
     
     def renderizar_documento_creado(self, texto):

@@ -3,6 +3,7 @@ from aplicacion.config import db
 from pathlib import Path
 from flask_jwt_extended import JWTManager
 from aplicacion.modelo.evento_academico import EventoAcademico
+from datetime import timedelta
 
 def crear_app():
     
@@ -17,8 +18,14 @@ def crear_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin_agent:9q70MdN915@localhost:5432/isolated_db_test'
     
     app.config['DEBUG'] = True
+    
+    ############# IMPORTANTE #############
+    #Cambiar a True para produccion
+    app.config["JWT_COOKIE_SECURE"] = False
     app.config['JWT_SECRET_KEY'] = '123'
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+    app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=30)
 
     app.config['DIRECTORIO_DOCUMENTOS'] = DIRECTORIO_DOCUMENTOS
     app.config['DIRECTORIO_BASE_FLASK'] = DIRECTORIO_BASE_FLASK
@@ -29,7 +36,7 @@ def crear_app():
     with app.app_context():
         from aplicacion.rutas import archivos
         from aplicacion.rutas import documento_evento
-        from aplicacion.rutas import autenticador
+        from aplicacion.rutas import autenticacion
         
         from aplicacion.modelo.evento_academico import EventoAcademico
         from aplicacion.modelo.tema_evento import TemaEvento

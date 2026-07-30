@@ -1,6 +1,6 @@
-# Entorno virtual
 venv/
 PruebaStartEvent/backups/
+PruebaStartEvent/Documentos/
 
 # Python cache
 __pycache__/

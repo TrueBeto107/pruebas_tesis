@@ -13,11 +13,7 @@ controlador = DocumentoControlador(DocumentoEventoServicio())
 @app.route('/documento')
 @jwt_required()
 def gestion_documentos():
-    #id = get_jwt_identity()
-    claims = get_jwt()
-    nombre = claims['nombre']
-    
-    return controlador.rederizar_gestion_documentos(nombre)
+    return controlador.rederizar_gestion_documentos('nombre')
 
 @app.route('/tabla')
 def actualizar_tabla():
@@ -29,8 +25,7 @@ def mostrar(ruta):
 
 @app.get('/documento/buscar')
 def get_documento():
-    id = request.args.get('id_documento')
-    return controlador.renderizar_documento_por_id(id)
+    return controlador.renderizar_documento_por_id()
 
 @app.post('/documento/crear')
 def crear_documento():
