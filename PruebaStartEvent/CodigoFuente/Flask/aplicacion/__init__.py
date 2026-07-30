@@ -24,7 +24,7 @@ def crear_app():
     app.config["JWT_COOKIE_SECURE"] = False
     app.config['JWT_SECRET_KEY'] = '123'
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
-    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=1)
     app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=30)
 
     app.config['DIRECTORIO_DOCUMENTOS'] = DIRECTORIO_DOCUMENTOS

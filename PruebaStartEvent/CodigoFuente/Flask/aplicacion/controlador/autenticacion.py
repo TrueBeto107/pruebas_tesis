@@ -1,3 +1,4 @@
+from jwt import ExpiredSignatureError
 from aplicacion.dto.autenticacion import IniciarSesionDto
 from flask import render_template
 from flask import make_response
@@ -38,20 +39,23 @@ class AutenticacionControlador:
             set_refresh_cookies(response, dto_salida.token_refrescar)
             return response
         else:
-            #Error
+            #TODO notificacion temporal
             return 'Error'
     
     def renderizar_login(self):
         return render_template('login.html')
 
     def refrescar_tokens_por_expirar(self, response):
-        
-        verify_jwt_in_request(optional=True)
-        token_acceso = get_jwt()
-        if token_acceso and self._esta_por_expirar(token_acceso):
-            identidad = get_jwt_identity()
-            dto = RefrescarTokenDto(identidad=identidad)
-            dto_salida = self.servicio.refrescar_token(dto)
-            set_access_cookies(response, dto_salida.token_acceso)
-        
-        return response
+        try:
+            token_acceso = get_jwt()
+            if token_acceso and self._esta_por_expirar(token_acceso):
+                identidad = get_jwt_identity()
+                dto = RefrescarTokenDto(identidad=identidad)
+                dto_salida = self.servicio.refrescar_token(dto)
+                set_access_cookies(response, dto_salida.token_acceso)
+            return response
+        except ExpiredSignatureError:   #Hay jwt expirado
+            #TODO: llamar /refresh
+            return response
+        except RuntimeError:    #No hay jwt
+            return response
