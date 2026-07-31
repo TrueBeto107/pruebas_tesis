@@ -1,4 +1,3 @@
-from flask import current_app as app
 from aplicacion.dto.autenticacion import IniciarSesionDto
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import create_refresh_token
@@ -8,10 +7,6 @@ from aplicacion.modelo.persona_academica import PersonaAcademica
 from aplicacion.dto.autenticacion import OtorgarNuevoTokenDto
 from aplicacion.dto.autenticacion import RefrescarTokenDto
 import hashlib
-from datetime import datetime
-from datetime import timezone
-from datetime import timedelta
-
 
 class AutenticadorServicio():
     
@@ -23,8 +18,7 @@ class AutenticadorServicio():
         
         if persona and persona.contrasenia == hashlib.sha256(dto.contrasenia.encode()).hexdigest():
             jwt = create_access_token(
-                identity=str(persona.id_persona_academica),
-                additional_claims={'nombre':persona.nombre}
+                identity=str(persona.id_persona_academica)
                 )
             token_refrescar = create_refresh_token(identity=str(persona.id_persona_academica))
             return ValiadarCredencialesDto(token_acceso=jwt, token_refrescar=token_refrescar, codigo=200, mensaje='Credenciales válidas')

@@ -6,7 +6,6 @@
             crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Bienvenido: {{ nombre }}</h1>
         <form hx-get="{{ url_for('get_documento') }}" hx-target="#div-pdf">
             <label> ID del Documento
                 <input type="text" name="id_documento"/>
