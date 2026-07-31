@@ -3,7 +3,7 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy import String
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
-from aplicacion.config import db
+from aplicacion.inicializacion.extenciones import db
 
 class Automovil(db.Model):
     __tablename__ = 'automovil'

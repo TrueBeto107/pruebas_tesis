@@ -4,10 +4,8 @@ from flask import render_template
 from flask import make_response
 from flask import redirect
 from flask import url_for
-from flask import jsonify
 from flask_jwt_extended import set_access_cookies
 from flask_jwt_extended import set_refresh_cookies
-from flask_jwt_extended import verify_jwt_in_request
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 
@@ -59,3 +57,6 @@ class AutenticacionControlador:
             return response
         except RuntimeError:    #No hay jwt
             return response
+    
+    def refrescar_tokens_expirados(self, response):
+        return

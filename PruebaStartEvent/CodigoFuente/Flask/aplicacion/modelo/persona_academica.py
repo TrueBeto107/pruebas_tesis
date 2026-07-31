@@ -4,7 +4,7 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm  import mapped_column
 from sqlalchemy import String
 from sqlalchemy.orm import relationship
-from aplicacion.config import db
+from aplicacion.inicializacion.extenciones import db
 from sqlalchemy import Boolean
 
 # No está completa

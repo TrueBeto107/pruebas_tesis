@@ -1,5 +1,5 @@
 from aplicacion.modelo.persona_academica import PersonaAcademica
-from aplicacion.config import db
+from aplicacion.inicializacion.extenciones import db
 
 class PersonaAcademicaRepositorio:
     def select(self, persona_academica: PersonaAcademica) -> PersonaAcademica:

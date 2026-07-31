@@ -22,9 +22,6 @@ class DocumentoControlador:
         return self.servicio.buscar_documento(dto)
     
     def rederizar_gestion_documentos(self, nombre):
-        #id = get_jwt_identity()
-        claims = get_jwt()
-        nombre = claims['nombre']
         documentos = self._buscar_todos_documentos()
         return render_template('buscar_documento.html', documentos=documentos, nombre=nombre)
     

@@ -36,7 +36,7 @@ def crear_documento():
 def crear_evento():
     from aplicacion.modelo.evento_academico import EventoAcademico
     from aplicacion.modelo.tema_evento import TemaEvento
-    from aplicacion.config import db
+    from aplicacion.inicializacion.config import db
 
     evento = EventoAcademico(nombre='SI',
                             edicion= 16,
@@ -57,7 +57,7 @@ def crear_evento():
 def crear_persona():
     from aplicacion.modelo.persona_academica import PersonaAcademica
     from aplicacion.modelo.automovil import Automovil
-    from aplicacion.config import db
+    from aplicacion.inicializacion.config import db
 
     ponente = PersonaAcademica(nombre='Edwar', correo='edwar2@gmail.com', contrasenia=hashlib.sha256('123'.encode()).hexdigest(), es_administrador=False)
     auto = Automovil(placa='1122D1', 

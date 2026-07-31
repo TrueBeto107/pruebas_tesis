@@ -1,5 +1,5 @@
 from aplicacion.modelo.documento_evento import DocumentoEvento
-from aplicacion.config import db
+from aplicacion.inicializacion.extenciones import db
 
 class DocumentoEventoRepositorio:
     def select(self, documento_evento: DocumentoEvento) -> DocumentoEvento:

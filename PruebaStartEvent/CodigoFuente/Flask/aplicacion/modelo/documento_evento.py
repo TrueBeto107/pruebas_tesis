@@ -7,7 +7,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 from aplicacion.enums.tipo_documento import TipoDocumento
 from aplicacion.enums.subtipo_documento import SubtipoDocumento
-from aplicacion.config import db
+from aplicacion.inicializacion.extenciones import db
 
 class DocumentoEvento(db.Model):
     __tablename__ = "documento_evento"

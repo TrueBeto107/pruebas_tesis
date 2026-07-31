@@ -4,7 +4,7 @@ from sqlalchemy.orm  import mapped_column
 from sqlalchemy import String
 from sqlalchemy import Integer
 from sqlalchemy.orm import relationship
-from aplicacion.config import db
+from aplicacion.inicializacion.extenciones import db
 
 class EventoAcademico(db.Model):
     __tablename__ = "evento_academico"
