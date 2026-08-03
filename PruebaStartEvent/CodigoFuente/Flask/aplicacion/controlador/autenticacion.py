@@ -45,18 +45,18 @@ class AutenticacionControlador:
 
     def refrescar_tokens_por_expirar(self, response):
         try:
+            #Hay JWT de acceso válido
             token_acceso = get_jwt()
             if token_acceso and self._esta_por_expirar(token_acceso):
                 identidad = get_jwt_identity()
                 dto = RefrescarTokenDto(identidad=identidad)
                 dto_salida = self.servicio.refrescar_token(dto)
-                set_access_cookies(response, dto_salida.token_acceso)
+                set_access_cookies(response, dto_salida.token)
             return response
-        except ExpiredSignatureError:   #Hay jwt expirado
-            #TODO: llamar /refresh
+        except ExpiredSignatureError:
+            #Hay JWT expirado
+            #TODO agregar mensaje de expiracion
+            return make_response(redirect(url_for('login')))
+        except RuntimeError:
+            #No hay JWT
             return response
-        except RuntimeError:    #No hay jwt
-            return response
-    
-    def refrescar_tokens_expirados(self, response):
-        return

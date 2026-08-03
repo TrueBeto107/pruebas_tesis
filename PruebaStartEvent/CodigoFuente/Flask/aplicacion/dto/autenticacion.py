@@ -15,8 +15,7 @@ class ValiadarCredencialesDto:
 @dataclass
 class RefrescarTokenDto:
     identidad: str = None
-    claims: dict = None
 
 @dataclass
 class OtorgarNuevoTokenDto:
-    token_acceso: str
+    token: str
