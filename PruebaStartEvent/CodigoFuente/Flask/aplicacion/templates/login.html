@@ -1,17 +1,84 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-<form hx-post="{{ url_for('iniciar_sesion') }}" hx-target="#div-notificacion" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md space-y-4">
-    <h2 class="text-2xl font-bold text-center text-gray-800">Iniciar sesión</h2>
-    <label class="block text-gray-700 font-medium">Correo:
-        <input name="correo" type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"/>
-    </label>
-    <br><br>
-    <label class="block text-gray-700 font-medium">Contraseña:</label>
-        <input name="password" type="password" required/>
-    <button type="submit">Entrar</button>
-    <br><br>
-    <a href="#">¿Olvidaste tu contraseña?</a>
-</form>
-<div id="div-notificacion"></div>
+    <div class="min-h-screen flex">
+        
+        <!-- MITAD IZQUIERDA: Contenido visual -->
+        <div class="w-1/2 bg-[#66A5AD] flex flex-col text-white p-4 relative">
+            
+            <!-- Título en la parte superior izquierda -->
+            <div class="flex justify-start">
+                <h1 class="mb-4 text-5xl font-bold">StartEvent</h1>
+            </div>
+            
+        
+            <div class="flex-1 flex flex-col items-center justify-center">
+                <img 
+                    src="https://static.vecteezy.com/system/resources/previews/021/242/526/non_2x/event-organization-icon-design-free-vector.jpg" 
+                    alt="Logo de StartEvent" 
+                    class="w-3/4 h-auto max-w-full object-contain"
+                />
+                <h2 class="text-3xl font-bold mt-6">¡Bienvenido!</h2>
+                <p class="text-white mt-2">Accede a tu cuenta para continuar</p>
+            </div>
+            
+        </div>
+
+        <!-- MITAD DERECHA: Formulario -->
+        <div class="w-1/2 bg-[#C4DFE6] flex items-center justify-center p-8">
+            
+            <!--  CONTENEDOR CON FONDO GRIS CLARO Y OPACIDAD -->
+            <div class="w-full max-w-md bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50">
+                
+                <div class="flex justify-center mb-4">
+                    <img 
+                        src="https://img.magnific.com/vector-premium/lindo-axolotl-leyendo-ilustracion-vector-dibujos-animados-libro_290315-2277.jpg" 
+                        alt="Iniciar sesión" 
+                        class="w-80 h-80 object-contain"
+                    />
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">
+                    Iniciar sesión
+                </h2>
+
+                <form hx-post="{{ url_for('iniciar_sesion') }}" hx-target="#div-notificacion">
+                    <div class="mb-4">
+                        <label class="block text-gray-500 text-lg font-bold mb-2">Correo:</label>
+                        <input
+                            name="correo"
+                            type="email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#66A5AD] focus:border-transparent bg-white/80"
+                            placeholder="algo@gmail.com"
+                        />
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="block text-gray-500 text-lg font-semibold mb-2">Contraseña:</label>
+                        <input
+                            name="password"
+                            type="password"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#66A5AD] focus:border-transparent bg-white/80"
+                            required
+                        />
+                    </div>
+                    
+                    <button
+                        type="submit"
+                        class="mb-5 w-full bg-[#52969E] hover:bg-[#3D7A82] text-white font-bold py-3 px-4 rounded-lg transition duration-200"
+                    >
+                        Iniciar sesión
+                    </button>
+                    
+                    <div class="text-center mb-6">
+                        <a href="#" class="text-sm text-[#52969E] hover:text-[#3D7A82] hover:underline">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <!-- 🆕 FIN DEL CONTENEDOR -->
+            <div id="div-notificacion"></div>
+        </div>
+    </div>
 {% endblock %}
