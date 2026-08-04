@@ -5,7 +5,7 @@ from aplicacion.controlador.autenticacion import AutenticacionControlador
 
 controlador = AutenticacionControlador(AutenticadorServicio())
 
-@app.route("/login", methods=["POST"])
+@app.post("/login")
 def iniciar_sesion():
     correo = request.form["correo"]
     password = request.form["password"]
