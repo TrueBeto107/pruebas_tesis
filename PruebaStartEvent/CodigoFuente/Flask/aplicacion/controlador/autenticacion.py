@@ -1,5 +1,6 @@
 from jwt import ExpiredSignatureError
 from aplicacion.dto.autenticacion import IniciarSesionDto
+from aplicacion.dto.notificacion import NotificacionDto
 from flask import render_template
 from flask import make_response
 from flask import redirect
@@ -32,13 +33,14 @@ class AutenticacionControlador:
         dto = IniciarSesionDto(correo=correo, contrasenia=contrasenia)
         dto_salida = self.servicio.validar_credenciales(dto)
         if dto_salida.token_acceso != None:
-            response = make_response(redirect(url_for('gestion_documentos')))
+            response = make_response()
+            response.headers["Hx-Redirect"] = url_for('gestion_documentos')
             set_access_cookies(response, dto_salida.token_acceso)
             set_refresh_cookies(response, dto_salida.token_refrescar)
             return response
         else:
-            #TODO notificacion temporal
-            return 'Error'
+            dto = NotificacionDto('Error', 'Correo o contraseña inválidos')
+            return render_template('notificacion.html', notificacion=dto)        
     
     def renderizar_login(self):
         return render_template('login.html')

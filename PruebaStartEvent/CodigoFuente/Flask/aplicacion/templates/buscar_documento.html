@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" 
-            integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
-            crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <form hx-get="{{ url_for('get_documento') }}" hx-target="#div-pdf">
-            <label> ID del Documento
-                <input type="text" name="id_documento"/>
-            </label>
-            <br/>
-            <label> Buscar documento
-                <input type="submit"/>
-            </label>
-        </form>
-        <form hx-post="{{ url_for('crear_documento') }}" hx-target="#div-pdf">
-            <label> Ingresa un texto
-                <input type="text" name="form-texto"/>
-            </label>
-            <br/>
-            <label> Crear documento
-                <input type="submit"/>
-            </label>
-        </form>
-        <div id="div-pdf" hx-swap-oob="true"></div>
-        <div id="div-tabla" hx-swap-oob="true">
-           {% include "tabla.html" %}
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block contenido %}
+<form hx-get="{{ url_for('get_documento') }}" hx-target="#div-pdf">
+    <label> ID del Documento
+        <input type="text" name="id_documento"/>
+    </label>
+    <br/>
+    <label> Buscar documento
+        <input type="submit"/>
+    </label>
+</form>
+<form hx-post="{{ url_for('crear_documento') }}" hx-target="#div-pdf">
+    <label> Ingresa un texto
+        <input type="text" name="form-texto"/>
+    </label>
+    <br/>
+    <label> Crear documento
+        <input type="submit"/>
+    </label>
+</form>
+<div id="div-pdf" hx-swap-oob="true"></div>
+<div id="div-tabla" hx-swap-oob="true">
+    {% include "tabla.html" %}
+</div>
+{% endblock %}
