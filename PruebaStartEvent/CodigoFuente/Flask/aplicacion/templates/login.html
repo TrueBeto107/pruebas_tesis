@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animaciones.css') }}">
+{% endblock %}
+
 {% block contenido %}
     <div class="min-h-screen flex">
         
@@ -14,7 +18,8 @@
         
             <div class="flex-1 flex flex-col items-center justify-center">
                 <img 
-                    src="https://static.vecteezy.com/system/resources/previews/021/242/526/non_2x/event-organization-icon-design-free-vector.jpg" 
+                    src="{{ url_for('static', filename='img/logo.png') }}" 
+                    
                     alt="Logo de StartEvent" 
                     class="w-3/4 h-auto max-w-full object-contain"
                 />
@@ -77,7 +82,7 @@
                     </div>
                 </form>
             </div>
-            <!-- 🆕 FIN DEL CONTENEDOR -->
+            <!-- FIN DEL CONTENEDOR -->
             <div id="div-notificacion"></div>
         </div>
     </div>
