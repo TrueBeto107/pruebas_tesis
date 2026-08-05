@@ -3,7 +3,7 @@
 {% block contenido %}
 <form hx-get="{{ url_for('get_documento') }}" hx-target="#div-pdf">
     <label> ID del Documento
-        <input type="text" name="id_documento"/>
+        <input type="text" name="id_documento" required/>
     </label>
     <br/>
     <label> Buscar documento
@@ -12,7 +12,7 @@
 </form>
 <form hx-post="{{ url_for('crear_documento') }}" hx-target="#div-pdf">
     <label> Ingresa un texto
-        <input type="text" name="form-texto"/>
+        <input type="text" name="form-texto" required/>
     </label>
     <br/>
     <label> Crear documento
