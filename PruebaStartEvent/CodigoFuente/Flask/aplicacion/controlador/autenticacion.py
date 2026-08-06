@@ -9,6 +9,7 @@ from flask_jwt_extended import set_access_cookies
 from flask_jwt_extended import set_refresh_cookies
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
+from flask_jwt_extended import current_user
 
 from aplicacion.servicio.autenticacion import AutenticadorServicio
 from aplicacion.dto.autenticacion import RefrescarTokenDto
@@ -50,15 +51,18 @@ class AutenticacionControlador:
             #Hay JWT de acceso válido
             token_acceso = get_jwt()
             if token_acceso and self._esta_por_expirar(token_acceso):
-                identidad = get_jwt_identity()
+                identidad = current_user
                 dto = RefrescarTokenDto(identidad=identidad)
                 dto_salida = self.servicio.refrescar_token(dto)
                 set_access_cookies(response, dto_salida.token)
+            print('###After: Caso feliz')
             return response
         except ExpiredSignatureError:
             #Hay JWT expirado
             #TODO agregar mensaje de expiracion
+            print('###After: Caso ExpiredSignatureError')
             return make_response(redirect(url_for('login')))
         except RuntimeError:
-            #No hay JWT
+            #No se revisó si hay JWT
+            print('###After: Caso RuntimeError')
             return response

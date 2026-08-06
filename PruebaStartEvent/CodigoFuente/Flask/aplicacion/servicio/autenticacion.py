@@ -17,10 +17,8 @@ class AutenticadorServicio():
         persona = self.repositorio_persona.select(persona)
         
         if persona and persona.contrasenia == hashlib.sha256(dto.contrasenia.encode()).hexdigest():
-            jwt = create_access_token(
-                identity=str(persona.id_persona_academica)
-                )
-            token_refrescar = create_refresh_token(identity=str(persona.id_persona_academica))
+            jwt = create_access_token(identity=persona)
+            token_refrescar = create_refresh_token(identity=persona)
             return ValiadarCredencialesDto(token_acceso=jwt, token_refrescar=token_refrescar, codigo=200, mensaje='Credenciales válidas')
         return ValiadarCredencialesDto(token_acceso=None, token_refrescar=None, codigo=401, mensaje='Correo o contraseña inválidos')
     
@@ -29,4 +27,3 @@ class AutenticadorServicio():
         dto_salida = OtorgarNuevoTokenDto(token=token)
         print('###########Token refrescado')
         return dto_salida
-                

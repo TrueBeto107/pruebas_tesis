@@ -6,3 +6,6 @@ class PersonaAcademicaRepositorio:
         # Usar filter_by con condiciones múltiples
         usuario = db.session.query(PersonaAcademica).filter_by(correo=persona_academica.correo).first()        
         return usuario
+    
+    def select_por_id(self, id):
+        return db.session.query(PersonaAcademica).filter_by(id_persona_academica=id).one_or_none()

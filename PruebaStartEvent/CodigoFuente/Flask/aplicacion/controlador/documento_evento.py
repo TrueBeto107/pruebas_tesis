@@ -2,7 +2,7 @@ from flask import render_template
 from aplicacion.dto.documento_evento import CrearDocumentoDto
 from aplicacion.dto.documento_evento import BuscarDocumentoDto
 from aplicacion.servicio.documento_evento import DocumentoEventoServicio
-from flask_jwt_extended import get_jwt
+from flask_jwt_extended import current_user, get_jwt
 from flask import request
 
 
@@ -21,9 +21,9 @@ class DocumentoControlador:
         dto = BuscarDocumentoDto(id_documento_evento=id_documento)
         return self.servicio.buscar_documento(dto)
     
-    def rederizar_gestion_documentos(self, nombre):
+    def rederizar_gestion_documentos(self):
         documentos = self._buscar_todos_documentos()
-        return render_template('buscar_documento.html', documentos=documentos, nombre=nombre)
+        return render_template('buscar_documento.html', documentos=documentos, nombre=current_user.nombre)
     
     def renderizar_tabla(self):
         documentos = self._buscar_todos_documentos()

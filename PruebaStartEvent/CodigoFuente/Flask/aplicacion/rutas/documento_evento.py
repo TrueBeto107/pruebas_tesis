@@ -4,8 +4,6 @@ from aplicacion.servicio.documento_evento import DocumentoEventoServicio
 from aplicacion.controlador.documento_evento import DocumentoControlador
 
 from flask_jwt_extended import jwt_required
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import get_jwt
 import hashlib
 
 controlador = DocumentoControlador(DocumentoEventoServicio())
@@ -13,7 +11,7 @@ controlador = DocumentoControlador(DocumentoEventoServicio())
 @app.route('/documento')
 @jwt_required()
 def gestion_documentos():
-    return controlador.rederizar_gestion_documentos('nombre')
+    return controlador.rederizar_gestion_documentos()
 
 @app.route('/tabla')
 def actualizar_tabla():
