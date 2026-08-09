@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from sqlalchemy import text
+from flask import redirect
+from flask import url_for
 
 db = SQLAlchemy()
 jwt = JWTManager()
@@ -14,3 +16,7 @@ def definir_current_user(_, jwt_data):
     identidad = int(jwt_data["sub"])
     user = db.session.execute(text('SELECT id_persona_academica, nombre FROM persona_academica WHERE id_persona_academica = :id'), {"id": identidad}).fetchone()
     return user
+
+@jwt.expired_token_loader
+def redireccionar_login(_, __):
+    return redirect(url_for('login'))
