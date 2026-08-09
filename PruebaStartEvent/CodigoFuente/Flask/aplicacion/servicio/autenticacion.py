@@ -25,5 +25,4 @@ class AutenticadorServicio():
     def refrescar_token(self, dto: RefrescarTokenDto) -> OtorgarNuevoTokenDto:
         token = create_access_token(identity=dto.identidad)
         dto_salida = OtorgarNuevoTokenDto(token=token)
-        print('###########Token refrescado')
         return dto_salida

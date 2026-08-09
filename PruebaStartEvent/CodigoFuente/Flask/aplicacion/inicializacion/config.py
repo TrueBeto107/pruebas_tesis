@@ -10,6 +10,7 @@ class Config:
     JWT_TOKEN_LOCATION = ["cookies"]
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=2)
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(days=30)
+    JWT_POR_EXPIRAR = timedelta(minutes=30)
     DIRECTORIO_DOCUMENTOS = DIRECTORIO_STARTEVENT / 'Documentos'
     DIRECTORIO_BASE_FLASK = ARCHIVO_EJECUTANDODSE.parents[2]  # "/Flask"
     DIRECTORIO_BACKUP = DIRECTORIO_STARTEVENT / 'Backups'

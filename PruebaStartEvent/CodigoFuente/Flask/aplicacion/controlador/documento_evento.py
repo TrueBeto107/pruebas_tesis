@@ -2,7 +2,7 @@ from flask import render_template
 from aplicacion.dto.documento_evento import CrearDocumentoDto
 from aplicacion.dto.documento_evento import BuscarDocumentoDto
 from aplicacion.servicio.documento_evento import DocumentoEventoServicio
-from flask_jwt_extended import current_user, get_jwt
+from flask_jwt_extended import current_user
 from flask import request
 
 

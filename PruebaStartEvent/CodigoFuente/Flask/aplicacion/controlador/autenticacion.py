@@ -3,11 +3,11 @@ from aplicacion.dto.autenticacion import IniciarSesionDto
 from aplicacion.dto.notificacion import NotificacionDto
 from flask import render_template
 from flask import make_response
-from flask import redirect
 from flask import url_for
+from flask import current_app as app
+
 from flask_jwt_extended import set_access_cookies
 from flask_jwt_extended import set_refresh_cookies
-from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import current_user
 
@@ -25,7 +25,7 @@ class AutenticacionControlador:
         esta_por_expirar = False
         timestamp_expiracion = jwt["exp"]
         utc_time = datetime.now(timezone.utc)
-        timestamp_objetivo = datetime.timestamp(utc_time + timedelta(seconds=30))
+        timestamp_objetivo = datetime.timestamp(utc_time + app.config['JWT_POR_EXPIRAR'])
         if timestamp_objetivo > timestamp_expiracion:
             esta_por_expirar = True
         return esta_por_expirar
@@ -48,21 +48,11 @@ class AutenticacionControlador:
 
     def refrescar_tokens_por_expirar(self, response):
         try:
-            #Hay JWT de acceso válido
             token_acceso = get_jwt()
             if token_acceso and self._esta_por_expirar(token_acceso):
-                identidad = current_user
-                dto = RefrescarTokenDto(identidad=identidad)
+                dto = RefrescarTokenDto(identidad=current_user)
                 dto_salida = self.servicio.refrescar_token(dto)
                 set_access_cookies(response, dto_salida.token)
-            print('###After: Caso feliz')
             return response
-        except ExpiredSignatureError:
-            #Hay JWT expirado
-            #TODO agregar mensaje de expiracion
-            print('###After: Caso ExpiredSignatureError')
-            return make_response(redirect(url_for('login')))
         except RuntimeError:
-            #No se revisó si hay JWT
-            print('###After: Caso RuntimeError')
             return response
