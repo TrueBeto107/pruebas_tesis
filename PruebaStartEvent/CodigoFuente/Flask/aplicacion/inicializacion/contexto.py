@@ -7,6 +7,7 @@ def crear_base(app, db):
         from aplicacion.modelo.plantel import Plantel
         from aplicacion.modelo.actividad import Actividad
         from aplicacion.modelo.documento_evento import DocumentoEvento
+        from aplicacion.modelo.comite_evento import ComiteEvento
         db.create_all()
 
 def registrar_rutas(app):
@@ -14,3 +15,4 @@ def registrar_rutas(app):
         from aplicacion.rutas import archivos
         from aplicacion.rutas import documento_evento
         from aplicacion.rutas import autenticacion
+        from aplicacion.rutas import eventos

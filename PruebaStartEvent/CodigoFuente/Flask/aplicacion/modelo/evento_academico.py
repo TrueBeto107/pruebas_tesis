@@ -18,3 +18,4 @@ class EventoAcademico(db.Model):
     #                    Objeto que se referencia                   Atributo que se referencia (en la otra tabla)
     temas: Mapped[List["TemaEvento"]] = relationship(back_populates='evento_academico')
     documentos: Mapped[List["DocumentoEvento"]] = relationship("DocumentoEvento",  back_populates='evento_academico')
+    comite_evento: Mapped["ComiteEvento"] = relationship("ComiteEvento", back_populates='evento_academico')

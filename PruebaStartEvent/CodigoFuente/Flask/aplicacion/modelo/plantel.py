@@ -15,3 +15,4 @@ class Plantel(db.Model):
     direccion: Mapped[str] = mapped_column(String(150))
 
     documentos: Mapped[List["DocumentoEvento"]] = relationship(back_populates='plantel')
+    comites_evento: Mapped[List["ComiteEvento"]] = relationship(back_populates='plantel')

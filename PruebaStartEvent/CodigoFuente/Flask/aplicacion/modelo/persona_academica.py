@@ -19,3 +19,4 @@ class PersonaAcademica(db.Model):
 
     automovil: Mapped["Automovil"] = relationship(back_populates='persona')
     documentos: Mapped[List["DocumentoEvento"]] = relationship(back_populates='persona')
+    comites_evento: Mapped[List["ComiteEvento"]] = relationship(back_populates='persona')
