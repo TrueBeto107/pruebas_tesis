@@ -1,6 +1,6 @@
 <!-- Barra de navegación -->
 <nav class="bg-[#66A5AD] px-6 py-4 flex justify-between items-center relative z-10">
-    <span class="text-white text-xl font-semibold">Alejandra Andrade</span>
+    <span class="text-white text-xl font-semibold">{{ usuario.nombre_completo }}</span>
     
     <!-- Checkbox oculto para controlar el menú -->
     <input type="checkbox" id="menu-toggle" class="hidden peer">
@@ -16,9 +16,6 @@
 
     <!-- Menú desplegable (visible solo cuando el checkbox está marcado) -->
     <div class="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 hidden peer-checked:block">
-        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition">
-            ⚙️ Configuración
-        </a>
         <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition">
             🚪 Cerrar sesión
         </a>

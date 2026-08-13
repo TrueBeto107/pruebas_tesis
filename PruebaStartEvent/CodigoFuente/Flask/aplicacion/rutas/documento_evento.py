@@ -41,7 +41,7 @@ def get_documento():
 def crear_documento():
     texto = request.form.get('form-texto')
     return controlador.renderizar_documento_creado(texto)
-
+    
 @app.route('/guardar_evento')
 def crear_evento():
     from aplicacion.modelo.evento_academico import EventoAcademico
@@ -54,7 +54,7 @@ def crear_evento():
     from aplicacion.modelo.automovil import Automovil
     
     evento = EventoAcademico(nombre='Simposio de ingenieria ',
-                            edicion= 11,
+                            edicion= 12,
                             tematica= 'Pruebas de tesis', 
                             presentacion='Buscando mil formas de usar SQLAlchemy')
     tema1 = TemaEvento(tema='Prueba1')
@@ -62,7 +62,7 @@ def crear_evento():
     tema3 = TemaEvento(tema='Prueba3')
     tema4 = TemaEvento(tema='Prueba4')
     
-    ponente = PersonaAcademica(nombre='Edwar', correo='e@gmail.com', contrasenia=hashlib.sha256('123'.encode()).hexdigest(), es_administrador=False)
+    ponente = PersonaAcademica(nombre='Edwar', correo='l@gmail.com', contrasenia=hashlib.sha256('123'.encode()).hexdigest(), es_administrador=True)
     auto = Automovil(placa='1122D1', 
                       modelo='Honda',
                       anio='2018',
@@ -74,7 +74,7 @@ def crear_evento():
     evento.temas = [tema1, tema2, tema3, tema4]
     evento.documentos = [logo]
     
-    plantel = Plantel(abreviatura='SLT', nombre='San Lorenzo Tezonco', correo_contacto='', direccion='')
+    plantel = Plantel(abreviatura='GAM', nombre='GAM', correo_contacto='', direccion='')
     comite = ComiteEvento(acceso_organizador=AccesoOrganizador.ORGANIZACION_EVENTO)
     
     comite.persona = ponente

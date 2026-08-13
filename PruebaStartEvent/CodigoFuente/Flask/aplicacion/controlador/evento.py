@@ -1,6 +1,5 @@
 from flask import render_template
-from aplicacion.dto.documento_evento import CrearDocumentoDto
-from aplicacion.dto.documento_evento import BuscarDocumentoDto
+from aplicacion.dto.persona_academica import MostrarInformacionUsuarioDto 
 from aplicacion.servicio.evento import EventosServicio
 from flask_jwt_extended import current_user
 from aplicacion.dto.evento import BuscarEventosUsuarioDto
@@ -16,4 +15,9 @@ class EventosControlador:
 
     def rederizar_eventos(self):
         eventos = self._buscar_todos_eventos()
-        return render_template('eventos.html', lista_eventos=eventos)
+        usuario = MostrarInformacionUsuarioDto(nombre_completo=current_user.nombre, es_administrador=current_user.es_administrador)
+        return render_template('eventos.html', lista_eventos=eventos, usuario=usuario)
+    
+    def renderizar_modal_evento(self):
+        modal = "Probando ventana modal"
+        return render_template('modal.html',modal=modal) 

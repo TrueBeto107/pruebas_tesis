@@ -14,7 +14,7 @@ def sustituir_usuario(usuario):
 @jwt.user_lookup_loader
 def definir_current_user(_, jwt_data):
     identidad = int(jwt_data["sub"])
-    user = db.session.execute(text('SELECT id_persona_academica, nombre FROM persona_academica WHERE id_persona_academica = :id'), {"id": identidad}).fetchone()
+    user = db.session.execute(text('SELECT id_persona_academica, nombre, es_administrador FROM persona_academica WHERE id_persona_academica = :id'), {"id": identidad}).fetchone()
     return user
 
 @jwt.expired_token_loader
