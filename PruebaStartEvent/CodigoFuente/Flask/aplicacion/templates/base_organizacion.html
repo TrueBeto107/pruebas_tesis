@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<header class="min-h-16 max-h-16 w-full">
+    {% include "navbar.html" %}
+</header>
+<main class="flex-1">
+    {% include "eventos_content.html" %}
+    {% block main %}{% endblock %}
+</main>
+
+<footer class="min-h-16 w-full">
+    {% include "footer.html" %}
+</footer>
+
+{% endblock %}

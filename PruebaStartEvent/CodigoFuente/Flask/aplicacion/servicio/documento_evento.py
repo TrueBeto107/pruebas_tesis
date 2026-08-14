@@ -56,7 +56,7 @@ class DocumentoEventoServicio:
         HTML(string=html, base_url=app.config['DIRECTORIO_DOCUMENTOS'].joinpath('imagenes')).write_pdf(app.config['DIRECTORIO_DOCUMENTOS'].joinpath(nombre_archivo), stylesheets=[css])
         
         documento_evento = DocumentoEvento()
-        documento_evento.id_evento = 1
+        documento_evento.id_evento = 3
         documento_evento.tipo_documento = TipoDocumento.DOCUMENTO_ORGANIZADOR
         documento_evento.subtipo_documento = SubtipoDocumento.CARTA_DISPENSA
         documento_evento.ruta_archivo = nombre_archivo

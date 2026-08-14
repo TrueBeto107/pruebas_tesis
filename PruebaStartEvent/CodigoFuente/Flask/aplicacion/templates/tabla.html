@@ -1,14 +1,36 @@
-    <table border="1">
-        <tr>
-            <th>Nombre del Documento</th>
-            <th>Acción</th>
-        </tr>
-        {% for documento in documentos %}
-        <tr>
-            <td>{{ documento.id_documento_evento }}</td>
-            <td>{{ documento.ruta_archivo }}</td>
-            <td>
-                <button hx-get="{{ url_for('mostrar', ruta=documento.ruta_archivo) }}" hx-target="#div-pdf" >Ver</button>
-            </td>
-        {% endfor %}
+<div class="overflow-x-auto shadow-md rounded-lg">
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-[#66A5AD]">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                    Nombre del Documento
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                    Ruta del Archivo
+                </th>
+                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                    Acción
+                </th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            {% for documento in documentos %}
+            <tr class="hover:bg-gray-50 transition duration-150">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {{ documento.id_documento_evento }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {{ documento.ruta_archivo }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <button hx-get="{{ url_for('mostrar', ruta=documento.ruta_archivo) }}" 
+                            hx-target="#div-pdf"
+                            class="bg-[#52969E] hover:bg-[#3D7A82] text-white font-bold py-2 px-4 rounded-lg transition duration-200 text-sm">
+                        Ver
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
+</div>
