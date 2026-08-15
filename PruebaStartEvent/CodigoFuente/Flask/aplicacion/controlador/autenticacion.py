@@ -35,7 +35,7 @@ class AutenticacionControlador:
         dto_salida = self.servicio.validar_credenciales(dto)
         if dto_salida.token_acceso != None:
             response = make_response()
-            response.headers["Hx-Redirect"] = url_for('gestion_documentos')
+            response.headers["Hx-Redirect"] = url_for('documento.gestion_documentos')
             set_access_cookies(response, dto_salida.token_acceso)
             set_refresh_cookies(response, dto_salida.token_refrescar)
             return response

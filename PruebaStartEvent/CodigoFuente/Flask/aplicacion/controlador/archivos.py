@@ -1,6 +1,6 @@
 from flask import current_app as app
-from aplicacion.servicio.archivos import FlaskServicio
-flask_servicio = FlaskServicio()
+from aplicacion.servicio.archivos import ArchivoServicio
+flask_servicio = ArchivoServicio()
 
 @app.route('/documento/<path:filename>')
 def documentos(filename):

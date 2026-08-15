@@ -1,3 +1,5 @@
+
+
 def crear_base(app, db):
     with app.app_context():
         from aplicacion.modelo.evento_academico import EventoAcademico
@@ -11,8 +13,15 @@ def crear_base(app, db):
         db.create_all()
 
 def registrar_rutas(app):
-    with app.app_context():
-        from aplicacion.rutas import archivos
-        from aplicacion.rutas import documento_evento
-        from aplicacion.rutas import autenticacion
-        from aplicacion.rutas import eventos
+    
+    with app.app_context():       
+        from aplicacion.blueprints.archivos import archivos_bp
+        from aplicacion.blueprints.documento_evento import documento_evento_bp
+        from aplicacion.blueprints.autenticacion import autenticacion_bp
+        from aplicacion.blueprints.evento import evento_academico_bp
+        
+        app.register_blueprint(archivos_bp)
+        app.register_blueprint(documento_evento_bp)
+        app.register_blueprint(autenticacion_bp)
+        app.register_blueprint(evento_academico_bp)
+        

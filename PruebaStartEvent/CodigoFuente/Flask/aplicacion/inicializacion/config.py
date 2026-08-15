@@ -14,6 +14,7 @@ class Config:
     DIRECTORIO_DOCUMENTOS = DIRECTORIO_STARTEVENT / 'Documentos'
     DIRECTORIO_BASE_FLASK = ARCHIVO_EJECUTANDODSE.parents[2]  # "/Flask"
     DIRECTORIO_BACKUP = DIRECTORIO_STARTEVENT / 'Backups'
+    DIRECTORIO_TEMPLATES = DIRECTORIO_BASE_FLASK / 'aplicacion' / 'templates'
 
 class DevelopmentConfig(Config):
     DEBUG = True

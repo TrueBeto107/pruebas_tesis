@@ -17,8 +17,8 @@
 
     <!--  Bucle para mostrar eventos dinámicamente -->
     {% for evento in lista_eventos %}
-        <div hx-get="{{ url_for('modal_evento')}}" hx-target="#div-modal" class="bg-white rounded-lg shadow-md overflow-hidden flex items-center hover:shadow-lg transition duration-200">
-            <img src="{{ url_for('documentos', filename=evento.ruta_logotipo) }}" alt="LogoEdicion" class="w-24 h-24 object-cover flex-shrink-0">
+        <div hx-get="{{ url_for('eventos.modal_evento')}}" hx-target="#div-modal" class="bg-white rounded-lg shadow-md overflow-hidden flex items-center hover:shadow-lg transition duration-200">
+            <img src="{{ url_for('archivo.documentos', filename=evento.ruta_logotipo) }}" alt="LogoEdicion" class="w-24 h-24 object-cover flex-shrink-0">
             <div class="p-4">
                 <span class="font-bold text-lg text-gray-800">{{ evento.edicion }}°</span>
                 <p class="text-gray-600">{{ evento.nombre }}</p>

@@ -47,7 +47,7 @@
                     Iniciar sesión
                 </h2>
 
-                <form hx-post="{{ url_for('iniciar_sesion') }}" hx-target="#div-notificacion">
+                <form hx-post="{{ url_for('autenticacion.iniciar_sesion') }}" hx-target="#div-notificacion">
                     <div class="mb-4">
                         <label class="block text-gray-500 text-lg font-bold mb-2">Correo:</label>
                         <input

@@ -24,7 +24,6 @@ class EventosServicio:
                 tipo_documento=TipoDocumento.DOCUMENTO_PROMOCIONAL, 
                 subtipo_documento=SubtipoDocumento.LOGOTIPO)
             documento_evento = self.repositorio_documento_evento.select_by_edicion_y_subtipo(documento)
-            print(f'###DOcumento_ruta = {documento_evento[0].ruta_archivo}')
             dto = MostrarEventoDto(
                 nombre=comite.evento_academico.nombre,
                 edicion=comite.evento_academico.edicion,
@@ -32,6 +31,4 @@ class EventosServicio:
             )
             
             dtos.append(dto)
-        print("Lista de eventos encontrados:")
-        print(dtos)
         return dtos

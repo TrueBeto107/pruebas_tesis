@@ -38,7 +38,7 @@
                 <h2 class="text-xl font-bold text-gray-800">🔍 Buscar Documento</h2>
             </div>
             <!-- Formulario con HTMX -->
-            <form hx-get="{{ url_for('get_documento') }}" hx-target="#div-pdf" class="space-y-4">
+            <form hx-get="{{ url_for('documento.get_documento') }}" hx-target="#div-pdf" class="space-y-4">
                 <!-- Campo: ID del Documento -->
                 <div>
                     <label class="block text-gray-700 text-sm font-semibold mb-2">
@@ -78,7 +78,7 @@
             </div>
             
             <!-- Formulario con HTMX -->
-            <form hx-post="{{ url_for('crear_documento') }}" hx-target="#div-pdf" class="space-y-4">
+            <form hx-post="{{ url_for('documento.crear_documento') }}" hx-target="#div-pdf" class="space-y-4">
                 <!-- Campo: Texto del documento -->
                 <div>
                     <label class="block text-gray-700 text-sm font-semibold mb-2">
