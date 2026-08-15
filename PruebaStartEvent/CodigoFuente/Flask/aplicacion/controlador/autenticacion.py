@@ -31,7 +31,7 @@ class AutenticacionControlador:
         return esta_por_expirar
      
     def iniciar_sesion(self, correo, contrasenia):
-        dto = IniciarSesionDto(correo=correo, contrasenia=contrasenia)
+        dto = IniciarSesionDto(correo=correo, contrasenia=contrasenia, pimienta=app.config['PIMIENTA'])
         dto_salida = self.servicio.validar_credenciales(dto)
         if dto_salida.token_acceso != None:
             response = make_response()

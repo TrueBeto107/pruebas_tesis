@@ -15,6 +15,7 @@ class Config:
     DIRECTORIO_BASE_FLASK = ARCHIVO_EJECUTANDODSE.parents[2]  # "/Flask"
     DIRECTORIO_BACKUP = DIRECTORIO_STARTEVENT / 'Backups'
     DIRECTORIO_TEMPLATES = DIRECTORIO_BASE_FLASK / 'aplicacion' / 'templates'
+    PIMIENTA = '3098d9ada2f3ca6afc68a4f8e4accd9823008872aba7de5e50e347871d733ed8'   #pepper = secrets.token_bytes(32).hex()
 
 class DevelopmentConfig(Config):
     DEBUG = True

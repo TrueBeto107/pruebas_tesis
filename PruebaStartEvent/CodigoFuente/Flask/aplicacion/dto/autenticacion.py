@@ -4,6 +4,7 @@ from dataclasses import dataclass
 class IniciarSesionDto:
     correo: str = None
     contrasenia: str = None
+    pimienta: str = None
 
 @dataclass
 class ValiadarCredencialesDto:

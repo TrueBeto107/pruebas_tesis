@@ -16,6 +16,7 @@ class PersonaAcademica(db.Model):
     correo: Mapped[str] = mapped_column(String(255))
     contrasenia: Mapped[str] = mapped_column(String(255))
     es_administrador: Mapped[bool] = mapped_column(Boolean)
+    sal: Mapped[str] = mapped_column(String(255))
 
     automovil: Mapped["Automovil"] = relationship(back_populates='persona')
     documentos: Mapped[List["DocumentoEvento"]] = relationship(back_populates='persona')

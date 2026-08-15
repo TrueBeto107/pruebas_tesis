@@ -10,6 +10,7 @@ from aplicacion.enums.acceso_organizador import AccesoOrganizador
 from aplicacion.modelo.plantel import Plantel
 from flask_jwt_extended import jwt_required
 import hashlib
+import secrets
 
 documento_evento_bp = Blueprint(
     'documento',
@@ -42,7 +43,7 @@ def crear_documento():
     texto = request.form.get('form-texto')
     return controlador.renderizar_documento_creado(texto)
 
-@documento_evento_bp.route('/guardar_evento')
+@app.route('/guardar_evento')
 def crear_evento():
     from aplicacion.modelo.evento_academico import EventoAcademico
     from aplicacion.modelo.tema_evento import TemaEvento
@@ -61,8 +62,17 @@ def crear_evento():
     tema2 = TemaEvento(tema='Prueba2')
     tema3 = TemaEvento(tema='Prueba3')
     tema4 = TemaEvento(tema='Prueba4')
-    
-    ponente = PersonaAcademica(nombre='Edwar', correo='e@gmail.com', contrasenia=hashlib.sha256('123'.encode()).hexdigest(), es_administrador=False)
+    sal = secrets.token_bytes()
+    ponente = PersonaAcademica(
+        nombre='Edwar',
+        correo='e@gmail.com',
+        contrasenia=hashlib.sha256(
+            '123'.encode() + 
+            sal + 
+            bytes.fromhex(app.config['PIMIENTA'])
+            ).hexdigest(), 
+        es_administrador=False, 
+        sal=sal.hex())
     auto = Automovil(placa='1122D1', 
                       modelo='Honda',
                       anio='2018',

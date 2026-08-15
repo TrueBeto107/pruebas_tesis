@@ -15,8 +15,12 @@ class AutenticadorServicio():
     def validar_credenciales(self, dto: IniciarSesionDto):
         persona = PersonaAcademica(correo=dto.correo, contrasenia=dto.contrasenia)
         persona = self.repositorio_persona.select(persona)
-        
-        if persona and persona.contrasenia == hashlib.sha256(dto.contrasenia.encode()).hexdigest():
+
+        if persona and persona.contrasenia == hashlib.sha256(
+            dto.contrasenia.encode() + 
+            bytes.fromhex(persona.sal) + 
+            bytes.fromhex(dto.pimienta)
+            ).hexdigest():
             jwt = create_access_token(identity=persona)
             token_refrescar = create_refresh_token(identity=persona)
             return ValiadarCredencialesDto(token_acceso=jwt, token_refrescar=token_refrescar, codigo=200, mensaje='Credenciales válidas')
