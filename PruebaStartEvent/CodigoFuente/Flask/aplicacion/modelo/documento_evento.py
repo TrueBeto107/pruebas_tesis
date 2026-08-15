@@ -13,7 +13,7 @@ class DocumentoEvento(db.Model):
     __tablename__ = "documento_evento"
     
     id_documento_evento: Mapped[int] = mapped_column(primary_key=True)
-    id_evento: Mapped[int] = mapped_column(ForeignKey('evento_academico.id_evento_academico'))
+    id_evento_academico: Mapped[int] = mapped_column(ForeignKey('evento_academico.id_evento_academico'))
     id_plantel: Mapped[str] = mapped_column(ForeignKey('plantel.abreviatura'), nullable=True)
     id_persona: Mapped[int] = mapped_column(ForeignKey('persona_academica.id_persona_academica'), nullable=True)
     id_actividad: Mapped[int] = mapped_column(ForeignKey('actividad.id_actividad'), nullable=True)
