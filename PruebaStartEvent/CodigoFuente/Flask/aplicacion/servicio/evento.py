@@ -20,7 +20,7 @@ class EventosServicio:
         dtos = []
         for comite in lista_comites:
             documento = DocumentoEvento(
-                id_evento=comite.id_evento_academico, 
+                id_evento_academico=comite.id_evento_academico, 
                 tipo_documento=TipoDocumento.DOCUMENTO_PROMOCIONAL, 
                 subtipo_documento=SubtipoDocumento.LOGOTIPO)
             documento_evento = self.repositorio_documento_evento.select_by_edicion_y_subtipo(documento)
