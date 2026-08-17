@@ -16,3 +16,7 @@ controlador = EventosControlador(EventosServicio())
 @jwt_required()
 def mostrar_eventos_asociados():
     return controlador.rederizar_eventos()
+
+@evento_academico_bp.route('/modal')
+def modal_evento():
+    return controlador.renderizar_modal_evento()
