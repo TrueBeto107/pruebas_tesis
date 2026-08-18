@@ -16,7 +16,7 @@ class EventosControlador:
     def rederizar_eventos(self):
         eventos = self._buscar_todos_eventos()
         usuario = MostrarInformacionUsuarioDto(nombre_completo=current_user.nombre, es_administrador=current_user.es_administrador)
-        return render_template('base_organizacion.html', lista_eventos=eventos, usuario=usuario)
+        return render_template('eventos.html', lista_eventos=eventos, usuario=usuario)
     
     def renderizar_modal_evento(self):
         modal = "Probando ventana modal"

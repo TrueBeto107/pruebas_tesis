@@ -1,6 +1,10 @@
 <!-- Barra de navegación -->
 <nav class="bg-[#66A5AD] px-6 py-4 flex justify-between items-center relative z-10">
-    <span class="text-white text-xl font-semibold">{{ usuario.nombre_completo }}</span>
+    {% if usuario %}
+        <span class="text-black text-[28px]  font-light">{{ usuario.nombre_completo }}</span>
+    {% else %}
+        <span class="text-black text-[28px] font-semibold">Invitado</span>
+    {% endif %}
     
     <!-- Checkbox oculto para controlar el menú -->
     <input type="checkbox" id="menu-toggle" class="hidden peer">

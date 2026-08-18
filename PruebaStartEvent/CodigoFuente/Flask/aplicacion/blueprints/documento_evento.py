@@ -11,6 +11,7 @@ from aplicacion.modelo.plantel import Plantel
 from flask_jwt_extended import jwt_required
 import hashlib
 import secrets
+from flask import render_template
 
 documento_evento_bp = Blueprint(
     'documento',
@@ -21,7 +22,16 @@ documento_evento_bp = Blueprint(
 controlador = DocumentoControlador(DocumentoEventoServicio())
 eventos_controlador = EventosControlador(EventosServicio())
 
-@documento_evento_bp.route('/')
+
+@app.route('/prueba_v')
+def mostrar_vista_vertical():
+    return render_template('pagina_inicio.html')
+
+@app.route('/prueba_cv')
+def mostrar_vista_vc():
+    return render_template('pagina_columnas.html')
+
+@app.route('/documento')
 @jwt_required()
 def gestion_documentos():
     return controlador.rederizar_gestion_documentos()
