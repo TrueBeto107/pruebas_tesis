@@ -6,3 +6,4 @@ PruebaStartEvent/Documentos/
 __pycache__/
 *.py[cod]
 node_modules/
+tailwind.config.js
