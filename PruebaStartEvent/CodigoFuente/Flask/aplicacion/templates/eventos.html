@@ -25,12 +25,12 @@
 
     <!-- Bucle para mostrar eventos dinámicamente -->
     {% for evento in lista_eventos %}
-        <div hx-get="{{ url_for('modal_evento')}}" hx-target="#div-modal" 
+        <div hx-get="{{ url_for('eventos.modal_evento')}}" hx-target="#div-modal" 
              class="w-[405px] h-[208px] bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex items-center cursor-pointer">
             
             <!-- Contenedor del logotipo con margen izquierdo de 3 (12px) -->
             <div class="ml-3 flex-shrink-0">
-                <img src="{{ url_for('documentos', filename=evento.ruta_logotipo) }}" 
+                <img src="{{ url_for('archivo.documentos', filename=evento.ruta_logotipo) }}" 
                      alt="LogoEdicion" 
                      class="w-40 h-40 object-cover">
             </div>

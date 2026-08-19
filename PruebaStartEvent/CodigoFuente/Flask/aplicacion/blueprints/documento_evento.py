@@ -31,7 +31,7 @@ def mostrar_vista_vertical():
 def mostrar_vista_vc():
     return render_template('pagina_columnas.html')
 
-@app.route('/documento')
+@documento_evento_bp.route('/')
 @jwt_required()
 def gestion_documentos():
     return controlador.rederizar_gestion_documentos()
