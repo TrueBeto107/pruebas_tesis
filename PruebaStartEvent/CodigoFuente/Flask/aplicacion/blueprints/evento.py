@@ -18,5 +18,9 @@ def mostrar_eventos_asociados():
     return controlador.rederizar_eventos()
 
 @evento_academico_bp.route('/modal')
-def modal_evento():
+def mostrar_modal_evento():
     return controlador.renderizar_modal_evento()
+
+@evento_academico_bp.route('/quitar_modal')
+def esconder_modal_evento():
+    return controlador.renderizar_modal_vacia()

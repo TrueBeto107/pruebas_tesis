@@ -20,4 +20,7 @@ class EventosControlador:
     
     def renderizar_modal_evento(self):
         modal = "Probando ventana modal"
-        return render_template('modal.html',modal=modal) 
+        return render_template('modal.html',modal=modal)
+
+    def renderizar_modal_vacia(self):
+        return '<div id="div-modal" class="absolute left-0 top-0 z-20"></div>'
