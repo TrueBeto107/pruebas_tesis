@@ -5,3 +5,4 @@ PruebaStartEvent/Documentos/
 # Python cache
 __pycache__/
 *.py[cod]
+node_modules/
