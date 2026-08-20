@@ -31,6 +31,10 @@ def mostrar_vista_vertical():
 def mostrar_vista_vc():
     return render_template('pagina_columnas.html')
 
+@app.route('/registro_ponente')
+def mostrar_registro_ponente():
+    return render_template('form_registro_PA.html')
+
 @documento_evento_bp.route('/')
 @jwt_required()
 def gestion_documentos():
