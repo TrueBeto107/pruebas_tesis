@@ -4,27 +4,24 @@ from aplicacion.repositorio.documento_evento import DocumentoEventoRepositorio
 from aplicacion.dto.documento_evento import MostrarDocumentoDTO
 from aplicacion.dto.documento_evento import BuscarDocumentoDto
 from aplicacion.dto.documento_evento import CrearDocumentoDto
-from flask import send_from_directory
 from weasyprint import HTML
 from weasyprint import CSS
 from aplicacion.modelo.documento_evento import DocumentoEvento
 from aplicacion.enums.tipo_documento import TipoDocumento
 from aplicacion.enums.subtipo_documento import SubtipoDocumento
+from aplicacion.interfaces.servicio import DocumentoEventoServicioI
 
-class DocumentoEventoServicio:
+class DocumentoEventoServicio(DocumentoEventoServicioI):
     
     repositorio = DocumentoEventoRepositorio()
-    
-    def documento(self):
-        return render_template('buscar_documento.html')
 
-    def buscar_documento(self, dto_entrada: BuscarDocumentoDto):
-        documento = DocumentoEvento(id_documento_evento=dto_entrada.id_documento_evento)
+    def buscar_documento(self, dto: BuscarDocumentoDto) -> MostrarDocumentoDTO:
+        documento = DocumentoEvento(id_documento_evento=dto.id_documento_evento)
         documento = self.repositorio.select(documento)
         dto_salida = MostrarDocumentoDTO(ruta_archivo=documento.ruta_archivo)
         return dto_salida
     
-    def buscar_documentos(self):
+    def buscar_documentos(self) -> list[MostrarDocumentoDTO]:
         # Trae todos los documentos
         lista_documentos = self.repositorio.select_all()
         
@@ -39,7 +36,7 @@ class DocumentoEventoServicio:
         
         return documentos_dto
 
-    def crear_documento(self, dto: CrearDocumentoDto):
+    def crear_documento(self, dto: CrearDocumentoDto) -> MostrarDocumentoDTO:
 
         datos = {
         "informacion": dto.texto,
