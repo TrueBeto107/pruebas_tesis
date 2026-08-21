@@ -1,6 +1,6 @@
 from aplicacion.modelo.documento_evento import DocumentoEvento
 from aplicacion.inicializacion.extenciones import db
-from aplicacion.interfaces.repositorio.documento_evento import DocumentoEventoRepositorioI
+from aplicacion.interfaces.repositorio import DocumentoEventoRepositorioI
 
 class DocumentoEventoRepositorio(DocumentoEventoRepositorioI):
     
@@ -12,11 +12,11 @@ class DocumentoEventoRepositorio(DocumentoEventoRepositorioI):
         ).all()
         return resultado
     
-    def select(self, documento_evento: DocumentoEvento) -> DocumentoEvento:
-        return db.session.get(DocumentoEvento, documento_evento.id_documento_evento)
+    def select(self, modelo: DocumentoEvento) -> DocumentoEvento:
+        return db.session.get(DocumentoEvento, modelo.id_documento_evento)
 
-    def insert(self, documento: DocumentoEvento):
-        db.session.add(documento)
+    def insert(self, modelo: DocumentoEvento):
+        db.session.add(modelo)
         db.session.commit()
 
     def select_all(self):
