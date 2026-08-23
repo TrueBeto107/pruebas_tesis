@@ -4,25 +4,27 @@ from aplicacion.servicio.autenticacion import AutenticadorServicio
 from aplicacion.controlador.autenticacion import AutenticacionControlador
 from flask import Blueprint
 
-autenticacion_bp = Blueprint(
-    'autenticacion',
-    __name__,
-    url_prefix='/autenticacion',
-    template_folder=app.config['DIRECTORIO_TEMPLATES'] / 'autenticacion'
-    )
-
-controlador = AutenticacionControlador(AutenticadorServicio())
-
-@autenticacion_bp.post("/login")
-def iniciar_sesion():
-    correo = request.form["correo"]
-    password = request.form["password"]
-    return controlador.iniciar_sesion(correo, password)
+def crear_autenticacion_blueprint(controlador: AutenticacionControlador):
     
-@app.route('/')
-def login():
-    return controlador.renderizar_login()
+    autenticacion_bp = Blueprint(
+        'autenticacion',
+        __name__,
+        url_prefix='/autenticacion',
+        template_folder=app.config['DIRECTORIO_TEMPLATES'] / 'autenticacion'
+        )
 
-@app.after_request
-def refresh(response):
-    return controlador.refrescar_tokens_por_expirar(response)
+    @autenticacion_bp.post("/login")
+    def iniciar_sesion():
+        correo = request.form["correo"]
+        password = request.form["password"]
+        return controlador.iniciar_sesion(correo, password)
+        
+    @app.route('/')
+    def login():
+        return controlador.renderizar_login()
+
+    @app.after_request
+    def refresh(response):
+        return controlador.refrescar_tokens_por_expirar(response)
+
+    return autenticacion_bp

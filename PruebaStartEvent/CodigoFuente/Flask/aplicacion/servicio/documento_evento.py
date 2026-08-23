@@ -1,6 +1,6 @@
 from flask import current_app as app
 from flask import render_template
-from aplicacion.repositorio.documento_evento import DocumentoEventoRepositorio
+from aplicacion.interfaces.repositorio import DocumentoEventoRepositorioI
 from aplicacion.dto.documento_evento import MostrarDocumentoDTO
 from aplicacion.dto.documento_evento import BuscarDocumentoDto
 from aplicacion.dto.documento_evento import CrearDocumentoDto
@@ -13,10 +13,11 @@ from aplicacion.interfaces.servicio import DocumentoEventoServicioI
 
 class DocumentoEventoServicio(DocumentoEventoServicioI):
     
-    repositorio = DocumentoEventoRepositorio()
+    def __init__(self, repositorio_documento_evento: DocumentoEventoRepositorioI) -> None:
+        self.repositorio_documento_evento = repositorio_documento_evento
 
     def buscar_documento(self, dto: BuscarDocumentoDto) -> MostrarDocumentoDTO:
-        documento = self.repositorio.select_by_id(dto.id_documento_evento)
+        documento = self.repositorio_documento_evento.select_by_id(dto.id_documento_evento)
         if documento:
             dto_salida = MostrarDocumentoDTO(ruta_archivo=documento.ruta_archivo)
             return dto_salida
@@ -26,7 +27,7 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
     
     def buscar_documentos(self) -> list[MostrarDocumentoDTO]:
         # Trae todos los documentos
-        lista_documentos = self.repositorio.select_all()
+        lista_documentos = self.repositorio_documento_evento.select_all()
         
         # Convertir cada documento a DTO de salida
         documentos_dto = []
@@ -61,7 +62,7 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
         documento_evento.subtipo_documento = SubtipoDocumento.CARTA_DISPENSA
         documento_evento.ruta_archivo = nombre_archivo
 
-        self.repositorio.insert(documento_evento)
+        self.repositorio_documento_evento.insert(documento_evento)
 
         dto_salida = MostrarDocumentoDTO(ruta_archivo=documento_evento.ruta_archivo)
         return dto_salida

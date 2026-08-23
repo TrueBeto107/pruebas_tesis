@@ -1,7 +1,7 @@
 from aplicacion.modelo.documento_evento import DocumentoEvento
 from aplicacion.dto.evento import MostrarEventoDto
-from aplicacion.repositorio.comite_evento import ComiteEventoRepositorio
-from aplicacion.repositorio.documento_evento import DocumentoEventoRepositorio
+from aplicacion.interfaces.repositorio import ComiteEventoRepositorioI
+from aplicacion.interfaces.repositorio import DocumentoEventoRepositorioI
 from aplicacion.enums.tipo_documento import TipoDocumento
 from aplicacion.enums.subtipo_documento import SubtipoDocumento
 from aplicacion.modelo.documento_evento import DocumentoEvento
@@ -10,8 +10,13 @@ from aplicacion.dto.evento import BuscarEventosUsuarioDto
 
 class EventosServicio:
     
-    repositorio_comite_evento = ComiteEventoRepositorio()
-    repositorio_documento_evento = DocumentoEventoRepositorio()
+    def __init__(
+        self, 
+        repositorio_comite_evento: ComiteEventoRepositorioI, 
+        repositorio_documento_evento: DocumentoEventoRepositorioI
+        ) -> None:
+        self.repositorio_comite_evento = repositorio_comite_evento
+        self.repositorio_documento_evento = repositorio_documento_evento
     
     def buscar_eventos(self, dto: BuscarEventosUsuarioDto):
         lista_comites = self.repositorio_comite_evento.select_by_id_persona(dto.id_usuario)
