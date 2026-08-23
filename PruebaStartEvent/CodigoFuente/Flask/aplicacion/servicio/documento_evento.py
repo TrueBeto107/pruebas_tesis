@@ -16,10 +16,13 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
     repositorio = DocumentoEventoRepositorio()
 
     def buscar_documento(self, dto: BuscarDocumentoDto) -> MostrarDocumentoDTO:
-        documento = DocumentoEvento(id_documento_evento=dto.id_documento_evento)
-        documento = self.repositorio.select(documento)
-        dto_salida = MostrarDocumentoDTO(ruta_archivo=documento.ruta_archivo)
-        return dto_salida
+        documento = self.repositorio.select_by_id(dto.id_documento_evento)
+        if documento:
+            dto_salida = MostrarDocumentoDTO(ruta_archivo=documento.ruta_archivo)
+            return dto_salida
+        else:
+            #TODO que pasa si no se encuentra el documento con dicha ID, quiza lo maneje el controlador, no el servicio            
+            return MostrarDocumentoDTO()
     
     def buscar_documentos(self) -> list[MostrarDocumentoDTO]:
         # Trae todos los documentos

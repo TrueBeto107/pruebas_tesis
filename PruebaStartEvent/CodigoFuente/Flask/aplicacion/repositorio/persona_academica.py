@@ -1,11 +1,10 @@
 from aplicacion.modelo.persona_academica import PersonaAcademica
+from aplicacion.interfaces.repositorio import PersonaAcademicaRepositorioI
 from aplicacion.inicializacion.extenciones import db
+from sqlalchemy import select
 
-class PersonaAcademicaRepositorio:
-    def select(self, persona_academica: PersonaAcademica) -> PersonaAcademica:
-        # Usar filter_by con condiciones múltiples
-        usuario = db.session.query(PersonaAcademica).filter_by(correo=persona_academica.correo).first()        
-        return usuario
+class PersonaAcademicaRepositorio(PersonaAcademicaRepositorioI):
     
-    def select_por_id(self, id):
-        return db.session.query(PersonaAcademica).filter_by(id_persona_academica=id).one_or_none()
+    def select_by_correo(self, correo: str) -> PersonaAcademica | None:
+        stmt = select(PersonaAcademica).where(PersonaAcademica.correo == correo)
+        return db.session.scalars(stmt).one_or_none()

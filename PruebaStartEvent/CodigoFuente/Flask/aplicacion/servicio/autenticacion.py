@@ -13,8 +13,7 @@ class AutenticadorServicio():
     repositorio_persona = PersonaAcademicaRepositorio()
 
     def validar_credenciales(self, dto: IniciarSesionDto):
-        persona = PersonaAcademica(correo=dto.correo, contrasenia=dto.contrasenia)
-        persona = self.repositorio_persona.select(persona)
+        persona = self.repositorio_persona.select_by_correo(dto.correo)
 
         if persona and persona.contrasenia == hashlib.sha256(
             dto.contrasenia.encode() + 
