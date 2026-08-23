@@ -1,3 +1,4 @@
+from aplicacion.controlador.archivos import ArchivosControlador
 from aplicacion.servicio.archivos import ArchivoServicio
 from aplicacion.controlador.autenticacion import AutenticacionControlador
 from aplicacion.servicio.autenticacion import AutenticadorServicio
@@ -27,13 +28,14 @@ def crear_base(app, db):
 
 def componer_de_raiz(app):
     archivo_servicio = ArchivoServicio()
+    archivos_controlador = ArchivosControlador(archivo_servicio)
     documento_evento_repositorio = DocumentoEventoRepositorio()
     autenticacion_controlador = AutenticacionControlador(AutenticadorServicio(PersonaAcademicaRepositorio()))
     documento_evento_controlador = DocumentoControlador(DocumentoEventoServicio(documento_evento_repositorio))
     evento_academico_controlador = EventosControlador(EventosServicio(ComiteEventoRepositorio(), documento_evento_repositorio))
     
     with app.app_context():       
-        archivos_bp = crear_archivos_blueprint(archivo_servicio)
+        archivos_bp = crear_archivos_blueprint(archivos_controlador)
         autenticacion_bp = crear_autenticacion_blueprint(autenticacion_controlador)
         documento_evento_bp = crear_documento_blueprint(documento_evento_controlador)
         evento_academico_bp = crear_evento_blueprint(evento_academico_controlador)

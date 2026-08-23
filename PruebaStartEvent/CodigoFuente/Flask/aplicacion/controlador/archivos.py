@@ -1,7 +1,8 @@
-from flask import current_app as app
 from aplicacion.servicio.archivos import ArchivoServicio
-flask_servicio = ArchivoServicio()
 
-@app.route('/documento/<path:filename>')
-def documentos(filename):
-    return flask_servicio.otorgar_documento(filename)
+class ArchivosControlador:
+    def __init__(self, servicio: ArchivoServicio) -> None:
+        self.servicio = servicio
+    
+    def otorgar_documento(self, filename):
+        return self.servicio.otorgar_documento(filename)
