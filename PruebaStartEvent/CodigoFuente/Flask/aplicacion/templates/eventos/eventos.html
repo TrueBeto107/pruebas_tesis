@@ -25,7 +25,7 @@
 
     <!-- Bucle para mostrar eventos dinámicamente -->
     {% for evento in lista_eventos %}
-        <div hx-get="{{ url_for('eventos.mostrar_modal_evento')}}" hx-target="#div-modal" 
+        <div hx-get="{{ url_for('startevent.eventos.mostrar_modal_evento')}}" hx-target="#div-modal" 
              class="w-[405px] h-[208px] bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex items-center cursor-pointer">
             
             <!-- Contenedor del logotipo con margen izquierdo de 3 (12px) -->

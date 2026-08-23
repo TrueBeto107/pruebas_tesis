@@ -20,15 +20,6 @@ from datetime import timedelta
 class AutenticacionControlador:
     def __init__(self, servicio: AutenticadorServicio):
         self.servicio = servicio
-
-    def _esta_por_expirar(self, jwt) -> bool:
-        esta_por_expirar = False
-        timestamp_expiracion = jwt["exp"]
-        utc_time = datetime.now(timezone.utc)
-        timestamp_objetivo = datetime.timestamp(utc_time + app.config['JWT_POR_EXPIRAR'])
-        if timestamp_objetivo > timestamp_expiracion:
-            esta_por_expirar = True
-        return esta_por_expirar
      
     def iniciar_sesion(self, correo, contrasenia):
         dto = IniciarSesionDto(correo=correo, contrasenia=contrasenia, pimienta=app.config['PIMIENTA'])
@@ -43,16 +34,3 @@ class AutenticacionControlador:
             dto = NotificacionDto('Error', 'Correo o contraseña inválidos')
             return render_template('notificacion.html', notificacion=dto)        
     
-    def renderizar_login(self):
-        return render_template('login.html')
-
-    def refrescar_tokens_por_expirar(self, response):
-        try:
-            token_acceso = get_jwt()
-            if token_acceso and self._esta_por_expirar(token_acceso):
-                dto = RefrescarTokenDto(identidad=current_user)
-                dto_salida = self.servicio.refrescar_token(dto)
-                set_access_cookies(response, dto_salida.token)
-            return response
-        except RuntimeError:
-            return response

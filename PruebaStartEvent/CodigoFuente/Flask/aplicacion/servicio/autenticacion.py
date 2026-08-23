@@ -25,8 +25,3 @@ class AutenticadorServicio():
             token_refrescar = create_refresh_token(identity=persona)
             return ValiadarCredencialesDto(token_acceso=jwt, token_refrescar=token_refrescar, codigo=200, mensaje='Credenciales válidas')
         return ValiadarCredencialesDto(token_acceso=None, token_refrescar=None, codigo=401, mensaje='Correo o contraseña inválidos')
-    
-    def refrescar_token(self, dto: RefrescarTokenDto) -> OtorgarNuevoTokenDto:
-        token = create_access_token(identity=dto.identidad)
-        dto_salida = OtorgarNuevoTokenDto(token=token)
-        return dto_salida

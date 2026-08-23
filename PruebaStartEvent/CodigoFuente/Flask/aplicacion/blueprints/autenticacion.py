@@ -18,13 +18,5 @@ def crear_autenticacion_blueprint(controlador: AutenticacionControlador):
         correo = request.form["correo"]
         password = request.form["password"]
         return controlador.iniciar_sesion(correo, password)
-        
-    @app.route('/')
-    def login():
-        return controlador.renderizar_login()
-
-    @app.after_request
-    def refresh(response):
-        return controlador.refrescar_tokens_por_expirar(response)
 
     return autenticacion_bp
