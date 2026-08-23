@@ -27,12 +27,20 @@ def crear_base(app, db):
         db.create_all()
 
 def componer_de_raiz(app):
-    archivo_servicio = ArchivoServicio()
-    archivos_controlador = ArchivosControlador(archivo_servicio)
+    
     documento_evento_repositorio = DocumentoEventoRepositorio()
-    autenticacion_controlador = AutenticacionControlador(AutenticadorServicio(PersonaAcademicaRepositorio()))
-    documento_evento_controlador = DocumentoControlador(DocumentoEventoServicio(documento_evento_repositorio))
-    evento_academico_controlador = EventosControlador(EventosServicio(ComiteEventoRepositorio(), documento_evento_repositorio))
+    persona_academica_repositorio = PersonaAcademicaRepositorio()
+    comite_evento_repositorio = ComiteEventoRepositorio()
+    
+    archivo_servicio = ArchivoServicio()
+    autenticacion_servicio = AutenticadorServicio(persona_academica_repositorio)
+    documento_evento_servicio = DocumentoEventoServicio(documento_evento_repositorio)
+    eventos_servicio = EventosServicio(comite_evento_repositorio, documento_evento_repositorio)
+    
+    archivos_controlador = ArchivosControlador(archivo_servicio)
+    autenticacion_controlador = AutenticacionControlador(autenticacion_servicio)
+    documento_evento_controlador = DocumentoControlador(documento_evento_servicio)
+    evento_academico_controlador = EventosControlador(eventos_servicio)
     
     with app.app_context():       
         archivos_bp = crear_archivos_blueprint(archivos_controlador)
