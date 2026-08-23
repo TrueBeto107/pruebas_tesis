@@ -1,6 +1,6 @@
 venv/
-PruebaStartEvent/Backups/
-PruebaStartEvent/Documentos/
+Backups/
+Documentos/
 
 # Python cache
 __pycache__/
