@@ -4,7 +4,7 @@ from flask import Blueprint
 from aplicacion.servicio.documento_evento import DocumentoEventoServicio
 from aplicacion.modelo.comite_evento import ComiteEvento
 from aplicacion.controlador.documento_evento import DocumentoControlador
-from aplicacion.enums.acceso_organizador import AccesoOrganizador
+from aplicacion.enums import AccesoOrganizador
 from aplicacion.modelo.plantel import Plantel
 from flask_jwt_extended import jwt_required
 import hashlib
@@ -59,8 +59,8 @@ def crear_documento_blueprint(controlador: DocumentoControlador):
         from aplicacion.modelo.evento_academico import EventoAcademico
         from aplicacion.modelo.tema_evento import TemaEvento
         from aplicacion.modelo.documento_evento import DocumentoEvento
-        from aplicacion.enums.tipo_documento import TipoDocumento
-        from aplicacion.enums.subtipo_documento import SubtipoDocumento
+        from aplicacion.enums import TipoDocumento
+        from aplicacion.enums import SubtipoDocumento
         from aplicacion.inicializacion.extenciones import db
         from aplicacion.modelo.persona_academica import PersonaAcademica
         from aplicacion.modelo.automovil import Automovil

@@ -2,7 +2,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
-from aplicacion.enums.acceso_organizador import AccesoOrganizador
+from aplicacion.enums import AccesoOrganizador
 from aplicacion.inicializacion.extenciones import db 
   
 class ComiteEvento(db.Model):

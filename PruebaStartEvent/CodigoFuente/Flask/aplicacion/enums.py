@@ -1,5 +1,10 @@
 import enum
 
+class AccesoOrganizador(enum.Enum):
+    ORGANIZACION_EVENTO = 'Organizacion_Evento'
+    ORGANIZACION_TORNEOS = 'Organizacion_Torneos'
+    GESTION_REQUISICIONES = 'Gestion_Requisiciones'
+
 class SubtipoDocumento(enum.Enum):
     #TipoDocumento.DOCUMENTO_EVENTO
     PLANEACION_REQUISICIONES = 'Planeacion_Requisiciones'
@@ -35,3 +40,12 @@ class SubtipoDocumento(enum.Enum):
     NOTIFICACION_RECHAZO = 'Notificacion_Rechazo'
     NOTIFICACION_CALENDARIZACION = 'Notificacion_Calendarizacion'
     CONFIRMACION_CALENDARIZACION = 'Confirmacion_Calendarizacion'
+
+class TipoDocumento(enum.Enum):
+    DOCUMENTO_EVENTO = 'Documento_Evento'
+    DOCUMENTO_PROMOCIONAL = 'Documento_Promocional'
+    DOCUMENTO_CONVOCATORIA = 'Documento_Convocatoria'
+    DOCUMENTO_PLANTEL = 'Documento_Plantel'
+    DOCUMENTO_ORGANIZADOR = 'Documento_Organizador'
+    DOCUMENTO_PONENTE = 'Documento_Ponente'
+    DOCUMENTO_ACTIVIDAD = 'Documento_Actividad'

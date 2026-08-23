@@ -2,8 +2,8 @@ from aplicacion.modelo.documento_evento import DocumentoEvento
 from aplicacion.dto.evento import MostrarEventoDto
 from aplicacion.interfaces.repositorio import ComiteEventoRepositorioI
 from aplicacion.interfaces.repositorio import DocumentoEventoRepositorioI
-from aplicacion.enums.tipo_documento import TipoDocumento
-from aplicacion.enums.subtipo_documento import SubtipoDocumento
+from aplicacion.enums import TipoDocumento
+from aplicacion.enums import SubtipoDocumento
 from aplicacion.modelo.documento_evento import DocumentoEvento
 from aplicacion.dto.evento import BuscarEventosUsuarioDto
 

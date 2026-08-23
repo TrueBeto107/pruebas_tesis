@@ -1,5 +1,5 @@
-from aplicacion.enums.subtipo_documento import SubtipoDocumento
-from aplicacion.enums.tipo_documento import TipoDocumento
+from aplicacion.enums import SubtipoDocumento
+from aplicacion.enums import TipoDocumento
 from aplicacion.modelo.documento_evento import DocumentoEvento
 from aplicacion.inicializacion.extenciones import db
 from aplicacion.interfaces.repositorio import DocumentoEventoRepositorioI

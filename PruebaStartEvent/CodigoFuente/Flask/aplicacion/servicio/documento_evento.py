@@ -7,8 +7,8 @@ from aplicacion.dto.documento_evento import CrearDocumentoDto
 from weasyprint import HTML
 from weasyprint import CSS
 from aplicacion.modelo.documento_evento import DocumentoEvento
-from aplicacion.enums.tipo_documento import TipoDocumento
-from aplicacion.enums.subtipo_documento import SubtipoDocumento
+from aplicacion.enums import TipoDocumento
+from aplicacion.enums import SubtipoDocumento
 from aplicacion.interfaces.servicio import DocumentoEventoServicioI
 
 class DocumentoEventoServicio(DocumentoEventoServicioI):
