@@ -27,7 +27,6 @@ class EventosServicio:
                 TipoDocumento.DOCUMENTO_PROMOCIONAL,
                 SubtipoDocumento.LOGOTIPO
                 )
-            #N+1 evento academico
             dto_salida = MostrarEventoDto(
                 nombre=comite.evento_academico.nombre,
                 edicion=comite.evento_academico.edicion,
