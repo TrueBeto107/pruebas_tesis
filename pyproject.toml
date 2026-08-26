@@ -1,0 +1,11 @@
+#Reglas sobre el analisis de código
+[tool.ruff.lint]
+
+ignore = [
+    "EXE002", #Todos los scripts deberian indicar la versión del compilador en la primera linea
+    "F821", #Nombres no declarados, es necesario para definir el tipo de los modelos con strings
+    "RUF012", #Valores por defecto en atributos de una clase, es necesario para importar la configuración de la aplicación con un objeto
+    ]
+
+#Reglas sobre el formato del código
+[tool.ruff.format]

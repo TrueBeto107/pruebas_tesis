@@ -7,3 +7,5 @@ __pycache__/
 *.py[cod]
 node_modules/
 tailwind.config.js
+.venv/
+.ruff_cache/
