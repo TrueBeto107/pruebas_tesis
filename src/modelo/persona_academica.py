@@ -1,15 +1,12 @@
+from sqlalchemy import Boolean, String
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from typing import List
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm  import mapped_column
-from sqlalchemy import String
-from sqlalchemy.orm import relationship
 from src.inicializacion.extenciones import db
-from sqlalchemy import Boolean
+
 
 # No está completa
 class PersonaAcademica(db.Model):
-    __tablename__ = 'persona_academica'
+    __tablename__ = "persona_academica"
 
     id_persona_academica: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column(String(50))
@@ -18,6 +15,8 @@ class PersonaAcademica(db.Model):
     es_administrador: Mapped[bool] = mapped_column(Boolean)
     sal: Mapped[str] = mapped_column(String(255))
 
-    automovil: Mapped["Automovil"] = relationship(back_populates='persona')
-    documentos: Mapped[List["DocumentoEvento"]] = relationship(back_populates='persona')
-    comites_evento: Mapped[List["ComiteEvento"]] = relationship(back_populates='persona')
+    automovil: Mapped["Automovil"] = relationship(back_populates="persona")
+    documentos: Mapped[list["DocumentoEvento"]] = relationship(back_populates="persona")
+    comites_evento: Mapped[list["ComiteEvento"]] = relationship(
+        back_populates="persona"
+    )

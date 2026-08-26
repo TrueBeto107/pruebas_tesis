@@ -1,25 +1,22 @@
-from abc import ABC
-from abc import abstractmethod
-from typing import TypeVar
-from typing import Generic
-from typing import Type
+from abc import ABC, abstractmethod
+from typing import Generic, TypeVar
 
-from src.enums import TipoDocumento
-from src.modelo.documento_evento import DocumentoEvento
-from src.modelo.comite_evento import ComiteEvento
-from src.enums import SubtipoDocumento
-from src.modelo.persona_academica import PersonaAcademica
 from sqlalchemy import select
-from src.inicializacion.extenciones import db
 
-ModeloT = TypeVar('ModeloT')
-IdT = TypeVar('IdT')
+from src.enums import SubtipoDocumento, TipoDocumento
+from src.inicializacion.extenciones import db
+from src.modelo.comite_evento import ComiteEvento
+from src.modelo.documento_evento import DocumentoEvento
+from src.modelo.persona_academica import PersonaAcademica
+
+ModeloT = TypeVar("ModeloT")
+IdT = TypeVar("IdT")
+
 
 class RepositorioBase(ABC, Generic[ModeloT, IdT]):
-    
-    def __init__(self, clase_modelo: Type[ModeloT]) -> None:
+    def __init__(self, clase_modelo: type[ModeloT]) -> None:
         self._clase_modelo = clase_modelo
-    
+
     def insert(self, modelo: ModeloT) -> None:
         db.session.add(modelo)
         db.session.commit()
@@ -30,7 +27,7 @@ class RepositorioBase(ABC, Generic[ModeloT, IdT]):
     def select_all(self) -> list[ModeloT]:
         stmt = select(self._clase_modelo)
         return list(db.session.scalars(stmt).all())
-    
+
     def update(self, modelo: ModeloT) -> ModeloT:
         modelo_bd = db.session.merge(modelo)
         db.session.commit(modelo_bd)
@@ -41,33 +38,31 @@ class RepositorioBase(ABC, Generic[ModeloT, IdT]):
         db.session.delete(modelo_bd)
         db.session.commit()
 
+
 class ComiteEventoRepositorioI(RepositorioBase[ComiteEvento, int], ABC):
     def __init__(self) -> None:
         super().__init__(ComiteEvento)
-        
+
     @abstractmethod
     def select_by_id_persona(self, id_persona: int) -> list[ComiteEvento]:
         pass
 
+
 class DocumentoEventoRepositorioI(RepositorioBase[DocumentoEvento, int], ABC):
     def __init__(self) -> None:
         super().__init__(DocumentoEvento)
-    
+
     @abstractmethod
     def select_by_edicion_y_subtipo(
-        self, 
-        id_evento_academico: int,
-        tipo: TipoDocumento,
-        subtipo: SubtipoDocumento
-        ) -> list[DocumentoEvento]:
+        self, id_evento_academico: int, tipo: TipoDocumento, subtipo: SubtipoDocumento
+    ) -> list[DocumentoEvento]:
         pass
+
 
 class PersonaAcademicaRepositorioI(RepositorioBase[PersonaAcademica, int], ABC):
     def __init__(self) -> None:
         super().__init__(PersonaAcademica)
-    
+
     @abstractmethod
     def select_by_correo(self, correo: str) -> PersonaAcademica | None:
         pass
-
-

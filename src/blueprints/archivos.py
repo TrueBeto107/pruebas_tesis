@@ -1,16 +1,18 @@
-from flask import current_app as app
 from flask import Blueprint
+from flask import current_app as app
+
 from src.controlador.archivos import ArchivosControlador
+
 
 def crear_archivos_blueprint(controlador: ArchivosControlador):
     archivos_bp = Blueprint(
-        'archivo',
+        "archivo",
         __name__,
-        url_prefix='/archivo',
-        template_folder=app.config['DIRECTORIO_TEMPLATES'] / 'archivo'
-        )
+        url_prefix="/archivo",
+        template_folder=app.config["DIRECTORIO_TEMPLATES"] / "archivo",
+    )
 
-    @archivos_bp.route('/documento/<path:filename>')
+    @archivos_bp.route("/documento/<path:filename>")
     def documentos(filename):
         return controlador.otorgar_documento(filename)
 

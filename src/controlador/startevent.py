@@ -1,21 +1,19 @@
 from flask import render_template
-from flask_jwt_extended import get_jwt
-from flask_jwt_extended import current_user
-from flask_jwt_extended import set_access_cookies
+from flask_jwt_extended import current_user, get_jwt, set_access_cookies
 
 from src.dto.autenticacion import RefrescarTokenDto
 from src.servicio.startevent import StarteventServicio
 
-class StarteventControlador():
-    
+
+class StarteventControlador:
     def __init__(self, servicio: StarteventServicio) -> None:
         self.servicio = servicio
-    
+
     def _esta_por_expirar(self, jwt) -> bool:
-        return self.servicio.esta_por_expirar(jwt['exp'])
+        return self.servicio.esta_por_expirar(jwt["exp"])
 
     def renderizar_login(self):
-        return render_template('login.html')
+        return render_template("login.html")
 
     def refrescar_tokens_por_expirar(self, response):
         try:

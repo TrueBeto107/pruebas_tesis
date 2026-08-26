@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class MostrarInformacionUsuarioDto:
     nombre_completo: str = None
