@@ -21,6 +21,7 @@ class AutenticadorServicio:
         if (
             persona
             and persona.contrasenia
+            and persona.sal
             == hashlib.sha256(
                 dto.contrasenia.encode()
                 + bytes.fromhex(persona.sal)

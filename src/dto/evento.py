@@ -3,11 +3,11 @@ from dataclasses import dataclass
 
 @dataclass
 class MostrarEventoDto:
-    nombre: str = None
-    edicion: int = None
-    ruta_logotipo: str = None
+    nombre: str
+    edicion: int
+    ruta_logotipo: str
 
 
 @dataclass
 class BuscarEventosUsuarioDto:
-    id_usuario: int = None
+    id_usuario: int
