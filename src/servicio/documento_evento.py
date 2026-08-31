@@ -24,11 +24,10 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
             dto.id_documento_evento
         )
         if documento:
-            dto_salida = MostrarDocumentoDTO(ruta_archivo=documento.ruta_archivo)
-            return dto_salida
-        else:
-            # TODO que pasa si no se encuentra el documento con dicha ID, quiza lo maneje el controlador, no el servicio
-            return MostrarDocumentoDTO()
+            return MostrarDocumentoDTO(ruta_archivo=documento.ruta_archivo)
+        # TODO(luis): que pasa si no se encuentra el documento con dicha ID
+        # quiza lo maneje el controlador, no el servicio
+        return MostrarDocumentoDTO()
 
     def buscar_documentos(self) -> list[MostrarDocumentoDTO]:
         # Trae todos los documentos
@@ -69,5 +68,4 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
 
         self.repositorio_documento_evento.insert(documento_evento)
 
-        dto_salida = MostrarDocumentoDTO(ruta_archivo=documento_evento.ruta_archivo)
-        return dto_salida
+        return MostrarDocumentoDTO(ruta_archivo=documento_evento.ruta_archivo)

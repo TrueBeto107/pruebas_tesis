@@ -34,8 +34,8 @@ class DocumentoControlador:
         return render_template("visor.html", ruta_archivo=ruta)
 
     def renderizar_documento_por_id(self):
-        id = request.args.get("id_documento")
-        resultado = self._buscar_documento_por_id(id)
+        id_ = request.args.get("id_documento")
+        resultado = self._buscar_documento_por_id(id_)
         return self.renderizar_documento(resultado.ruta_archivo)
 
     def renderizar_documento_creado(self, texto):

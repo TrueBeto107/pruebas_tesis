@@ -19,7 +19,8 @@ class Config:
     DIRECTORIO_DOCUMENTOS = DIRECTORIO_STARTEVENT / "Documentos"
     DIRECTORIO_BACKUP = DIRECTORIO_STARTEVENT / "Backups"
     DIRECTORIO_TEMPLATES = DIRECTORIO_STARTEVENT / "src" / "templates"
-    PIMIENTA = "3098d9ada2f3ca6afc68a4f8e4accd9823008872aba7de5e50e347871d733ed8"  # pepper = secrets.token_bytes(32).hex()
+    # pepper = secrets.token_bytes(32).hex()
+    PIMIENTA = "3098d9ada2f3ca6afc68a4f8e4accd9823008872aba7de5e50e347871d733ed8"
 
 
 class DevelopmentConfig(Config):

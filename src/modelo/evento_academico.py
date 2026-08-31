@@ -13,7 +13,6 @@ class EventoAcademico(db.Model):
     tematica: Mapped[str] = mapped_column(String(200))
     presentacion: Mapped[str] = mapped_column(String(1000))
 
-    #                    Objeto que se referencia                   Atributo que se referencia (en la otra tabla)
     temas: Mapped[list["TemaEvento"]] = relationship(back_populates="evento_academico")
     documentos: Mapped[list["DocumentoEvento"]] = relationship(
         "DocumentoEvento", back_populates="evento_academico"

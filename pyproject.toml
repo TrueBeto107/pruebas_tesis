@@ -1,11 +1,61 @@
-#Reglas sobre el analisis de código
+[tool.ruff]
+
+#Reglas sobre el analisis de código de Python
 [tool.ruff.lint]
 
+select = [
+    #"ANN", 	#Tipado en las funciones
+    "FBT", 	#Booleanos en parametros
+    "B",	#Bugs comunes
+    "A",	#Sobreescribir nombres
+    "COM819",	#Coma inecesaria
+    "EM",	#Mensajes en excepciones
+    "FIX",	#Comentarios TODO
+    "ISC",	#Concatenacion de strings
+    "ICN",	#Nombres convencionales de imports
+    "PIE",	#Instrucciones inecesarias o repetidas
+    "T20",	#Print
+    "PT",	#Pytest
+    "Q",	#Comillas
+    "RET",	#Returns
+    "SIM",	#Simplificar flujo del programa
+    "TID252",	#Imports relativos
+    "TD",	#Comentarios TODO
+    "ARG",	#Argumentos sin usar
+    "PTH",	#Uso de Path
+    "FLY",	#Import
+    "I",	#Ordenar imports
+    "C90",	#Complejidad Mccabe
+    "N",	#Convenciones de nombres
+    "PERF",	#Listas y diccionarios
+    "E",	#Estilo de código, espacios e indentacion
+    "W",	#Espacios en blanco
+    #"DOC",	#Contenido de docstrings
+    #"D",	#Estilo de docstrings
+    "PGH",	#Comentarios ignore, noqa3
+    "TRY",	#Try-except
+]
 ignore = [
-    "EXE002", #Todos los scripts deberian indicar la versión del compilador en la primera linea
-    "F821", #Nombres no declarados, es necesario para definir el tipo de los modelos con strings
-    "RUF012", #Valores por defecto en atributos de una clase, es necesario para importar la configuración de la aplicación con un objeto
+    "EXE002",   #Todos los scripts deberian indicar la versión del compilador en la primera linea
+    "F821",     #Nombres no declarados, es necesario para definir el tipo de los modelos con strings
+    "RUF012",   #Valores por defecto en atributos de una clase, es necesario para importar la configuración de la aplicación con un objeto
+    "ICN003",    #pd.Series en lugar de Series
+    "TD003",    #Ligar un issue en un comentario TODO
     ]
 
 #Reglas sobre el formato del código
 [tool.ruff.format]
+
+#Reglas sobre el analisis de código de HTML
+[tool.djlint]
+profile = "jinja"
+indent = 2
+max_line_length = 120
+include = [
+    "H017",     #Las void tags se deben cerrar con un /
+    "T002",     #Los nombres de archivos deben ser entre comillas
+    "H035"      #<meta> debe cerrarse con /
+]
+ignore = [
+    "H030",     #Debe haber una descripción meta
+]

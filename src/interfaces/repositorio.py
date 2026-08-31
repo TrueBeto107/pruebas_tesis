@@ -21,8 +21,8 @@ class RepositorioBase(ABC, Generic[ModeloT, IdT]):
         db.session.add(modelo)
         db.session.commit()
 
-    def select_by_id(self, id: IdT) -> ModeloT | None:
-        return db.session.get(self._clase_modelo, id)
+    def select_by_id(self, id_: IdT) -> ModeloT | None:
+        return db.session.get(self._clase_modelo, id_)
 
     def select_all(self) -> list[ModeloT]:
         stmt = select(self._clase_modelo)

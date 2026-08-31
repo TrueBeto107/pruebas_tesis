@@ -9,8 +9,7 @@ from src.dto.autenticacion import OtorgarNuevoTokenDto, RefrescarTokenDto
 class StarteventServicio:
     def refrescar_token(self, dto: RefrescarTokenDto) -> OtorgarNuevoTokenDto:
         token = create_access_token(identity=dto.identidad)
-        dto_salida = OtorgarNuevoTokenDto(token=token)
-        return dto_salida
+        return OtorgarNuevoTokenDto(token=token)
 
     def esta_por_expirar(self, timestamp_expiracion) -> bool:
         esta_por_expirar = False

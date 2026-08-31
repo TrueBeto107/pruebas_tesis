@@ -22,6 +22,7 @@ class StarteventControlador:
                 dto = RefrescarTokenDto(identidad=current_user)
                 dto_salida = self.servicio.refrescar_token(dto)
                 set_access_cookies(response, dto_salida.token)
-            return response
         except RuntimeError:
+            return response
+        else:
             return response
