@@ -16,4 +16,5 @@ class Automovil(db.Model):
     anio: Mapped[str] = mapped_column(String(4))
     color: Mapped[str] = mapped_column(String(20))
 
-    persona: Mapped["PersonaAcademica"] = relationship(back_populates="automovil")
+    # Relaciones
+    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="automovil")

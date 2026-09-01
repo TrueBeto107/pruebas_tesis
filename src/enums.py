@@ -52,3 +52,117 @@ class TipoDocumento(enum.Enum):
     DOCUMENTO_ORGANIZADOR = "Documento_Organizador"
     DOCUMENTO_PONENTE = "Documento_Ponente"
     DOCUMENTO_ACTIVIDAD = "Documento_Actividad"
+
+
+class TipoAgenda(enum.Enum):
+    PONENCIA = "Ponencia"
+    TALLER = "Taller"
+    COMPLEMENTARIA = "Complementaria"
+
+
+class TipoColor(enum.Enum):
+    TEXTO_TITULOS = "Texto_Titulos"
+    TEXTO_SUBTITULOS = "Texto_Subtitulos"
+
+
+class TipoTelefono(enum.Enum):
+    EMPRESARIAL = "Empresarial"
+    PERSONAL = "Personal"
+
+
+class TipoPersona(enum.Enum):
+    ORGANIZADOR = "Organizador"
+    PARTICIPANTE = "Participante"
+
+
+class SubtipoPersona(enum.Enum):
+    PROFESOR = "Profesor"
+    ESTUDIANTE = "Estudiante"
+    COLABORADOR = "Colaborador"
+    PONENTE = "Ponente"
+    REPRESENTANTE = "Representante"
+    ARTISTA = "Artista"
+    TALLERISTA = "Tallerista"
+    ASISTENTE = "Asistente"
+
+
+class NivelEstudios(enum.Enum):
+    LIC = "Lic."
+    MTR = "Mtr."
+    DR = "Dr."
+    ING = "Ing."
+    ESTUDIANTE = "Estudiante"
+
+
+class EstadoActividad(enum.Enum):
+    REVISION = "Revision"
+    ACEPTADA = "Aceptada"
+    RECHAZADA = "Rechazada"
+    CANCELADA = "Cancelada"
+    CONFIRMADA = "Confirmada"
+    POR_VALIDAR = "Por_Validar"
+
+
+class CarrerasUACM(enum.Enum):
+    SOFTWARE = "Software"
+    TRANSPORTE = "Transporte"
+    MATEMATICAS = "Matematicas"
+    ENERGIA = "Energia"
+    ELECTRONICA = "Electronica"
+    TELECOMUNICACIONES = "Telecomunicaciones"
+
+
+# Se agrego enlace
+class TipoAutoridad(enum.Enum):
+    COORDINADOR_PLANTEL = "Coordinador_Plantel"
+    COORDINADOR_COLEGIO = "Coodinador_Colegio"
+    RECTOR = "Rector"
+    ENLACE = "Enlace"
+
+
+# Se cambio la enum
+class TipoRequisicion(enum.Enum):
+    LICITACION = "Licitacion"
+    GASTOS_POR_COMPROBAR = "Gastos_Por_Comprobar"
+    REEMBOLSO_DE_GASTOS = "Reembolso_De_Gastos"
+
+
+# Se agrego generica
+class TipoActividad(enum.Enum):
+    PONENCIA = "Ponencia"
+    PANEL = "Panel"
+    TALLER = "Taller"
+    PRESENTACION = "Presentacion"
+    EXHIBICION = "Exhibicion"
+    TORNEO = "Torneo"
+    GENERICA = "Generica"
+
+
+class TipoDocumentoEvento(enum.Enum):
+    LOGOTIPO = "Logotipo"
+    BANNER_VERTICAL = "Banner_Vertical"
+    BANNER_HORIZONTAL = "Banner_Horizontal"
+    CARTEL_PROMOCIONAL = "Cartel_Promocional"
+    PALETA_DE_COLORES = "Paleta_De_Colores"
+    CONVOCATORIA_PONENCIA_ACADEMICA = "Convocatoria_Ponencia_Academica"
+    CONVOCATORIA_PONENCIA_ESTUDIANTIL = "Convocatoria_Ponencia_Estudiantil"
+    PLANEACION_REQUISICIONES = "Planeacion_Requisiciones"
+    ACUSE_DE_ESPACIOS = "Acuse_De_Espacios"
+
+
+class TipoInstitucion(enum.Enum):
+    SECTOR_PUBLICO = "Sector_Publico"
+    SECTOR_PRIVADO = "Sector_Privado"
+    SECTOR_ESTUDIANTIL = "Sector_Estudiantil"
+    SECTOR_ACADEMICO = "Sector_Academico"
+
+
+class TipoParticipante(enum.Enum):
+    EXPOSITOR = "Expositor"
+    RESPONSABLE = "Responsable"
+
+
+class EstadoActivo(enum.Enum):
+    ACTIVO = "Activo"
+    INACTIVO = "Inactivo"
+    PENDIENTE = "Pendiente"
