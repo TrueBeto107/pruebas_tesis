@@ -102,7 +102,7 @@ def crear_startevent_blueprint(
         subprocess.run("djlint . --reformat")
         print(  # noqa: T201
             "---------------------------------------------\n"
-            "\tAnaliznado archivos HTML...\n"
+            "\tAnalizando archivos HTML...\n"
             "---------------------------------------------\n"
         )
         subprocess.run("djlint . --lint")
