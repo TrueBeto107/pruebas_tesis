@@ -1,3 +1,5 @@
+"""Script que inicializa la aplicación de Flask e inicia la aplicación web."""
+
 from src import crear_app
 
 app = crear_app()

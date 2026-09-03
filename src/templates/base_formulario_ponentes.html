@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triángulo Tailwind</title>
@@ -122,42 +122,36 @@
             }
         }
     </style>
-</head>
-<body class="bg-[#66A5AD] min-h-screen m-0">
-    
+  </head>
+  <body class="bg-[#66A5AD] min-h-screen m-0">
     <!-- Contenedor que ocupa toda la base -->
     <div class="relative w-full h-screen">
-        
-        <!-- TÍTULO SUPERIOR CENTRADO (corregido) -->
-        <div class="absolute top-0 left-0 w-full text-center pt-8 z-10">
-            <h1 class="text-4xl font-bold text-white drop-shadow-lg">
-                ¡Bienvenido al registro de convocatorias al 11° Simposio de Ingeniería de la UACM!
-            </h1>
-        </div>
-        <!-- Triángulo e imágenes inferiores (sin cambios) -->
-        <div class="relative w-full h-[50vh] [filter:drop-shadow(0_10px_15px_rgba(0,0,0,0.3))]">
-            <div class="w-full h-full [clip-path:polygon(0%_0%,100%_0%,50%_90%)] bg-[#C4DFE6]">
-            </div>
-            <img src="{{ url_for('static', filename='img/LogoUACM_SF.png') }}" 
-                alt="LogoUACM"
-                class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 transform w-[200px] h-[200px] object-contain">
-        </div>
-        
-            <!-- Imagen inferior izquierda -->
-            <img src="{{ url_for('static', filename='img/logo_CCYT1_negro.png') }}" 
-                alt="Logo CCYT"
-                class="absolute bottom-0 left-0 m-[20px] w-[329px] h-[170px] object-contain select-none"
-                draggable="false">
-
-            <!-- Imagen inferior derecha -->
-            <img src="{{ url_for('static', filename='img/UACM.png') }}" 
-                alt="Logo W CGA"
-                class="absolute bottom-0 right-0 m-[20px] w-[220px] h-[170px] object-contain select-none"
-                draggable="false">
-
-        <div>
-            {% block contenido %}{% endblock %}
-        </div>
+      <!-- TÍTULO SUPERIOR CENTRADO (corregido) -->
+      <div class="absolute top-0 left-0 w-full text-center pt-8 z-10">
+        <h1 class="text-4xl font-bold text-white drop-shadow-lg">
+          ¡Bienvenido al registro de convocatorias al 11° Simposio de Ingeniería de la UACM!
+        </h1>
+      </div>
+      <!-- Triángulo e imágenes inferiores (sin cambios) -->
+      <div class="relative w-full h-[50vh] [filter:drop-shadow(0_10px_15px_rgba(0,0,0,0.3))]">
+        <div class="w-full h-full [clip-path:polygon(0%_0%,100%_0%,50%_90%)] bg-[#C4DFE6]"></div>
+        <img src="{{ url_for('static', filename='img/LogoUACM_SF.png') }}"
+             alt="LogoUACM"
+             class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 transform w-[200px] h-[200px] object-contain">
+      </div>
+      <!-- Imagen inferior izquierda -->
+      <img src="{{ url_for('static', filename='img/logo_CCYT1_negro.png') }}"
+           alt="Logo CCYT"
+           class="absolute bottom-0 left-0 m-[20px] w-[329px] h-[170px] object-contain select-none"
+           draggable="false">
+      <!-- Imagen inferior derecha -->
+      <img src="{{ url_for('static', filename='img/UACM.png') }}"
+           alt="Logo W CGA"
+           class="absolute bottom-0 right-0 m-[20px] w-[220px] h-[170px] object-contain select-none"
+           draggable="false">
+      <div>
+        {% block contenido %}{% endblock %}
+      </div>
     </div>
-</body>
+  </body>
 </html>

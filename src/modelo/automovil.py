@@ -17,4 +17,6 @@ class Automovil(db.Model):
     color: Mapped[str] = mapped_column(String(20))
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="automovil")
+    persona_academica: Mapped["PersonaAcademica"] = relationship(
+        back_populates="automovil"
+    )

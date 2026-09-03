@@ -15,7 +15,6 @@ class Espacio(db.Model):
     # Relaciones
     plantel: Mapped["Plantel"] = relationship(back_populates="espacios")
 
-
     fechas_espacio: Mapped[list["FechaEspacio"]] = relationship(
         back_populates="espacio"
     )

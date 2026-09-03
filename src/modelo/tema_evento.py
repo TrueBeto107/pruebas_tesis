@@ -13,5 +13,7 @@ class TemaEvento(db.Model):
     )
     tema: Mapped[str] = mapped_column(String(50))
 
-    #Relaciones
-    evento_academico: Mapped["EventoAcademico"] = relationship(back_populates="temas_evento")
+    # Relaciones
+    evento_academico: Mapped["EventoAcademico"] = relationship(
+        back_populates="temas_evento"
+    )

@@ -8,7 +8,9 @@ class ActividadCompartida(db.Model):
     __tablename__ = "actividad_compartida"
 
     id_actividad_compartida: Mapped[int] = mapped_column(primary_key=True)
-    id_actividad: Mapped[int] = mapped_column(ForeignKey("actividad.id_actividad"))
+    id_actividad: Mapped[int] = mapped_column(
+        ForeignKey("actividad.id_actividad")
+    )
     id_remitente: Mapped[int] = mapped_column(
         ForeignKey("persona_academica.id_persona_academica")
     )
@@ -24,7 +26,8 @@ class ActividadCompartida(db.Model):
         back_populates="actividades_compartidas"
     )
     remitente: Mapped["PersonaAcademica"] = relationship(
-        foreign_keys=[id_remitente], back_populates="actividades_compartidas_remitente"
+        foreign_keys=[id_remitente],
+        back_populates="actividades_compartidas_remitente",
     )
     destinatario: Mapped["PersonaAcademica"] = relationship(
         foreign_keys=[id_destinatario],

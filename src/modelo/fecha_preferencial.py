@@ -10,7 +10,9 @@ class FechaPreferencial(db.Model):
     __tablename__ = "fecha_preferencial"
 
     id_fecha_preferencial: Mapped[int] = mapped_column(primary_key=True)
-    id_actividad: Mapped[int] = mapped_column(ForeignKey("actividad.id_actividad"))
+    id_actividad: Mapped[int] = mapped_column(
+        ForeignKey("actividad.id_actividad")
+    )
     fecha: Mapped[date] = mapped_column(Date)
 
     # Relaciones

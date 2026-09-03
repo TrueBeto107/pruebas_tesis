@@ -10,7 +10,9 @@ class Asistencia(db.Model):
     __tablename__ = "asistente"
 
     id_asistencia: Mapped[int] = mapped_column(primary_key=True)
-    id_actividad: Mapped[int] = mapped_column(ForeignKey("actividad.id_actividad"))
+    id_actividad: Mapped[int] = mapped_column(
+        ForeignKey("actividad.id_actividad")
+    )
     id_persona_academica: Mapped[int] = mapped_column(
         ForeignKey("persona_academica.id_persona_academica")
     )
@@ -18,4 +20,6 @@ class Asistencia(db.Model):
 
     # Relaciones
     actividad: Mapped["Actividad"] = relationship(back_populates="asistencias")
-    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="asistencias")
+    persona_academica: Mapped["PersonaAcademica"] = relationship(
+        back_populates="asistencias"
+    )

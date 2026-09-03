@@ -33,7 +33,12 @@ class DocumentoEvento(db.Model):
     evento_academico: Mapped["EventoAcademico"] = relationship(
         back_populates="documentos_evento"
     )
-    plantel: Mapped["Plantel"] = relationship(back_populates="documentos_evento")
-    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="documentos_evento")
-    actividad: Mapped["Actividad"] = relationship(back_populates="documentos_evento")
-   
+    plantel: Mapped["Plantel"] = relationship(
+        back_populates="documentos_evento"
+    )
+    persona_academica: Mapped["PersonaAcademica"] = relationship(
+        back_populates="documentos_evento"
+    )
+    actividad: Mapped["Actividad"] = relationship(
+        back_populates="documentos_evento"
+    )

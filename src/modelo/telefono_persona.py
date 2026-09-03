@@ -17,4 +17,6 @@ class TelefonoPersona(db.Model):
     extension: Mapped[str] = mapped_column(String(10))
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="telefonos_persona")
+    persona_academica: Mapped["PersonaAcademica"] = relationship(
+        back_populates="telefonos_persona"
+    )

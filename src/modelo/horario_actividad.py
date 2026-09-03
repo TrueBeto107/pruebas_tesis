@@ -10,7 +10,7 @@ class HorarioActividad(db.Model):
     __tablename__ = "horario_actividad"
 
     id_horario_actividad: Mapped[int] = mapped_column(primary_key=True)
-    id_actividad: Mapped[int | None]  = mapped_column(
+    id_actividad: Mapped[int | None] = mapped_column(
         ForeignKey("actividad.id_actividad"), nullable=True
     )
     id_espacio: Mapped[int] = mapped_column(ForeignKey("espacio.id_espacio"))
@@ -19,5 +19,9 @@ class HorarioActividad(db.Model):
     hora_fin: Mapped[time | None] = mapped_column(Time, nullable=True)
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship(back_populates="horarios_actividad")
-    espacio: Mapped["Espacio"] = relationship(back_populates="horarios_actividad")
+    actividad: Mapped["Actividad"] = relationship(
+        back_populates="horarios_actividad"
+    )
+    espacio: Mapped["Espacio"] = relationship(
+        back_populates="horarios_actividad"
+    )

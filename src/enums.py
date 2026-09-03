@@ -1,13 +1,19 @@
+"""Contiene todas las enumeraciones que se utilizan en las clases del modelo."""
+
 import enum
 
 
 class AccesoOrganizador(enum.Enum):
+    """Niveles de acceso que puede tener un organizador."""
+
     ORGANIZACION_EVENTO = "Organizacion_Evento"
     ORGANIZACION_TORNEOS = "Organizacion_Torneos"
     GESTION_REQUISICIONES = "Gestion_Requisiciones"
 
 
 class SubtipoDocumento(enum.Enum):
+    """Representa todos los diferentes tipos de documentos específicos que existen."""
+
     # TipoDocumento.DOCUMENTO_EVENTO
     PLANEACION_REQUISICIONES = "Planeacion_Requisiciones"
     REPORTE_FINAL = "Reporte_Final"
@@ -45,6 +51,8 @@ class SubtipoDocumento(enum.Enum):
 
 
 class TipoDocumento(enum.Enum):
+    """Representa diferentes grupos de documentos que existen."""
+
     DOCUMENTO_EVENTO = "Documento_Evento"
     DOCUMENTO_PROMOCIONAL = "Documento_Promocional"
     DOCUMENTO_CONVOCATORIA = "Documento_Convocatoria"
@@ -55,27 +63,37 @@ class TipoDocumento(enum.Enum):
 
 
 class TipoAgenda(enum.Enum):
+    """Representa un conjunto particular de actividades o una agenda del evento."""
+
     PONENCIA = "Ponencia"
     TALLER = "Taller"
     COMPLEMENTARIA = "Complementaria"
 
 
 class TipoColor(enum.Enum):
+    """Colores representativos de un evento para la creación de documentos."""
+
     TEXTO_TITULOS = "Texto_Titulos"
     TEXTO_SUBTITULOS = "Texto_Subtitulos"
 
 
 class TipoTelefono(enum.Enum):
+    """Diferenciador entre teléfonos personales y de cubículos o institucionales."""
+
     EMPRESARIAL = "Empresarial"
     PERSONAL = "Personal"
 
 
 class TipoPersona(enum.Enum):
+    """Grupos de personas principales del sistema."""
+
     ORGANIZADOR = "Organizador"
     PARTICIPANTE = "Participante"
 
 
 class SubtipoPersona(enum.Enum):
+    """Tipos específicos de personas del sistema, incluye usuarios y otras personas."""
+
     PROFESOR = "Profesor"
     ESTUDIANTE = "Estudiante"
     COLABORADOR = "Colaborador"
@@ -87,6 +105,8 @@ class SubtipoPersona(enum.Enum):
 
 
 class NivelEstudios(enum.Enum):
+    """Niveles de educación para las constancias."""
+
     LIC = "Lic."
     MTR = "Mtr."
     DR = "Dr."
@@ -95,6 +115,8 @@ class NivelEstudios(enum.Enum):
 
 
 class EstadoActividad(enum.Enum):
+    """Posibles estados del ciclo de vida de una actividad."""
+
     REVISION = "Revision"
     ACEPTADA = "Aceptada"
     RECHAZADA = "Rechazada"
@@ -104,6 +126,8 @@ class EstadoActividad(enum.Enum):
 
 
 class CarrerasUACM(enum.Enum):
+    """Las carreras de la UACM participantes en el simposio."""
+
     SOFTWARE = "Software"
     TRANSPORTE = "Transporte"
     MATEMATICAS = "Matematicas"
@@ -112,8 +136,9 @@ class CarrerasUACM(enum.Enum):
     TELECOMUNICACIONES = "Telecomunicaciones"
 
 
-# Se agrego enlace
 class TipoAutoridad(enum.Enum):
+    """Representa diferentes tipos de autoridades."""
+
     COORDINADOR_PLANTEL = "Coordinador_Plantel"
     COORDINADOR_COLEGIO = "Coodinador_Colegio"
     RECTOR = "Rector"
@@ -122,13 +147,16 @@ class TipoAutoridad(enum.Enum):
 
 # Se cambio la enum
 class TipoRequisicion(enum.Enum):
+    """Modalidades de una requisición."""
+
     LICITACION = "Licitacion"
     GASTOS_POR_COMPROBAR = "Gastos_Por_Comprobar"
-    REEMBOLSO_DE_GASTOS = "Reembolso_De_Gastos"
+    REEMBOLSO_GASTOS = "Reembolso_Gastos"
 
 
-# Se agrego generica
 class TipoActividad(enum.Enum):
+    """Tipos de actividades de un evento."""
+
     PONENCIA = "Ponencia"
     PANEL = "Panel"
     TALLER = "Taller"
@@ -138,7 +166,15 @@ class TipoActividad(enum.Enum):
     GENERICA = "Generica"
 
 
+# TODO(luis): Definir si se van a usar varias enumeraciones o solo una para los subtipos
+# de documentos
 class TipoDocumentoEvento(enum.Enum):
+    """Tipos de documentos para un evento.
+
+    Incluye documentos promocionales como logotipos y convocatorias lanzadas para
+    ponentes
+    """
+
     LOGOTIPO = "Logotipo"
     BANNER_VERTICAL = "Banner_Vertical"
     BANNER_HORIZONTAL = "Banner_Horizontal"
@@ -151,6 +187,8 @@ class TipoDocumentoEvento(enum.Enum):
 
 
 class TipoInstitucion(enum.Enum):
+    """Diferentes tipos de instituciones de origen para un ponente."""
+
     SECTOR_PUBLICO = "Sector_Publico"
     SECTOR_PRIVADO = "Sector_Privado"
     SECTOR_ESTUDIANTIL = "Sector_Estudiantil"
@@ -158,11 +196,15 @@ class TipoInstitucion(enum.Enum):
 
 
 class TipoParticipante(enum.Enum):
+    """Rol de las personas que participan en una actividad."""
+
     EXPOSITOR = "Expositor"
     RESPONSABLE = "Responsable"
 
 
 class EstadoActivo(enum.Enum):
+    """Estatus de un usuario."""
+
     ACTIVO = "Activo"
     INACTIVO = "Inactivo"
     PENDIENTE = "Pendiente"

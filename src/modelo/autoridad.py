@@ -19,8 +19,10 @@ class Autoridad(db.Model):
     )
     tipo_autoridad: Mapped[TipoAutoridad]
     fecha_ingreso: Mapped[date] = mapped_column(Date)
-    fecha_egreso: Mapped[date | None]  = mapped_column(Date, nullable=True)
+    fecha_egreso: Mapped[date | None] = mapped_column(Date, nullable=True)
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="autoridades")
+    persona_academica: Mapped["PersonaAcademica"] = relationship(
+        back_populates="autoridades"
+    )
     plantel: Mapped["Plantel"] = relationship(back_populates="autoridades")

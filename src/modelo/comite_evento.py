@@ -8,7 +8,6 @@ from src.inicializacion.extenciones import db
 class ComiteEvento(db.Model):
     __tablename__ = "comite_evento"
 
-    # Columnas
     id_comite_evento: Mapped[int] = mapped_column(primary_key=True)
     id_plantel: Mapped[str | None] = mapped_column(
         ForeignKey("plantel.abreviatura"), nullable=True
@@ -26,4 +25,6 @@ class ComiteEvento(db.Model):
     evento_academico: Mapped["EventoAcademico"] = relationship(
         back_populates="comites_evento"
     )
-    persona_academica: Mapped["PersonaAcademica"] = relationship(back_populates="comites_evento")
+    persona_academica: Mapped["PersonaAcademica"] = relationship(
+        back_populates="comites_evento"
+    )

@@ -1,3 +1,5 @@
+"""Servicio para la gestión de documentos asociados a eventos."""
+
 from flask import current_app as app
 from flask import render_template
 from weasyprint import CSS, HTML
@@ -14,12 +16,16 @@ from src.modelo.documento_evento import DocumentoEvento
 
 
 class DocumentoEventoServicio(DocumentoEventoServicioI):
+    """Implementa la lógica de negocio para consultar y crear documentos de eventos."""
+
     def __init__(
         self, repositorio_documento_evento: DocumentoEventoRepositorioI
     ) -> None:
+        """Inicializa el servicio con su repositorio de documentos."""
         self.repositorio_documento_evento = repositorio_documento_evento
 
     def buscar_documento(self, dto: BuscarDocumentoDto) -> MostrarDocumentoDTO:
+        """Busca un documento por su identificador y lo devuelve como DTO de salida."""
         documento = self.repositorio_documento_evento.select_by_id(
             dto.id_documento_evento
         )
@@ -30,6 +36,7 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
         return MostrarDocumentoDTO()
 
     def buscar_documentos(self) -> list[MostrarDocumentoDTO]:
+        """Obtiene todos los documentos registrados y los transforma a DTOs."""
         # Trae todos los documentos
         lista_documentos = self.repositorio_documento_evento.select_all()
 
@@ -45,7 +52,7 @@ class DocumentoEventoServicio(DocumentoEventoServicioI):
         return documentos_dto
 
     def crear_documento(self, dto: CrearDocumentoDto) -> MostrarDocumentoDTO:
-
+        """Genera un PDF para un documento y lo guarda en la base de datos."""
         datos = {"informacion": dto.texto, "nombre_imagen": "prueba.jpg"}
 
         html = render_template("plantilla_pdf_prueba.html", **datos)
