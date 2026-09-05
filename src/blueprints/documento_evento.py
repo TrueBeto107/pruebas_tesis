@@ -167,8 +167,9 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
         tema4 = TemaEvento(tema="Prueba4")
         sal = secrets.token_bytes()
         ponente = PersonaAcademica(
-            nombre="Edwar",
-            correo="e@gmail.com",
+            nombres="Edwar",
+            apellido_paterno="Garcia",
+            correo_contacto="e@gmail.com",
             contrasenia=hashlib.sha256(
                 b"123" + sal + bytes.fromhex(app.config["PIMIENTA"])
             ).hexdigest(),
@@ -189,8 +190,8 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
             ruta_archivo="Logo_11.png",
         )
 
-        evento.temas = [tema1, tema2, tema3, tema4]
-        evento.documentos = [logo]
+        evento.temas_evento = [tema1, tema2, tema3, tema4]
+        evento.documentos_evento = [logo]
 
         plantel = Plantel(
             abreviatura="SLT",
@@ -202,10 +203,10 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
             acceso_organizador=AccesoOrganizador.ORGANIZACION_EVENTO
         )
 
-        comite.persona = ponente
+        comite.persona_academica = ponente
         comite.plantel = plantel
-        evento.comite_evento = comite
-
+        evento.comites_evento = [comite]
+        db.session.add(ponente)
         db.session.add(evento)
         db.session.commit()
         return ""

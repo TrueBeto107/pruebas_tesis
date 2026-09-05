@@ -21,6 +21,6 @@ class PersonaAcademicaRepositorio(PersonaAcademicaRepositorioI):
 
         """
         stmt = select(PersonaAcademica).where(
-            PersonaAcademica.correo == correo
+            PersonaAcademica.correo_contacto == correo
         )
         return db.session.scalars(stmt).one_or_none()

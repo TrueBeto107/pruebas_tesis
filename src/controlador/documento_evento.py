@@ -85,7 +85,7 @@ class DocumentoControlador:
         return render_template(
             "buscar_documento.html",
             documentos=documentos,
-            nombre=current_user.nombre,
+            nombre=current_user.nombres,
         )
 
     def renderizar_tabla(self) -> str:

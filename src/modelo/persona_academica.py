@@ -17,7 +17,7 @@ class PersonaAcademica(db.Model):
     correo_contacto: Mapped[str | None] = mapped_column(
         String(255), nullable=True
     )
-    estado_activo: Mapped[EstadoActivo]
+    estado_activo: Mapped[EstadoActivo] = mapped_column(default=EstadoActivo.ACTIVO)
     contrasenia: Mapped[str | None] = mapped_column(
         String(64), nullable=True
     )  # Verificar longitud
@@ -28,7 +28,7 @@ class PersonaAcademica(db.Model):
         Boolean, nullable=True
     )
     cubiculo: Mapped[str | None] = mapped_column(String(10), nullable=True)
-    ruta_foto_perfil: Mapped[str] = mapped_column(String(200))
+    ruta_foto_perfil: Mapped[str] = mapped_column(String(200), nullable=True)
     semblanza: Mapped[str | None] = mapped_column(String(1500), nullable=True)
     intereses: Mapped[str | None] = mapped_column(String(250), nullable=True)
     institucion_procedencia: Mapped[str | None] = mapped_column(
@@ -45,7 +45,7 @@ class PersonaAcademica(db.Model):
 
     # Relaciones
     telefonos_persona: Mapped[list["TelefonoPersona"]] = relationship(
-        back_populates="persona"
+        back_populates="persona_academica"
     )
     autoridades: Mapped[list["Autoridad"]] = relationship(
         back_populates="persona_academica"
@@ -58,14 +58,14 @@ class PersonaAcademica(db.Model):
     )
     actividades_compartidas_remitente: Mapped[list["ActividadCompartida"]] = (
         relationship(
-            foreign_keys="[id_remitente]",
+            foreign_keys="ActividadCompartida.id_remitente",
             back_populates="remitente",
         )
     )
     actividades_compartidas_destinatario: Mapped[
         list["ActividadCompartida"]
     ] = relationship(
-        foreign_keys="[id_destinatario]",
+        foreign_keys="ActividadCompartida.id_destinatario",
         back_populates="destinatario",
     )
     asistencias: Mapped[list["Asistencia"]] = relationship(
