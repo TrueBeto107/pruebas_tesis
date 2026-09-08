@@ -12,6 +12,15 @@
   "type": "commonjs",
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "tailwind-animations": "^1.0.2",
     "tailwindcss": "^4.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrueBeto107/pruebas_tesis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TrueBeto107/pruebas_tesis/issues"
+  },
+  "homepage": "https://github.com/TrueBeto107/pruebas_tesis#readme"
 }
