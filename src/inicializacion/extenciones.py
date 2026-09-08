@@ -4,17 +4,20 @@ Define y configura las extensiones de Flask utilizadas en la aplicación.
 SQLAlchemy para ORM y Flask-JWT-Extended para autenticación JWT.
 """
 
+from typing import Any
+
 from flask import redirect, url_for
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+from werkzeug import Response
 
 db = SQLAlchemy()
 jwt = JWTManager()
 
 
 @jwt.user_identity_loader
-def sustituir_usuario(usuario: "PersonaAcademica") -> str:
+def sustituir_usuario(usuario: "PersonaAcademica") -> str: # pyright: ignore[reportUndefinedVariable]
     """Método que sobreescribe la manera de extraer la identidad del usuario para JWT.
 
     Args:
@@ -28,7 +31,7 @@ def sustituir_usuario(usuario: "PersonaAcademica") -> str:
 
 
 @jwt.user_lookup_loader
-def definir_current_user(_, jwt_data) -> "PersonaAcademica | None":
+def definir_current_user(_: dict, jwt_data: dict) -> "PersonaAcademica | None": # pyright: ignore[reportUndefinedVariable]
     """Método que sobreescribe la manera de obtener el usuario actual a partir del JWT.
 
     Al ejecutarse, este método consulta la base de datos para obtener el objeto
@@ -51,11 +54,11 @@ def definir_current_user(_, jwt_data) -> "PersonaAcademica | None":
             "persona_academica WHERE id_persona_academica = :id"
         ),
         {"id": identidad},
-    ).fetchone()  # pyright: ignore[reportReturnType]
+    ).fetchone()
 
 
 @jwt.expired_token_loader
-def redireccionar_login(_, __):
+def redireccionar_login(_: dict, __: dict) -> Response:
     """Sobreescribe la función de manejo de tokens expirados.
 
     Args:
@@ -66,4 +69,4 @@ def redireccionar_login(_, __):
         str: El HTML de la página de login
 
     """
-    return redirect(url_for("login"))
+    return redirect(url_for("startevent.login"))
