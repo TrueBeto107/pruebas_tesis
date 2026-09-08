@@ -8,7 +8,7 @@ from flask import current_app as app
 from flask_jwt_extended import jwt_required
 
 from src.controlador.documento_evento import DocumentoControlador
-from src.enums import AccesoOrganizador
+from src.enums import AccesoOrganizador, EstadoActivo
 from src.modelo.comite_evento import ComiteEvento
 from src.modelo.plantel import Plantel
 
@@ -174,6 +174,7 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
                 b"123" + sal + bytes.fromhex(app.config["PIMIENTA"])
             ).hexdigest(),
             es_administrador=False,
+            estado_activo=EstadoActivo.ACTIVO,
             sal=sal.hex(),
         )
         auto = Automovil(

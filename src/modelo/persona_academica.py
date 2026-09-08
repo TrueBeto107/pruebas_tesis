@@ -17,7 +17,7 @@ class PersonaAcademica(db.Model):
     correo_contacto: Mapped[str | None] = mapped_column(
         String(255), nullable=True
     )
-    estado_activo: Mapped[EstadoActivo] = mapped_column(default=EstadoActivo.ACTIVO)
+    estado_activo: Mapped[EstadoActivo]
     contrasenia: Mapped[str | None] = mapped_column(
         String(64), nullable=True
     )  # Verificar longitud

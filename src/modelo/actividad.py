@@ -17,7 +17,7 @@ class Actividad(db.Model):
     link_reunion: Mapped[str | None] = mapped_column(
         String(255), nullable=True
     )
-    token: Mapped[str] = mapped_column(String(64))
+    token: Mapped[str] = mapped_column(String(64), nullable=True)
 
     # Relaciones
     agendas: Mapped[list["Agenda"]] = relationship(back_populates="actividad")
