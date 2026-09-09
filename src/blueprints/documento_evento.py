@@ -136,7 +136,7 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
         texto: str | None = request.form.get("form-texto")
         return controlador.renderizar_documento_creado(texto)
 
-    @app.route("/guardar_evento")
+    @app.route("/crear_admin")
     def crear_evento() -> str:
         """Create a sample event and store it in the database.
 
@@ -155,61 +155,24 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
         from src.modelo.persona_academica import PersonaAcademica
         from src.modelo.tema_evento import TemaEvento
 
-        evento = EventoAcademico(
-            nombre="Simposio de ingenieria ",
-            edicion=11,
-            tematica="Pruebas de tesis",
-            presentacion="Buscando mil formas de usar SQLAlchemy",
-        )
-        tema1 = TemaEvento(tema="Prueba1")
-        tema2 = TemaEvento(tema="Prueba2")
-        tema3 = TemaEvento(tema="Prueba3")
-        tema4 = TemaEvento(tema="Prueba4")
         sal = secrets.token_bytes()
-        ponente = PersonaAcademica(
-            nombres="Edwar",
-            apellido_paterno="Garcia",
-            correo_contacto="e@gmail.com",
-            contrasenia=hashlib.sha256(
-                b"123" + sal + bytes.fromhex(app.config["PIMIENTA"])
-            ).hexdigest(),
-            es_administrador=False,
-            estado_activo=EstadoActivo.ACTIVO,
-            sal=sal.hex(),
-        )
-        auto = Automovil(
-            placa="1122D1",
-            modelo="Honda",
-            anio="2018",
-            color="Negro",
-        )
-        ponente.automovil = auto
-
-        logo = DocumentoEvento(
-            tipo_documento=TipoDocumento.DOCUMENTO_PROMOCIONAL,
-            subtipo_documento=SubtipoDocumento.LOGOTIPO,
-            ruta_archivo="Logo_11.png",
-        )
-
-        evento.temas_evento = [tema1, tema2, tema3, tema4]
-        evento.documentos_evento = [logo]
-
-        plantel = Plantel(
-            abreviatura="SLT",
-            nombre="San Lorenzo Tezonco",
-            correo_contacto="",
-            direccion="",
-        )
-        comite = ComiteEvento(
-            acceso_organizador=AccesoOrganizador.ORGANIZACION_EVENTO
-        )
-
-        comite.persona_academica = ponente
-        comite.plantel = plantel
-        evento.comites_evento = [comite]
-        db.session.add(ponente)
-        db.session.add(evento)
+        admin = PersonaAcademica(
+                    nombres="Admin",
+                    apellido_paterno="Test",
+                    correo_contacto="a@g",
+                    contrasenia=hashlib.sha256(
+                        b"123" + sal + bytes.fromhex(app.config["PIMIENTA"])
+                    ).hexdigest(),
+                    es_administrador=True,
+                    estado_activo=EstadoActivo.ACTIVO,
+                    sal=sal.hex(),
+                )
+        db.session.add(admin)
         db.session.commit()
         return ""
+
+    @app.route('/test')
+    def playground():
+        return render_template('test.html')
 
     return documento_evento_bp

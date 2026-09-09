@@ -7,7 +7,7 @@ from src.inicializacion.extenciones import db
 
 
 class Asistencia(db.Model):
-    __tablename__ = "asistente"
+    __tablename__ = "asistencia"
 
     id_asistencia: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(

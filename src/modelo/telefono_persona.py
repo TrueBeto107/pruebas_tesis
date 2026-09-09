@@ -14,7 +14,7 @@ class TelefonoPersona(db.Model):
     )
     tipo_telefono: Mapped[TipoTelefono]
     numero_telefono: Mapped[str] = mapped_column(String(25))
-    extension: Mapped[str] = mapped_column(String(10))
+    extension: Mapped[str | None] = mapped_column(String(10), nullable=True)
 
     # Relaciones
     persona_academica: Mapped["PersonaAcademica"] = relationship(

@@ -15,7 +15,7 @@ class ComiteEvento(db.Model):
     id_evento_academico: Mapped[int] = mapped_column(
         ForeignKey("evento_academico.id_evento_academico")
     )
-    id_persona: Mapped[int] = mapped_column(
+    id_persona_academica: Mapped[int] = mapped_column(
         ForeignKey("persona_academica.id_persona_academica")
     )
     acceso_organizador: Mapped[AccesoOrganizador]

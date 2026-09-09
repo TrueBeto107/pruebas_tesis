@@ -17,7 +17,7 @@ class PersonaAcademica(db.Model):
     correo_contacto: Mapped[str | None] = mapped_column(
         String(255), nullable=True
     )
-    estado_activo: Mapped[EstadoActivo]
+    estado_activo: Mapped[EstadoActivo | None]
     contrasenia: Mapped[str | None] = mapped_column(
         String(64), nullable=True
     )  # Verificar longitud
@@ -29,7 +29,7 @@ class PersonaAcademica(db.Model):
     )
     cubiculo: Mapped[str | None] = mapped_column(String(10), nullable=True)
     ruta_foto_perfil: Mapped[str] = mapped_column(String(200), nullable=True)
-    semblanza: Mapped[str | None] = mapped_column(String(1500), nullable=True)
+    semblanza: Mapped[str | None] = mapped_column(String(1700), nullable=True)
     intereses: Mapped[str | None] = mapped_column(String(250), nullable=True)
     institucion_procedencia: Mapped[str | None] = mapped_column(
         String(200), nullable=True
