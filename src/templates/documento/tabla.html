@@ -24,9 +24,9 @@
               Ver
             </button>
             <button hx-get="{{ url_for('documento.mostrar', ruta=documento.ruta_archivo) }}"
-                      hx-target="#div-pdf"
-                      class="bg-[#52969E] hover:bg-[#3D7A82] text-white font-bold flex justify-center items-center rounded-lg transition duration-200 w-10 h-10"
-                      type="button">
+                    hx-target="#div-pdf"
+                    class="bg-[#52969E] hover:bg-[#3D7A82] text-white font-bold flex justify-center items-center rounded-lg transition duration-200 w-10 h-10"
+                    type="button">
               <svg class="w-7 h-7">
                 <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
               </svg>

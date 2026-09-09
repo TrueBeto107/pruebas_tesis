@@ -17,7 +17,7 @@ jwt = JWTManager()
 
 
 @jwt.user_identity_loader
-def sustituir_usuario(usuario: "PersonaAcademica") -> str: # pyright: ignore[reportUndefinedVariable]
+def sustituir_usuario(usuario: "PersonaAcademica") -> str:  # pyright: ignore[reportUndefinedVariable]
     """Método que sobreescribe la manera de extraer la identidad del usuario para JWT.
 
     Args:
@@ -31,7 +31,7 @@ def sustituir_usuario(usuario: "PersonaAcademica") -> str: # pyright: ignore[rep
 
 
 @jwt.user_lookup_loader
-def definir_current_user(_: dict, jwt_data: dict) -> "PersonaAcademica | None": # pyright: ignore[reportUndefinedVariable]
+def definir_current_user(_: dict, jwt_data: dict) -> "PersonaAcademica | None":  # pyright: ignore[reportUndefinedVariable]
     """Método que sobreescribe la manera de obtener el usuario actual a partir del JWT.
 
     Al ejecutarse, este método consulta la base de datos para obtener el objeto
