@@ -136,43 +136,8 @@ def crear_documento_blueprint(controlador: DocumentoControlador) -> Blueprint:
         texto: str | None = request.form.get("form-texto")
         return controlador.renderizar_documento_creado(texto)
 
-    @app.route("/crear_admin")
-    def crear_evento() -> str:
-        """Create a sample event and store it in the database.
-
-        Args:
-            None.
-
-        Returns:
-            str: Empty string after the sample event is persisted.
-
-        """
-        from src.enums import SubtipoDocumento, TipoDocumento
-        from src.inicializacion.extenciones import db
-        from src.modelo.automovil import Automovil
-        from src.modelo.documento_evento import DocumentoEvento
-        from src.modelo.evento_academico import EventoAcademico
-        from src.modelo.persona_academica import PersonaAcademica
-        from src.modelo.tema_evento import TemaEvento
-
-        sal = secrets.token_bytes()
-        admin = PersonaAcademica(
-                    nombres="Admin",
-                    apellido_paterno="Test",
-                    correo_contacto="a@g",
-                    contrasenia=hashlib.sha256(
-                        b"123" + sal + bytes.fromhex(app.config["PIMIENTA"])
-                    ).hexdigest(),
-                    es_administrador=True,
-                    estado_activo=EstadoActivo.ACTIVO,
-                    sal=sal.hex(),
-                )
-        db.session.add(admin)
-        db.session.commit()
-        return ""
-
-    @app.route('/test')
+    @app.route("/test")
     def playground():
-        return render_template('test.html')
+        return render_template("test.html")
 
     return documento_evento_bp

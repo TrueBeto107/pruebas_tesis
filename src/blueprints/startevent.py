@@ -6,12 +6,19 @@ Note:
 
 """
 
+import hashlib
+import secrets
 import subprocess
+from pathlib import Path
 
 from flask import Blueprint, Response
 from flask import current_app as app
+from sqlalchemy import text
 
 from src.controlador.startevent import StarteventControlador
+from src.enums import EstadoActivo
+from src.inicializacion.base_datos import crear_base
+from src.inicializacion.extenciones import db
 
 
 def crear_startevent_blueprint(
@@ -87,30 +94,40 @@ def crear_startevent_blueprint(
             "\tFormateando archivos python...\n"
             "---------------------------------------------\n"
         )
-        subprocess.run("ruff format")
+        subprocess.run(["ruff", "format"])
         print(  # noqa: T201
             "---------------------------------------------\n"
             "\tAnalizando archivos python...\n"
             "---------------------------------------------\n"
         )
-        subprocess.run("ruff check --fix")
+        subprocess.run(["ruff", "check", "--fix"])
         print(  # noqa: T201
             "---------------------------------------------\n"
             "\tFormateando archivos HTML...\n"
             "---------------------------------------------\n"
         )
-        subprocess.run("djlint . --reformat")
+        subprocess.run(["djlint", ".", "--reformat"])
         print(  # noqa: T201
             "---------------------------------------------\n"
             "\tAnalizando archivos HTML...\n"
             "---------------------------------------------\n"
         )
-        subprocess.run("djlint . --lint")
+        subprocess.run(["djlint", ".", "--lint"])
         print(  # noqa: T201
             "-------------------------------------\n"
             "\tProyecto formateado.\n"
             "-------------------------------------\n"
             "Corregir todos los errores encontrados.\n"
         )
+
+    @startevent_bp.cli.command("crear_base_prueba")
+    def crear_base_prueba() -> None:
+        crear_base(app, db)
+        archivo = Path.open(
+            app.config["DIRECTORIO_BACKUP"] / "backup_prueba.sql"
+        )
+        sql = archivo.read()
+        db.session.execute(text(sql))
+        db.session.commit()
 
     return startevent_bp

@@ -8,12 +8,13 @@ componentes necesarios.
 from flask import Flask
 
 from src.inicializacion.backup import registrar_backup
+from src.inicializacion.base_datos import crear_base
 from src.inicializacion.config import DevelopmentConfig
-from src.inicializacion.contexto import componer_de_raiz, crear_base
+from src.inicializacion.dependencias import componer_de_raiz
 from src.inicializacion.extenciones import db, jwt
 
 
-def crear_app():
+def crear_app() -> Flask:
     """Crea e inicializa la aplicación Flask.
 
     Configura la aplicación Flask con la configuración de desarrollo,
@@ -21,7 +22,8 @@ def crear_app():
     base de datos, registra los blueprints y el comando de backup.
 
     Returns:
-        app (Flask): instancia de la aplicación Flask configurada y lista para usar.
+        app (Flask): instancia de la aplicación Flask configurada y lista para
+        usar.
 
     """
     app = Flask(__name__)
