@@ -3,18 +3,75 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url('src/static/RobotoVariable.woff2') format('woff2');
+    src: url('../fonts/RobotoVariable.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto-Serif';
+    src: url('../fonts/RobotoSerifVariable.woff2') format('woff2');
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
 }
 
 @theme {
-    --color-primario: #66A5AD;
+    --color-primario: #52969E;
+    --color-secundario: #9CBBC6;
+    --color-primario-enfoque: #4d8e95;
+    --color-secundario-enfoque: #a5bec6;
+    --color-negro: #141618;
 
     --font-roboto: 'Roboto';
+    --font-roboto-serif: 'Roboto-Serif'
 }
 
-.boton-primario {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#66A5AD] focus:border-transparent transition
+@utility txt {
+    @apply font-roboto font-stretch-semi-expanded text-negro;
+}
+
+@utility txt-destacado {
+    @apply txt font-medium;
+}
+
+@utility titulo {
+    @apply font-bold text-5xl font-roboto-serif font-stretch-condensed;
+}
+
+@utility subtitulo {
+    @apply font-semibold text-2xl font-roboto-serif font-stretch-semi-condensed;
+}
+
+@utility btn {
+    @apply rounded-xl flex items-center justify-center hover:-translate-y-0.5 transition duration-200;
+}
+
+@utility btn-primario {
+    @apply btn w-60 h-10 px-3 font-roboto font-semibold text-white text-base text-nowrap truncate bg-primario hover:bg-primario-enfoque;
+}
+
+@utility btn-icono {
+    @apply btn w-10 h-10;
+}
+
+@utility icono {
+    @apply w-7 h-7 fill-negro;
+}
+
+@utility celda {
+    @apply h-10 px-3 border border-[#828282];
+}
+
+@utility fila-tabla {
+    @apply hover:bg-[#e3e3f1] even:bg-[#d9eff1] even:hover:bg-[#d0e7e9] transition duration-150 ;
+}
+
+@utility div-centrado {
+    @apply w-full h-full flex items-center justify-center;
+}
+
+@utility btn-primario-celda {
+    @apply btn-primario h-7.5;
 }

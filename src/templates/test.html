@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block contenido %}
+  <main class="w-full h-full p-5 bg-[#EFEFFF]">
+    <h1 class="titulo">Titulo</h1>
+    <h2 class="subtitulo">Subtitulo</h2>
+    <p class="txt-destacado">Párrafo destacado</p>
+    <p class="txt">Párrafo normal</p>
+    <button class="btn-primario" type="button">Botón primario</button>
+    <button class="btn-icono" type="button">
+      <svg class="icono">
+        <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
+      </svg>
+    </button>
+    <table class="table-fixed">
+      <thead class="txt-destacado bg-[#66A5AD]">
+        <tr>
+          <th class="celda">Columna de texto</th>
+          <th class="celda">Columna de botones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fila-tabla">
+          <td class="celda">Celda</td>
+          <td class="celda">
+            <div class="div-centrado">
+              <button class="btn-primario-celda mr-2.5" type="button">Botón</button>
+              <button class="btn-primario-celda" type="button">Botón</button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#editar"></use>
+                </svg>
+              </button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-tabla">
+          <td class="celda">Celda</td>
+          <td class="celda">
+            <div class="div-centrado">
+              <button class="btn-primario-celda mr-2.5" type="button">Botón</button>
+              <button class="btn-primario-celda" type="button">Botón</button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#editar"></use>
+                </svg>
+              </button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-tabla">
+          <td class="celda">Celda</td>
+          <td class="celda">
+            <div class="div-centrado">
+              <button class="btn-primario-celda mr-2.5" type="button">Botón</button>
+              <button class="btn-primario-celda" type="button">Botón</button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#editar"></use>
+                </svg>
+              </button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-tabla">
+          <td class="celda">Celda</td>
+          <td class="celda">
+            <div class="div-centrado">
+              <button class="btn-primario-celda mr-2.5" type="button">Botón</button>
+              <button class="btn-primario-celda" type="button">Botón</button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#editar"></use>
+                </svg>
+              </button>
+              <button class="btn-icono" type="button">
+                <svg class="icono">
+                  <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+{% endblock %}
