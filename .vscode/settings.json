@@ -20,5 +20,18 @@
     },
     "editor.quickSuggestions": {
         "strings": "on"
+    },
+    "editor.wordWrap": "on",
+    "files.exclude": {
+        ".venv/": true,
+        "**/__pycache__/": true,
+        "Backups/": true,
+        "Documentos/": true,
+        "tailwind.config.js": true,
+        ".ruff_cache/": true,
+        ".vscode/": true,
+        "package-lock.json": true,
+        "package.json": true,
+        "node_modules/": true
     }
 }
