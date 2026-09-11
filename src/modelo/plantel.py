@@ -14,22 +14,44 @@ class Plantel(db.Model):
 
     # Relaciones
     documentos_evento: Mapped[list["DocumentoEvento"]] = relationship(
-        back_populates="plantel"
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     comites_evento: Mapped[list["ComiteEvento"]] = relationship(
-        back_populates="plantel"
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     actividades_compartidas: Mapped[list["ActividadCompartida"]] = (
-        relationship(back_populates="plantel_destinatario")
+        relationship(
+            back_populates="plantel_destinatario",
+            cascade="all, delete-orphan",
+            passive_deletes=True,
+        )
     )
     autoridades: Mapped[list["Autoridad"]] = relationship(
-        back_populates="plantel"
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
-    espacios: Mapped[list["Espacio"]] = relationship(back_populates="plantel")
-    agendas: Mapped[list["Agenda"]] = relationship(back_populates="plantel")
+    espacios: Mapped[list["Espacio"]] = relationship(
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
+    agendas: Mapped[list["Agenda"]] = relationship(
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
     fechas_plantel: Mapped[list["FechaPlantel"]] = relationship(
-        back_populates="plantel"
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     requisiciones: Mapped[list["Requisicion"]] = relationship(
-        back_populates="plantel"
+        back_populates="plantel",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )

@@ -10,14 +10,17 @@ class FechaPlantel(db.Model):
     __tablename__ = "fecha_plantel"
 
     id_fecha_plantel: Mapped[int] = mapped_column(primary_key=True)
-    id_plantel: Mapped[str] = mapped_column(ForeignKey("plantel.abreviatura"))
+    id_plantel: Mapped[str] = mapped_column(
+        ForeignKey("plantel.abreviatura", ondelete="CASCADE")
+    )
     id_evento_academico: Mapped[int] = mapped_column(
-        ForeignKey("evento_academico.id_evento_academico")
+        ForeignKey("evento_academico.id_evento_academico", ondelete="CASCADE")
     )
     fecha: Mapped[date] = mapped_column(Date)
 
     # Relaciones
     plantel: Mapped["Plantel"] = relationship(back_populates="fechas_plantel")
+
     evento_academico: Mapped["EventoAcademico"] = relationship(
         back_populates="fechas_plantel"
     )

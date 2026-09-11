@@ -10,13 +10,15 @@ class ComiteEvento(db.Model):
 
     id_comite_evento: Mapped[int] = mapped_column(primary_key=True)
     id_plantel: Mapped[str | None] = mapped_column(
-        ForeignKey("plantel.abreviatura"), nullable=True
+        ForeignKey("plantel.abreviatura", ondelete="CASCADE"), nullable=True
     )
     id_evento_academico: Mapped[int] = mapped_column(
-        ForeignKey("evento_academico.id_evento_academico")
+        ForeignKey("evento_academico.id_evento_academico", ondelete="CASCADE")
     )
     id_persona_academica: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     acceso_organizador: Mapped[AccesoOrganizador]
 

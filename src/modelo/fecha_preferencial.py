@@ -11,7 +11,7 @@ class FechaPreferencial(db.Model):
 
     id_fecha_preferencial: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(
-        ForeignKey("actividad.id_actividad")
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE")
     )
     fecha: Mapped[date] = mapped_column(Date)
 

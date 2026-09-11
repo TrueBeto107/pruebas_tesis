@@ -11,7 +11,7 @@ class ConvocatoriaActividad(db.Model):
 
     id_convocatoria_actividad: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(
-        ForeignKey("actividad.id_actividad"), unique=True
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE"), unique=True
     )
     fecha_expiracion: Mapped[date] = mapped_column(Date)
     hora_expiracion: Mapped[time] = mapped_column(Time)

@@ -6,14 +6,18 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.inicializacion.extenciones import db
 
 
+# -----------------------NOTA-----------------------
+# Se movieron las ids al borrar tablas, verificar comportamiento
 class HorarioActividad(db.Model):
     __tablename__ = "horario_actividad"
 
     id_horario_actividad: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int | None] = mapped_column(
-        ForeignKey("actividad.id_actividad"), nullable=True
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE"), nullable=True
     )
-    id_espacio: Mapped[int] = mapped_column(ForeignKey("espacio.id_espacio"))
+    id_espacio: Mapped[int] = mapped_column(
+        ForeignKey("espacio.id_espacio", ondelete="CASCADE")
+    )
     fecha: Mapped[date] = mapped_column(Date)
     hora_inicio: Mapped[time] = mapped_column(Time)
     hora_fin: Mapped[time | None] = mapped_column(Time, nullable=True)

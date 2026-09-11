@@ -10,7 +10,9 @@ class ClasificacionPersona(db.Model):
 
     id_clasificacion_persona: Mapped[int] = mapped_column(primary_key=True)
     id_persona_academica: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     tipo_persona: Mapped[TipoPersona]
     subtipo_persona: Mapped[SubtipoPersona]

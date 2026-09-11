@@ -10,10 +10,12 @@ class Participante(db.Model):
 
     id_participante: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(
-        ForeignKey("actividad.id_actividad")
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE")
     )
     id_persona_academica: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     tipo_participante: Mapped[TipoParticipante]
 

@@ -12,16 +12,19 @@ class DocumentoEvento(db.Model):
 
     id_documento_evento: Mapped[int] = mapped_column(primary_key=True)
     id_evento_academico: Mapped[int] = mapped_column(
-        ForeignKey("evento_academico.id_evento_academico")
+        ForeignKey("evento_academico.id_evento_academico", ondelete="CASCADE")
     )
     id_plantel: Mapped[str | None] = mapped_column(
-        ForeignKey("plantel.abreviatura"), nullable=True
+        ForeignKey("plantel.abreviatura", ondelete="CASCADE"), nullable=True
     )
     id_persona_academica: Mapped[int | None] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica"), nullable=True
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        ),
+        nullable=True,
     )
     id_actividad: Mapped[int | None] = mapped_column(
-        ForeignKey("actividad.id_actividad"), nullable=True
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE"), nullable=True
     )
     fecha_expiracion: Mapped[date | None] = mapped_column(Date, nullable=True)
     hora_expiracion: Mapped[time | None] = mapped_column(Time, nullable=True)

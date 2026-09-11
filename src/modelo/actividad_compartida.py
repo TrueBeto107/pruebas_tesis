@@ -9,16 +9,20 @@ class ActividadCompartida(db.Model):
 
     id_actividad_compartida: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(
-        ForeignKey("actividad.id_actividad")
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE")
     )
     id_remitente: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     id_destinatario: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     id_plantel_destinatario: Mapped[str] = mapped_column(
-        ForeignKey("plantel.abreviatura")
+        ForeignKey("plantel.abreviatura", ondelete="CASCADE")
     )
 
     # Relaciones

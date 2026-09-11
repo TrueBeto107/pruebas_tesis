@@ -10,7 +10,7 @@ class PropiedadesActividad(db.Model):
 
     id_propiedades_actividad: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(
-        ForeignKey("actividad.id_actividad"), unique=True
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE"), unique=True
     )
     tipo_actividad: Mapped[TipoActividad]
     documentacion: Mapped[str | None] = mapped_column(

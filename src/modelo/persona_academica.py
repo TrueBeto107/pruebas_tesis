@@ -45,21 +45,31 @@ class PersonaAcademica(db.Model):
 
     # Relaciones
     telefonos_persona: Mapped[list["TelefonoPersona"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     autoridades: Mapped[list["Autoridad"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     comites_evento: Mapped[list["ComiteEvento"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     documentos_evento: Mapped[list["DocumentoEvento"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     actividades_compartidas_remitente: Mapped[list["ActividadCompartida"]] = (
         relationship(
             foreign_keys="ActividadCompartida.id_remitente",
             back_populates="remitente",
+            cascade="all, delete-orphan",
+            passive_deletes=True,
         )
     )
     actividades_compartidas_destinatario: Mapped[
@@ -67,19 +77,31 @@ class PersonaAcademica(db.Model):
     ] = relationship(
         foreign_keys="ActividadCompartida.id_destinatario",
         back_populates="destinatario",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     asistencias: Mapped[list["Asistencia"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     automovil: Mapped["Automovil"] = relationship(
         back_populates="persona_academica"
     )
     clasificaciones_persona: Mapped[list["ClasificacionPersona"]] = (
-        relationship(back_populates="persona_academica")
+        relationship(
+            back_populates="persona_academica",
+            cascade="all, delete-orphan",
+            passive_deletes=True,
+        )
     )
     codigos_contrasenia: Mapped[list["CodigoContrasenia"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )
     participantes: Mapped[list["Participante"]] = relationship(
-        back_populates="persona_academica"
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )

@@ -12,10 +12,12 @@ class Autoridad(db.Model):
 
     id_autoridad: Mapped[int] = mapped_column(primary_key=True)
     id_persona_academica: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     id_plantel: Mapped[str | None] = mapped_column(
-        ForeignKey("plantel.abreviatura"), nullable=True
+        ForeignKey("plantel.abreviatura", ondelete="CASCADE"), nullable=True
     )
     tipo_autoridad: Mapped[TipoAutoridad]
     fecha_ingreso: Mapped[date] = mapped_column(Date)

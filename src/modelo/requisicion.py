@@ -12,9 +12,11 @@ class Requisicion(db.Model):
 
     id_requisicion: Mapped[int] = mapped_column(primary_key=True)
     id_evento_academico: Mapped[int] = mapped_column(
-        ForeignKey("evento_academico.id_evento_academico")
+        ForeignKey("evento_academico.id_evento_academico", ondelete="CASCADE")
     )
-    id_plantel: Mapped[str] = mapped_column(ForeignKey("plantel.abreviatura"))
+    id_plantel: Mapped[str] = mapped_column(
+        ForeignKey("plantel.abreviatura", ondelete="CASCADE")
+    )
     numero_requisicion: Mapped[str] = mapped_column(CHAR(10))
     partida: Mapped[str] = mapped_column(String(10))
     tipo_requisicion: Mapped[TipoRequisicion]

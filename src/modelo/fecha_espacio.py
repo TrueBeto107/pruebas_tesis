@@ -10,7 +10,9 @@ class FechaEspacio(db.Model):
     __tablename__ = "fecha_espacio"
 
     id_fecha_espacio: Mapped[int] = mapped_column(primary_key=True)
-    id_espacio: Mapped[int] = mapped_column(ForeignKey("espacio.id_espacio"))
+    id_espacio: Mapped[int] = mapped_column(
+        ForeignKey("espacio.id_espacio", ondelete="CASCADE")
+    )
     fecha: Mapped[date] = mapped_column(Date)
 
     # Relaciones

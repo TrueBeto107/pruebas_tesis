@@ -9,7 +9,7 @@ class PalabraClaveActividad(db.Model):
 
     id_palabra_clave_actividad: Mapped[int] = mapped_column(primary_key=True)
     id_actividad: Mapped[int] = mapped_column(
-        ForeignKey("actividad.id_actividad")
+        ForeignKey("actividad.id_actividad", ondelete="CASCADE")
     )
     palabra_clave: Mapped[str] = mapped_column(String(30))
 

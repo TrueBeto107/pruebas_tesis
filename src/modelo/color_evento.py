@@ -10,7 +10,7 @@ class ColorEvento(db.Model):
 
     id_color_evento: Mapped[int] = mapped_column(primary_key=True)
     id_evento_academico: Mapped[int] = mapped_column(
-        ForeignKey("evento_academico.id_evento_academico")
+        ForeignKey("evento_academico.id_evento_academico", ondelete="CASCADE")
     )
     tipo_color: Mapped[TipoColor]
     codigo_hexadecimal: Mapped[str] = mapped_column(CHAR(8))

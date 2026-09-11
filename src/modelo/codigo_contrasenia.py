@@ -11,7 +11,9 @@ class CodigoContrasenia(db.Model):
 
     id_codigo_contrasenia: Mapped[int] = mapped_column(primary_key=True)
     id_persona_academica: Mapped[int] = mapped_column(
-        ForeignKey("persona_academica.id_persona_academica")
+        ForeignKey(
+            "persona_academica.id_persona_academica", ondelete="CASCADE"
+        )
     )
     codigo_hash: Mapped[str] = mapped_column(String(64))  # Verificar longitud
     fecha_expiracion: Mapped[date] = mapped_column(Date)
