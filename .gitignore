@@ -9,3 +9,4 @@ node_modules/
 tailwind.config.js
 .venv/
 .ruff_cache/
+.vscode/
