@@ -12,7 +12,7 @@
       </svg>
     </button>
     <table class="table-fixed">
-      <thead class="txt-destacado bg-[#66A5AD]">
+      <thead class="cabecera-tabla">
         <tr>
           <th class="celda">Columna de texto</th>
           <th class="celda">Columna de botones</th>
@@ -97,5 +97,35 @@
         </tr>
       </tbody>
     </table>
+    <form>
+      <label class="block w-fit h-fit group">
+        <p>Input de texto</p>
+        <input class="in"
+               type="text"
+               placeholder="Ingresa un texto">
+      </label>
+      <label class="block w-fit h-fit group">
+        <p>Input de texto</p>
+        <input class="in"
+               type="date">
+      </label>
+      <label class="block w-fit h-fit group">
+        <p>Input de color</p>
+        <div class="flex items-center justify-center group">
+          <input class="in" type="text" placeholder="#FFFFFF">
+          <input class="-ml-11 h-9 w-9 z-10 group-active:scale-95" type="color" value="#FF0000">
+        </div>
+      </label>
+      <label class="block w-fit h-fit group">
+        <p>Input de archivo</p>
+        <input class="in"
+               type="file">
+      </label>
+      <label class="block w-fit h-fit group">
+        <p>Input de checkbox</p>
+        <input class="in"
+               type="date">
+      </label>
+    </form>
   </main>
 {% endblock %}
