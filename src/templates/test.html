@@ -5,7 +5,24 @@
     <h2 class="subtitulo">Subtitulo</h2>
     <p class="txt-destacado">Párrafo destacado</p>
     <p class="txt">Párrafo normal</p>
-    <button class="btn-primario" type="button">Botón primario</button>
+    <button class="btn-primario transicion-escala " type="button">Botón primario</button>
+    <button class="btn-secundario transicion-centro" type="button">Botón secundario</button>
+    <div class="flex flex-wrap gap-4 p-8 bg-gray-100">
+      <button class="btn-primario transicion-resplandor">Resplandor</button>
+      <button class="btn-secundario transicion-presion">Presión</button>
+      <button class="btn-primario transicion-rebote">Rebote</button>
+      <button class="btn-secundario transicion-brillo">Brillo</button>
+      <button class="btn-primario transicion-oscurecer">Oscurecer</button>
+      <button class="btn-secundario transicion-rotar">Rotar</button>
+      <button class="btn-primario transicion-deslizar">Deslizar</button>
+      <button class="btn-secundario transicion-hundir">Hundir</button>
+      <button class="btn-primario transicion-flotar">Flotar</button>
+      <button class="btn-secundario transicion-completa">Completa</button>
+      <button class="btn-primario transicion-zoom">Zoom</button>
+      <button class="btn-secundario transicion-encoger">Encoger</button>
+      <button class="btn-primario transicion-anillo">Anillo</button>
+      <button class="btn-secundario transicion-elegante">Elegante</button>
+    </div>
     <button class="btn-icono" type="button">
       <svg class="icono">
         <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#borrar"></use>
@@ -126,6 +143,21 @@
         <input class="in"
                type="date">
       </label>
+      <div class="flex flex-wrap gap-6 p-4 text-gray-700">
+        <label class="label-checkbox">
+          <input type="checkbox" name="opciones" value="1" class="checkbox">
+          Opción 1
+        </label>
+        <label class="label-checkbox">
+          <input type="checkbox" name="opciones" value="2" class="checkbox">
+          Opción 2
+        </label>
+      </div>
+      <div class="w-2xl bg-[#8E8E8E] rounded-full h-5">
+        <div class="bg-[#52969E] h-5 rounded-full text-white text-xs flex items-center justify-center" style="width: 75%">
+          75%
+        </div>
+      </div>
     </form>
   </main>
 {% endblock %}
