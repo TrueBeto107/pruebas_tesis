@@ -10,3 +10,4 @@ tailwind.config.js
 .venv/
 .ruff_cache/
 .vscode/
+src/static/css/output.css
