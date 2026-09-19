@@ -20,10 +20,12 @@
 @theme {
   --color-primario: #52969e;
   --color-secundario: #9cbbc6;
-  --color-primario-enfoque: #4d8e95;
+  --color-primario-enfoque: #458188;
   --color-secundario-enfoque: #a5bec6;
   --color-negro: #141618;
   --color-placeholder: #b3b3b3;
+  --color-sombra: #57a0a9;
+  --color-sombra-secundario: #618999;
 
   --font-roboto: "Roboto";
   --font-roboto-serif: "Roboto-Serif";
@@ -77,44 +79,17 @@
 
   /* Resplandor: crece + sombra de color */
   .transicion-resplandor {
-    @apply transition-all duration-300 
-           hover:scale-105 
-           hover:shadow-lg hover:shadow-blue-500/50;
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-sombra/50;
+  }
+
+  .transicion-resplandor-secundario {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-sombra-secundario/50;
   }
 
   /* Presión: crece al pasar, se achica al click */
   .transicion-presion {
-    @apply transition-transform duration-200 
-           hover:scale-105 
+    @apply transition-transform duration-300 
            active:scale-95;
-  }
-
-  /* Rebote: crece con easing que rebota */
-  .transicion-rebote {
-    @apply transition-transform duration-300 ease-out 
-           hover:scale-110 
-           active:scale-95;
-  }
-
-  /* Brillo: opacidad + escala sutil */
-  .transicion-brillo {
-    @apply transition-all duration-200 
-           hover:scale-105 
-           hover:brightness-110;
-  }
-
-  /* Oscurecer: se oscurece al pasar */
-  .transicion-oscurecer {
-    @apply transition-all duration-200 
-           hover:scale-105 
-           hover:brightness-90;
-  }
-
-  /* Rotar: gira levemente + escala */
-  .transicion-rotar {
-    @apply transition-transform duration-300 ease-out 
-           hover:scale-105 
-           hover:rotate-3;
   }
 
   /* Deslizar derecha: se mueve un poco a la derecha */
@@ -124,57 +99,9 @@
            hover:translate-x-1;
   }
 
-  /* Hundir: baja un poco al pasar el mouse */
-  .transicion-hundir {
-    @apply transition-transform duration-200 
-           hover:scale-105 
-           hover:translate-y-0.5;
-  }
-
   /* Flotar: sube más notorio (más dramático que elevar) */
   .transicion-flotar {
-    @apply transition-transform duration-300 ease-out 
-           hover:scale-105 
-           hover:-translate-y-1;
-  }
-
-  /* Combinado: escala + elevación + sombra (el "todo") */
-  .transicion-completa {
-    @apply transition-all duration-200 
-           hover:scale-105 
-           hover:-translate-y-0.5 
-           hover:shadow-lg;
-  }
-
-  /* Zoom suave: solo escala, sin otros efectos */
-  .transicion-zoom {
-    @apply transition-transform duration-300 ease-out 
-           hover:scale-110;
-  }
-
-  /* Encoger: se achica al pasar (efecto raro pero curioso) */
-  .transicion-encoger {
-    @apply transition-transform duration-200 
-           hover:scale-95;
-  }
-
-  /* Opacidad: se vuelve semitransparente */
-  .transicion-opacidad {
-    @apply transition-opacity duration-200 
-           hover:opacity-80;
-  }
-
-  /* Anillo: aparece un borde resaltado */
-  .transicion-anillo {
-    @apply transition-all duration-200 
-           hover:scale-105 
-           hover:ring-2 hover:ring-blue-400 hover:ring-offset-2;
-  }
-
-  /* Crecer lento elegante */
-  .transicion-elegante {
-    @apply transition-transform duration-500 ease-in-out 
-           hover:scale-105;
+    @apply hover:animate-sway hover:-translate-y-0.5 transition duration-300 ease-in-out;
   }
 }
 
@@ -220,7 +147,11 @@
 }
 
 @utility in {
-  @apply h-10 px-4 bg-white border border-[#828282] rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95 ;
+  @apply h-10 w-60 px-4 bg-white border border-[#828282] rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95 ;
+}
+
+@utility in-color {
+  @apply -ml-11 h-9 w-9 z-10 group-active:scale-95;
 }
 
 @utility label-checkbox {
