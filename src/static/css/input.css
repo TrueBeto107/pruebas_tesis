@@ -26,9 +26,38 @@
   --color-placeholder: #b3b3b3;
   --color-sombra: #57a0a9;
   --color-sombra-secundario: #618999;
+  
+  --color-fondo-startevent:#EFEFFF;
+  --color-borde-gris: #828282;
 
   --font-roboto: "Roboto";
   --font-roboto-serif: "Roboto-Serif";
+}
+
+@layer base {
+  body {
+    @apply h-screen w-full flex flex-col font-roboto;
+  }
+  h1 {
+    @apply font-roboto-serif text-5xl font-bold font-stretch-condensed text-center my-5;
+  }
+  h2 {
+    @apply font-roboto-serif text-3xl font-semibold font-stretch-semi-condensed my-2;
+  }
+  h3 {
+    @apply font-roboto-serif text-xl font-semibold font-stretch-semi-condensed my-2;
+  }
+  p, span, label {
+    @apply text-negro text-base font-stretch-semi-expanded;
+  }
+  /*
+  button {
+    @apply transition duration-300 active:scale-95;
+  }*/
+  /*Este es un ejemplo*/
+  section {
+    @apply m-2 p-2;
+  }
 }
 
 @utility txt {
@@ -147,7 +176,7 @@
 }
 
 @utility in {
-  @apply h-10 w-60 px-4 bg-white border border-[#828282] rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95 ;
+  @apply h-10 w-60 px-4 bg-white border border-border-borde-gris rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95 ;
 }
 
 @utility in-color {

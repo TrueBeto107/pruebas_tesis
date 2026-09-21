@@ -9,11 +9,13 @@ from flask import Flask
 
 from src.blueprints.archivos import crear_archivos_blueprint
 from src.blueprints.autenticacion import crear_autenticacion_blueprint
+from src.blueprints.componentes import crear_componentes_blueprint
 from src.blueprints.documento_evento import crear_documento_blueprint
 from src.blueprints.evento import crear_evento_blueprint
 from src.blueprints.startevent import crear_startevent_blueprint
 from src.controlador.archivos import ArchivosControlador
 from src.controlador.autenticacion import AutenticacionControlador
+from src.controlador.componentes import ComponentesControlador
 from src.controlador.documento_evento import DocumentoControlador
 from src.controlador.evento import EventosControlador
 from src.controlador.startevent import StarteventControlador
@@ -57,6 +59,7 @@ def componer_de_raiz(app: Flask) -> None:
 
     startevent_controlador = StarteventControlador(startevent_servicio)
     archivos_controlador = ArchivosControlador(archivo_servicio)
+    componentes_controlador = ComponentesControlador()
     autenticacion_controlador = AutenticacionControlador(
         autenticacion_servicio
     )
@@ -71,6 +74,7 @@ def componer_de_raiz(app: Flask) -> None:
         autenticacion_bp = crear_autenticacion_blueprint(
             autenticacion_controlador
         )
+        componentes_bp = crear_componentes_blueprint(componentes_controlador)
         documento_evento_bp = crear_documento_blueprint(
             documento_evento_controlador
         )
@@ -82,4 +86,5 @@ def componer_de_raiz(app: Flask) -> None:
         startevent_bp.register_blueprint(evento_academico_bp)
         app.register_blueprint(startevent_bp)
         app.register_blueprint(archivos_bp)
+        app.register_blueprint(componentes_bp)
         app.register_blueprint(documento_evento_bp)

@@ -1,0 +1,42 @@
+<!--
+<button 
+  class="flex items-center justify-center rounded-xl h-10 w-60 truncate px-3
+  font-semibold text-nowrap transition duration-300 hover:shadow-lg active:scale-95
+  {% if tipo == "Primario" %}
+  | bg-primario hover:bg-primario-enfoque text-white hover:shadow-sombra/50
+  {% else %}
+    border-2 border-secundario hover:bg-secundario-enfoque text-secundario hover:text-white
+  {% endif %}
+  {{ clases }}" 
+  type="button">{{ texto }}</button>
+-->
+{% macro boton(texto, tipo="Primario", clases="") %}
+  {% if tipo == "Primario" %}
+    <button class="flex items-center justify-center rounded-xl bg-primario hover:bg-primario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
+            type="button">{{ texto }}</button>
+  {% elif tipo == "Secundario" %}
+    <button class="flex items-center justify-center rounded-xl border-2 border-secundario hover:bg-secundario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-secundario hover:text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
+            type="button">{{ texto }}</button>
+  {% elif tipo == "Secundario2" %}
+    <button class="flex items-center justify-center rounded-xl border-2 border-primario hover:bg-primario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-primario hover:text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
+            type="button">{{ texto }}</button>
+  {% elif tipo == "Secundario3" %}
+    <button class="flex items-center justify-center rounded-xl bg-[#a8d4d9]/40 border-2 border-primario hover:bg-primario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-primario hover:text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
+            type="button">{{ texto }}</button>
+  {% endif %}
+{% endmacro %}
+<!--
+<button class="btn-icono transicion-flotar w-24 h-24" type="button">
+  <svg class="icono fill-amber-600 w-full h-full">
+    <use width="96px" height="96px" xlink:href="{{ url_for('static', filename='iconos.svg') }}#{{ tipo }}"></use>
+  </svg>
+</button>
+-->
+{% macro boton_icono(id) %}
+  <button class="hover:animate-sway hover:-translate-y-0.5 transition duration-300 ease-in-out active:scale-90"
+          type="button">
+    <svg class="fill-negro w-7 h-7">
+      <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#{{ id }}"></use>
+    </svg>
+  </button>
+{% endmacro %}

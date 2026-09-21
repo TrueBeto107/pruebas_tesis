@@ -1,0 +1,76 @@
+{% import 'botones.html' as b %}
+{% from 'form_inputs.html' import input_texto, input_fecha, input_color, input_checkbox, input_combobox %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"
+            integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
+            crossorigin="anonymous"></script>
+    <link href="{{ url_for('static', filename='css/output.css') }}"
+          rel="stylesheet">
+    <title>StartEvent</title>
+  </head>
+  <body class="font-roboto px-24 py-10 bg-fondo-startevent">
+    <main>
+      <header>
+        <h1>Demo de componentes</h1>
+        <p>Esta es una página demo que muestra como se usan todos los componentes del sistema. Si se crean nuevos componentes deberían ser agregados aquí.</p>
+      </header>
+      <section>
+        <h2>Componentes de botones</h2>
+        <h3>Botones principales</h3>
+        <div class="flex h-full w-full items-center gap-2">
+          {{ b.boton(texto="Botón primario") }}
+          {{ b.boton(texto="Botón secundario", tipo="Secundario") }}
+          {{ b.boton(texto="Botón secundario2", tipo="Secundario2") }}
+          {{ b.boton(texto="Botón secundario3", tipo="Secundario3") }}
+        </div>
+        <h3>Botones íconos</h3>
+        <ul class="list-disc">
+          <li><span>agregar: </span>{{ b.boton_icono(id="agregar") }}</li>
+          <li><span>editar: </span>{{ b.boton_icono(id="editar") }}</li>
+          <li><span>borrar: </span>{{ b.boton_icono(id="borrar") }}</li>
+          <li><span>descargar: </span>{{ b.boton_icono(id="descargar") }}</li>
+          <li><span>subir: </span>{{ b.boton_icono(id="subir") }}</li>
+          <li><span>ver: </span>{{ b.boton_icono(id="ver") }}</li>
+          <li><span>cerrar: </span>{{ b.boton_icono(id="cerrar") }}</li>
+          <li><span>copiar: </span>{{ b.boton_icono(id="copiar") }}</li>
+          <li><span>flecha-derecha: </span>{{ b.boton_icono(id="flecha-derecha") }}</li>
+          <li><span>flecha-izquierda: </span>{{ b.boton_icono(id="flecha-izquierda") }}</li>
+          <li><span>archivo: </span>{{ b.boton_icono(id="archivo") }}</li>
+          <li><span>menu: </span>{{ b.boton_icono(id="menu") }}</li>
+          <li><span>espacios: </span>{{ b.boton_icono(id="espacios") }}</li>
+          <li><span>cafe: </span>{{ b.boton_icono(id="cafe") }}</li>
+          <li><span>vista-previa: </span>{{ b.boton_icono(id="vista-previa") }}</li>
+          <li><span>verificado: </span>{{ b.boton_icono(id="verificado") }}</li>
+          <li><span>enviar-persona: </span>{{ b.boton_icono(id="enviar-persona") }}</li>
+          <li><span>crear-documento: </span>{{ b.boton_icono(id="crear-documento") }}</li>
+          <li><span>actualizar-documento: </span>{{ b.boton_icono(id="actualizar-documento") }}</li>
+          <li><span>usuario: </span>{{ b.boton_icono(id="usuario") }}</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Componentes input de formulario</h2>
+        <div class="flex flex-col gap-2">
+          {{ input_texto(placeholder="Ingresa un texto") }}
+          <!-- IMPORTANTE: Se deben pasar los argumentos de fecha con el formato "aaaa-mm-dd" -->
+          {{ input_fecha(min="2026-09-19") }}
+          {{ input_color() }}
+          {{ input_checkbox(texto="Checkbox") }}
+          <!--Simulación de una enumeración-->
+          {% set enumeracion = ["Primera opción :D", "Segunda opción :P", "Última opción :("] %}
+          {{ input_combobox(lista_texto=enumeracion) }}
+          <fieldset class="border-2 border-negro p-2 w-fit h-fit">
+            <legend class="mx-3">Dia preferencial</legend>
+            {{ input_checkbox(texto="26-Sep") }}
+            {{ input_checkbox(texto="27-Sep") }}
+            {{ input_checkbox(texto="28-Sep") }}
+            {{ input_checkbox(texto="29-Sep") }}
+          </fieldset>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
