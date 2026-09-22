@@ -14,14 +14,8 @@
   {% if tipo == "Primario" %}
     <button class="flex items-center justify-center rounded-xl bg-primario hover:bg-primario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
             type="button">{{ texto }}</button>
-  {% elif tipo == "Secundario" %}
-    <button class="flex items-center justify-center rounded-xl border-2 border-secundario hover:bg-secundario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-secundario hover:text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
-            type="button">{{ texto }}</button>
   {% elif tipo == "Secundario2" %}
     <button class="flex items-center justify-center rounded-xl border-2 border-primario hover:bg-primario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-primario hover:text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
-            type="button">{{ texto }}</button>
-  {% elif tipo == "Secundario3" %}
-    <button class="flex items-center justify-center rounded-xl bg-[#a8d4d9]/40 border-2 border-primario hover:bg-primario-enfoque h-10 w-60 truncate px-3 font-semibold text-nowrap text-primario hover:text-white transition duration-300 hover:shadow-lg hover:shadow-sombra/50 active:scale-95 {{ clases }}"
             type="button">{{ texto }}</button>
   {% endif %}
 {% endmacro %}
@@ -33,10 +27,11 @@
 </button>
 -->
 {% macro boton_icono(id) %}
-  <button class="hover:animate-sway hover:-translate-y-0.5 transition duration-300 ease-in-out active:scale-90"
+  <button class="group relative hover:animate-sway hover:-translate-y-0.5 transition duration-300 ease-in-out active:scale-90"
           type="button">
     <svg class="fill-negro w-7 h-7">
       <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#{{ id }}"></use>
     </svg>
+    <label class="pointer-events-none absolute -top-8 inset-x-0 w-fit h-fit rounded bg-black/80 px-2 py-1 text-xs text-white opacity-0 transition duration-200 delay-1000 group-hover:opacity-100 group-focus-within:opacity-100 whitespace-nowrap z-10" role="tooltip" id="info-{{ id }}">{{ id }}</label>
   </button>
 {% endmacro %}

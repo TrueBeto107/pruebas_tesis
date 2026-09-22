@@ -58,6 +58,9 @@
   section {
     @apply m-2 p-2;
   }
+  hr {
+    @apply w-11/12 mx-auto my-5 border-borde-gris/80;
+  }
 }
 
 @utility txt {
@@ -176,7 +179,7 @@
 }
 
 @utility in {
-  @apply h-10 w-60 px-4 bg-white border border-border-borde-gris rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95 ;
+  @apply h-10 w-60 px-4 bg-white border border-borde-gris rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95 ;
 }
 
 @utility in-color {
