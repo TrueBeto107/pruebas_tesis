@@ -47,9 +47,6 @@ ignore = [
     "D213",     #Incompatible con D212, Docstrings deben empezar en la misma línea que las comillas de apertura
     ]
 
-#Reglas sobre el formato del código
-[tool.ruff.format]
-
 #Reglas sobre el analisis de código de HTML
 [tool.djlint]
 

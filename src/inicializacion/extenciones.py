@@ -50,8 +50,9 @@ def definir_current_user(_: dict, jwt_data: dict) -> "PersonaAcademica | None": 
     identidad = int(jwt_data["sub"])
     return db.session.execute(
         text(
-            "SELECT id_persona_academica, nombres, es_administrador FROM "
-            "persona_academica WHERE id_persona_academica = :id"
+            "SELECT id_persona_academica, nombres, es_administrador, "
+            "ruta_foto_perfil FROM persona_academica WHERE "
+            "id_persona_academica = :id"
         ),
         {"id": identidad},
     ).fetchone()

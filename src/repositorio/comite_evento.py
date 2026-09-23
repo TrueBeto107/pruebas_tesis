@@ -24,6 +24,6 @@ class ComiteEventoRepositorio(ComiteEventoRepositorioI):
         # .options() sirve para establercer una estrategia para traer los objetos
         # sin hacer un query mas
         stmt = select(ComiteEvento).where(
-            ComiteEvento.id_persona == id_persona
+            ComiteEvento.id_persona_academica == id_persona
         )  # .options(joinedload(ComiteEvento.evento_academico))
         return list(db.session.scalars(stmt).all())

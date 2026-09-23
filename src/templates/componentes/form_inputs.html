@@ -1,5 +1,4 @@
 {% set clases_input = "h-10 w-60 px-4 bg-white border border-borde-gris rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95" %}
-
 {% macro input_texto(label, value="", placeholder="") %}
   <label class="block w-fit h-fit group">
     <p>{{ label }}</p>
@@ -54,15 +53,17 @@
   </label>
 {% endmacro %}
 {% macro input_checkbox(label, name, value) %}
-<label class="flex items-center gap-2 cursor-pointer w-fit h-fit">
-  <input class="w-5 h-5 accent-blue-600 cursor-pointer" type="checkbox" name="{{ name }}" value="{{ value }}" >
-  {{ label }}
-</label>
+  <label class="flex items-center gap-2 cursor-pointer w-fit h-fit">
+    <input class="w-5 h-5 accent-blue-600 cursor-pointer"
+           type="checkbox"
+           name="{{ name }}"
+           value="{{ value }}">
+    {{ label }}
+  </label>
 {% endmacro %}
 {% macro input_combobox(label, lista_texto) %}
   <label class="block w-fit h-fit group">
-    <p>{{ label }}
-    </p>
+    <p>{{ label }}</p>
     <select class="{{ clases_input }} cursor-pointer">
       <option disabled selected value="Default"></option>
       {% for valor in lista_texto %}
@@ -72,22 +73,22 @@
   </label>
 {% endmacro %}
 {% macro tab() %}
-<fieldset class="flex w-fit h-fit rounded-t-md bg-secundario/50 border border-b-borde-gris border-x-0 border-t-0">
-  <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
-    <input class="hidden" type="radio" name="radio-group">
-    <p>Pestaña 1</p>
-  </label>
-  <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
-    <input class="hidden" type="radio" name="radio-group">
-    <p>Pestaña 2</p>
-  </label>
-  <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
-    <input class="hidden" type="radio" name="radio-group">
-    <p>Pestaña 3</p>
-  </label>
-  <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
-    <input class="hidden" type="radio" name="radio-group">
-    <p>Pestaña 4</p>
-  </label>
-</fieldset>
+  <fieldset class="flex w-fit h-fit rounded-t-md bg-secundario/50 border border-b-borde-gris border-x-0 border-t-0">
+    <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
+      <input class="hidden" type="radio" name="radio-group">
+      <p>Pestaña 1</p>
+    </label>
+    <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
+      <input class="hidden" type="radio" name="radio-group">
+      <p>Pestaña 2</p>
+    </label>
+    <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
+      <input class="hidden" type="radio" name="radio-group">
+      <p>Pestaña 3</p>
+    </label>
+    <label class="peer flex gap-2 py-2 px-4 rounded-t-md has-checked:bg-secundario-enfoque">
+      <input class="hidden" type="radio" name="radio-group">
+      <p>Pestaña 4</p>
+    </label>
+  </fieldset>
 {% endmacro %}

@@ -31,7 +31,7 @@ def crear_autenticacion_blueprint(
         "autenticacion",
         __name__,
         url_prefix="/autenticacion",
-        template_folder=app.config["DIRECTORIO_TEMPLATES"] / "autenticacion",
+        template_folder=app.config["DIRECTORIO_TEMPLATES"] / "startevent",
     )
 
     @autenticacion_bp.post("/login")

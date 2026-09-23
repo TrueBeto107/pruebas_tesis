@@ -20,7 +20,7 @@ class MostrarEventoDto:
 
     nombre: str
     edicion: int
-    ruta_logotipo: str
+    # ruta_logotipo: str
 
 
 @dataclass

@@ -59,7 +59,7 @@ class AutenticacionControlador:
         if dto_salida.token_acceso is not None:
             response = make_response()
             response.headers["Hx-Redirect"] = url_for(
-                "documento.gestion_documentos"
+                "startevent.eventos.mostrar_eventos_asociados"
             )
             set_access_cookies(response, dto_salida.token_acceso)
             set_refresh_cookies(response, dto_salida.token_refrescar)

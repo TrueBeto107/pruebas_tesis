@@ -30,7 +30,10 @@ def crear_evento_blueprint(controlador: EventosControlador) -> Blueprint:
         "eventos",
         __name__,
         url_prefix="/eventos",
-        template_folder=app.config["DIRECTORIO_TEMPLATES"] / "eventos",
+        template_folder=app.config["DIRECTORIO_TEMPLATES"]
+        / "startevent"
+        / "organizacion_evento"
+        / "eventos",
     )
 
     @evento_academico_bp.route("/")

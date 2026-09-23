@@ -31,8 +31,8 @@ class ComponentesControlador:
             raise Exception  # TODO(luis): Crear una excepción o respuesta para
             # no actualizar la vista htmx
         input_color_macro = get_template_attribute(
-                    "componentes/form_inputs.html", "input_color"
-                )
+            "componentes/form_inputs.html", "input_color"
+        )
         valor = request.args.get(nombre_input)
         label = request.args.get("label")
         return input_color_macro(label=label, name=nombre_input, value=valor)

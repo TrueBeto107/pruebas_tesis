@@ -47,8 +47,10 @@ class EventosControlador:
         """
         eventos = self._buscar_todos_eventos()
         usuario = MostrarInformacionUsuarioDto(
-            nombre_completo=current_user.nombre,
+            nombre_completo=current_user.nombres,
             es_administrador=current_user.es_administrador,
+            ruta_foto_perfil=current_user.ruta_foto_perfil,
+            roles=[],
         )
         return render_template(
             "eventos.html", lista_eventos=eventos, usuario=usuario

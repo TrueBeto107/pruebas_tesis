@@ -1,5 +1,5 @@
 {% import 'botones.html' as b %}
-{% from 'form_inputs.html' import input_texto, input_fecha, input_color, input_checkbox, input_combobox, tab, input_archivo%}
+{% from 'form_inputs.html' import input_texto, input_fecha, input_color, input_checkbox, input_combobox, tab, input_archivo %}
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -83,22 +83,28 @@
               <option value="Vanilla"></option>
             </datalist>
           </label>
-          <dl>Estados de actividades
+          <dl>
+            Estados de actividades
             <dt>Aceptada</dt>
-            <dd>Un organizador aceptó la activididad dentro del simposio</dd>
+            <dd>
+              Un organizador aceptó la activididad dentro del simposio
+            </dd>
             <dt>Cancelada</dt>
-            <dd>Por algún motivo como que el ponente no puede asistir el dia de la actividad, se canceló la actividad y no será presentada</dd>
+            <dd>
+              Por algún motivo como que el ponente no puede asistir el dia de la actividad, se canceló la actividad y no será presentada
+            </dd>
           </dl>
           <details>
             <summary>Menú escondido</summary>
             <p>Aquí escondes secretos</p>
             {{ input_texto(placeholder="Ingresa un texto") }}
           </details>
-          <p class="text-xl">La notación <ruby>Ruby<rt>de asia</rt></ruby> se usa para denotar significado</p>
+          <p class="text-xl">
+            La notación <ruby>Ruby<rt>de asia</rt></ruby> se usa para denotar significado
+          </p>
           <p>H<sub>2</sub>0</p>
           <p>x<sup>2</sup></p>
         </section>
-        
       </section>
     </main>
   </body>

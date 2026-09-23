@@ -32,6 +32,8 @@
     <svg class="fill-negro w-7 h-7">
       <use xlink:href="{{ url_for('static', filename='iconos.svg') }}#{{ id }}"></use>
     </svg>
-    <label class="pointer-events-none absolute -top-8 inset-x-0 w-fit h-fit rounded bg-black/80 px-2 py-1 text-xs text-white opacity-0 transition duration-200 delay-1000 group-hover:opacity-100 group-focus-within:opacity-100 whitespace-nowrap z-10" role="tooltip" id="info-{{ id }}">{{ id }}</label>
+    <label class="pointer-events-none absolute -top-8 inset-x-0 w-fit h-fit rounded bg-black/80 px-2 py-1 text-xs text-white opacity-0 transition duration-200 delay-1000 group-hover:opacity-100 group-focus-within:opacity-100 whitespace-nowrap z-10"
+           role="tooltip"
+           id="info-{{ id }}">{{ id }}</label>
   </button>
 {% endmacro %}
