@@ -21,7 +21,7 @@ class TelefonoPersona(db.Model):
     (``PersonaAcademica`` → ``TelefonoPersona``) con borrado en cascada:
     al eliminar una persona, sus teléfonos se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_telefono_persona (int): Clave primaria.
         id_persona_academica (int): FK a la persona académica.
         tipo_telefono (TipoTelefono): Clasificación del teléfono.

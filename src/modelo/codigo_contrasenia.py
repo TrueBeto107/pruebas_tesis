@@ -1,9 +1,10 @@
 """Modelo para representar códigos de contraseña.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `codigo_contrasenia`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
+
 """
 
 from datetime import date, time
@@ -24,15 +25,16 @@ class CodigoContrasenia(db.Model):
     cascada: al eliminar una persona académica, sus códigos de contraseña
     se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_codigo_contrasenia (int): Clave primaria.
         id_persona_academica (int): FK a la persona académica.
-        codigo_hash (str): Código de contraseña en formato hash
-        (máx. 64 caracteres).
+        codigo_hash (str): Código de contraseña en formato
+            hash (máx. 64 caracteres).
         fecha_expiracion (date): Fecha de expiración del código.
         hora_expiracion (time): Hora de expiración del código.
         usado (bool): Indica si el código ha sido utilizado.
         persona_academica (PersonaAcademica): Persona académica propietaria.
+
     """
 
     __tablename__ = "codigo_contrasenia"

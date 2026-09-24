@@ -1,8 +1,9 @@
 """Modelo para representar participantes en actividades académicas.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `participante`
     en la base de datos, incluyendo sus columnas y relaciones con otros modelos
+
 """
 
 from sqlalchemy import ForeignKey
@@ -21,12 +22,12 @@ class Participante(db.Model):
     (``Actividad`` → ``Participante``) con borrado en cascada: al eliminar
     una actividad, sus participantes se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_participante (int): Clave primaria.
         id_actividad (int): FK a la actividad académica.
         id_persona_academica (int): FK a la persona académica.
         tipo_participante (TipoParticipante): Tipo de participación
-        del participante.
+            del participante.
         actividad (Actividad): Actividad propietaria.
         persona_academica (PersonaAcademica): Persona académica asociada.
 

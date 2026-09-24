@@ -25,7 +25,7 @@ class Requisicion(db.Model):
     con borrado en cascada: al eliminar un evento académico,
     sus requisiciones se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_requisicion (int): Clave primaria.
         id_evento_academico (int): FK al evento académico.
         id_plantel (str): FK al plantel.
@@ -37,11 +37,12 @@ class Requisicion(db.Model):
         unidades_compradas (int): Cantidad de unidades compradas.
         importe_comprado (float): Importe total de la compra.
         ruta_requisicion (str): Ruta del archivo de la requisición
-        (máx. 200 caracteres).
+            (máx. 200 caracteres).
         ruta_factura (str): Ruta del archivo de la factura
-        (máx. 200 caracteres).
+            (máx. 200 caracteres).
         evento_academico (EventoAcademico): Evento académico asociado.
         plantel (Plantel): Plantel asociado.
+
     """
 
     __tablename__ = "requisicion"

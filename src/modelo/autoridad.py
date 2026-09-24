@@ -1,4 +1,4 @@
-""""Modelo para representar la autoridad de una persona académica.
+"""Modelo para representar la autoridad de una persona académica.
 
 Note:
     Este modelo define la estructura de la tabla `autoridad`

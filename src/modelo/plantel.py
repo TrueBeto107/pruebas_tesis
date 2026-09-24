@@ -1,6 +1,6 @@
 """Modelo para representar el plantel de una institución académica.
 
-Notas:
+Note:
     Este modelo define la estructura de la tabla `plantel` en la base de datos,
     incluyendo sus columnas y relaciones con otros modelos.
 
@@ -21,16 +21,16 @@ class Plantel(db.Model):
     los registros relacionados se eliminan automáticamente
     debido a la configuración de borrado en cascada.
 
-    Atributos:
+    Attributes:
         abreviatura (str): Abreviatura del plantel, clave primaria.
-        nombre (str): Nombre completo del plantel.
+            nombre (str): Nombre completo del plantel.
         correo_contacto (str): Correo electrónico de contacto del plantel.
         direccion (str): Dirección física del plantel
         documentos_evento (list[DocumentoEvento]): Documentos asociados
-        al plantel.
+            al plantel.
         comites_evento (list[ComiteEvento]): Comités asociados al plantel.
         actividades_compartidas (list[ActividadCompartida]):
-        Actividades compartidas asociadas al plantel.
+            Actividades compartidas asociadas al plantel.
         autoridades (list[Autoridad]): Autoridades asociadas al plantel.
         espacios (list[Espacio]): Espacios asociados al plantel.
         agendas (list[Agenda]): Agendas asociadas al plantel.

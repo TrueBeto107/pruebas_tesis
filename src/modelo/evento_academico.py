@@ -1,6 +1,6 @@
 """Modelo para representar eventos académicos.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `evento_academico`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -25,27 +25,27 @@ class EventoAcademico(db.Model):
     ``ColorEvento``, ``FechaPlantel``) con borrado en cascada:
     al eliminar un evento, sus elementos asociados se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_evento_academico (int): Clave primaria.
         nombre (str): Nombre del evento (máx. 200 caracteres).
         edicion (int): Número de edición del evento.
         tematica (str | None): Temática del evento
-        (máx. 200 caracteres,opcional).
+            (máx. 200 caracteres,opcional).
         presentacion (str | None): Presentación o descripción
-        del evento (máx. 1000 caracteres, opcional).
+            del evento (máx. 1000 caracteres, opcional).
         temas_evento (list[TemaEvento]): Lista de temas asociados al evento.
         documentos_evento (list[DocumentoEvento]): Lista de
-        documentos asociados al evento.
+            documentos asociados al evento.
         comites_evento (list[ComiteEvento]): Lista de comités
-        asociados al evento.
+            asociados al evento.
         actividades (list[Actividad]): Lista de actividades asociadas
-        al evento.
+            al evento.
         requisiciones (list[Requisicion]): Lista de requisiciones
-        asociadas al evento.
+            asociadas al evento.
         colores_evento (list[ColorEvento]): Lista de colores
-        asociados al evento.
+            asociados al evento.
         fechas_plantel (list[FechaPlantel]): Lista de fechas
-        de plantel asociadas al evento.
+            de plantel asociadas al evento.
 
     """
 

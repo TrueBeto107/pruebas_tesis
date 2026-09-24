@@ -1,6 +1,6 @@
 """Modelo de datos para la tabla persona_academica.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `persona_academica`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -23,63 +23,65 @@ class PersonaAcademica(db.Model):
     de uno a muchos con borrado en cascada: al eliminar una persona
     académica, sus relaciones se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_persona_academica (int): Clave primaria.
         nombres (str): Nombres de la persona (máx. 50 caracteres).
         apellido_paterno (str): Apellido paterno (máx. 50 caracteres).
         apellido_materno (str | None): Apellido materno
-        (máx. 50 caracteres, opcional).
+            (máx. 50 caracteres, opcional).
         correo_contacto (str | None): Correo de contacto
-        (máx. 255 caracteres, opcional).
+            (máx. 255 caracteres, opcional).
         estado_activo (EstadoActivo | None): Estado de actividad
-        de la persona académica (opcional).
+            de la persona académica (opcional).
         contrasenia (str | None): Contraseña de la persona
-        académica (máx. 64 caracteres, opcional).
+            académica (máx. 64 caracteres, opcional).
         sal (str | None): Sal para la contraseña
-        (máx. 64 caracteres, opcional).
+            (máx. 64 caracteres, opcional).
         es_administrador (bool | None): Indica si la persona académica
         es administrador (opcional).
         cubiculo (str | None): Cubículo de la persona académica (máx.
-        10 caracteres, opcional).
+            10 caracteres, opcional).
         ruta_foto_perfil (str): Ruta de la foto de perfil (máx.
-        200 caracteres, opcional).
+            200 caracteres, opcional).
         semblanza (str | None): Semblanza de la persona académica (máx
-        1700 caracteres, opcional).
+            1700 caracteres, opcional).
         intereses (str | None): Intereses de la persona académica (máx.
-        250 caracteres, opcional).
+            250 caracteres, opcional).
         institucion_procedencia (str | None): Institución de
-        procedencia de la persona académica (máx. 200 caracteres, opcional).
+            procedencia de la persona académica
+            (máx. 200 caracteres, opcional).
         tipo_institucion (TipoInstitucion | None): Tipo de institución
-        de la persona académica (opcional).
+            de la persona académica (opcional).
         nivel_estudios (NivelEstudios | None): Nivel de estudios de
-        la persona académica (opcional).
+            la persona académica (opcional).
         discapacidad (str | None): Discapacidad de la persona académica
-        (máx. 200 caracteres, opcional).
+            (máx. 200 caracteres, opcional).
         ruta_foto_ponente (str | None): Ruta de la foto del ponente
-        (máx. 200 caracteres, opcional).
+            (máx. 200 caracteres, opcional).
         telefonos_persona (list[TelefonoPersona]): Lista de teléfonos
-        asociados a la persona académica.
+            asociados a la persona académica.
         autoridades (list[Autoridad]): Lista de autoridades asociadas
-        a la persona académica.
+            a la persona académica.
         comites_evento (list[ComiteEvento]): Lista de comités de
-        eventos asociados a la persona académica.
+            eventos asociados a la persona académica.
         documentos_evento (list[DocumentoEvento]): Lista de documentos
-        de eventos asociados a la persona académica.
+            de eventos asociados a la persona académica.
         actividades_compartidas_remitente (list[ActividadCompartida]):
-        Lista de actividades compartidas donde la persona académica
-        es remitente.
+            Lista de actividades compartidas donde la persona académica
+            es remitente.
         actividades_compartidas_destinatario (list[ActividadCompartida]):
-        Lista de actividades compartidas donde la persona académica
-        es destinatario.
+            Lista de actividades compartidas donde la persona académica
+            es destinatario.
         asistencias (list[Asistencia]): Lista de asistencias asociadas
-        a la persona académica.
+            a la persona académica.
         automovil (Automovil): Automóvil asociado a la persona académica.
         clasificaciones_persona (list[ClasificacionPersona]): Lista
-        de clasificaciones de persona asociadas a la persona académica.
+            de clasificaciones de persona asociadas a la persona académica.
         codigos_contrasenia (list[CodigoContrasenia]): Lista de códigos
-        de contraseña asociados a la persona académica.
+            de contraseña asociados a la persona académica.
         participantes (list[Participante]): Lista de participantes
-        asociados a la persona académica.
+            asociados a la persona académica.
+
     """
 
     __tablename__ = "persona_academica"

@@ -1,6 +1,6 @@
 """Modelo para representar comités asociados a eventos.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `comite_evento`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -23,21 +23,21 @@ class ComiteEvento(db.Model):
     con borrado en cascada: al eliminar
     un evento académico, sus comités se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_comite_evento (int): Clave primaria.
         id_plantel (str | None): Clave foránea que referencia al plantel
-        al que pertenece.
+            al que pertenece.
         id_evento_academico (int): Clave foránea que referencia al
-        evento académico al que pertenece.
+            evento académico al que pertenece.
         id_persona_academica (int): Clave foránea que referencia a
-        la persona académica al que pertenece.
+            la persona académica al que pertenece.
         acceso_organizador (AccesoOrganizador): Nivel de acceso del
-        comité al organizador.
+            comité al organizador.
         plantel (Plantel): Relación con el plantel al que pertenece.
         evento_academico (EventoAcademico): Relación con el evento académico
-        al que pertenece.
+            al que pertenece.
         persona_academica (PersonaAcademica): Relación con la persona académica
-        al que pertenece.
+            al que pertenece.
 
     """
 

@@ -1,6 +1,6 @@
 """Modelo para representar fechas asociadas a un espacio.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `fecha_espacio`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -25,11 +25,12 @@ class FechaEspacio(db.Model):
     al eliminar un espacio, sus fechas asociadas se
     eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_fecha_espacio (int): Clave primaria.
         id_espacio (int): FK al espacio.
         fecha (date): Fecha asociada.
         espacio (Espacio): Espacio propietario.
+
     """
 
     __tablename__ = "fecha_espacio"

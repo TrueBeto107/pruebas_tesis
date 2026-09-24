@@ -1,6 +1,6 @@
 """Modelo para representar colores asociados a eventos.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `color_evento`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -23,14 +23,15 @@ class ColorEvento(db.Model):
     con borrado en cascada: al eliminar
     un evento académico, sus colores se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_color_evento (int): Clave primaria.
         id_evento_academico (int): Clave foránea que referencia al
-        evento académico al que pertenece.
+            evento académico al que pertenece.
         tipo_color (TipoColor): Tipo de color.
         codigo_hexadecimal (str): Código hexadecimal del color.
         evento_academico(EventoAcademico): Relación con el evento académico
-        al que pertenece.
+            al que pertenece.
+
     """
 
     __tablename__ = "color_evento"

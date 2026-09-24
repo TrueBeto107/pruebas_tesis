@@ -1,9 +1,10 @@
 """Modelo para representar palabras clave asociadas a actividades académicas.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `palabra_clave_actividad`
     en la base de datos, incluyendo sus columnas y relaciones con
     otros modelos.
+
 """
 
 from sqlalchemy import ForeignKey, String
@@ -21,13 +22,13 @@ class PalabraClaveActividad(db.Model):
     con borrado en cascada: al eliminar una actividad, sus palabras clave
     se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_palabra_clave_actividad (int): Clave primaria.
         id_actividad (int): FK a la actividad académica.
         palabra_clave (str): Palabra clave asociada a la
         actividad (máx. 30 caracteres).
         actividad (Actividad): Actividad académica propietaria de
-        la palabra clave.
+            la palabra clave.
 
     """
 

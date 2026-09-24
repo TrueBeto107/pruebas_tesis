@@ -1,4 +1,4 @@
-""""Modelo para representar propiedades de actividades académicas.
+"""Modelo para representar propiedades de actividades académicas.
 
 Note:
     Este modelo define la estructura de la tabla `propiedades_actividad`
@@ -22,17 +22,17 @@ class PropiedadesActividad(db.Model):
     en cascada: al eliminar una actividad, sus propiedades se
     eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_propiedades_actividad (int): Clave primaria.
         id_actividad (int): FK a la actividad académica.
         tipo_actividad (TipoActividad): Clasificación de la actividad.
         documentacion (str | None): Ruta del archivo de documentación
-        (máx. 200 caracteres).
+            (máx. 200 caracteres).
         cartel_promocional (str | None): Ruta del archivo del cartel
-        promocional (máx. 200 caracteres).
+            promocional (máx. 200 caracteres).
         cupo_maximo (int | None): Número máximo de participantes.
         referencias (str | None): Referencias adicionales
-        (máx. 5000 caracteres).
+            (máx. 5000 caracteres).
         actividad (Actividad): Actividad académica asociada.
 
     """

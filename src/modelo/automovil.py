@@ -1,9 +1,10 @@
 """Modelo para representar un automóvil perteneciente a una persona académica.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `automovil`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
+
 """
 
 from sqlalchemy import ForeignKey, String

@@ -1,6 +1,6 @@
 """Modelo para representar documentos asociados.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `documento_evento`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -24,16 +24,16 @@ class DocumentoEvento(db.Model):
     ``DocumentoEvento``) con borrado en cascada: al eliminar
     un evento, sus documentos se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_documento_evento (int): Clave primaria.
         id_evento_academico (int): Clave foránea que referencia
-        al evento académico al que pertenece.
+            al evento académico al que pertenece.
         id_plantel (str | None): Clave foránea que referencia al
-        plantel al que pertenece.
+            plantel al que pertenece.
         id_persona_academica (int | None): Clave foránea que referencia
-        a la persona académica al que pertenece.
+            a la persona académica al que pertenece.
         id_actividad (int | None): Clave foránea que referencia a
-        la actividad a la que pertenece.
+            la actividad a la que pertenece.
         fecha_expiracion (date | None): Fecha de expiración del documento.
         hora_expiracion (time | None): Hora de expiración del documento.
         tipo_documento (TipoDocumento): Tipo de documento.

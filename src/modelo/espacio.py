@@ -1,6 +1,6 @@
 """Modelo para representar espacios físicos.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `espacio`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -24,10 +24,10 @@ class Espacio(db.Model):
     al eliminar un espacio, sus fechas y horarios asociados
     se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_espacio (int): Clave primaria.
         id_plantel (str): Clave foránea que referencia al
-        plantel al que pertenece.
+            plantel al que pertenece.
         ubicacion (str): Ubicación del espacio (máx. 50 caracteres).
         es_principal (bool): Indica si el espacio es principal.
 

@@ -25,13 +25,14 @@ class FechaPlantel(db.Model):
     al eliminar un plantel, sus fechas asociadas se
     eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_fecha_plantel (int): Clave primaria.
         id_plantel (str): FK al plantel.
         id_evento_academico (int): FK al evento académico.
         fecha (date): Fecha asociada.
         plantel (Plantel): Plantel propietario.
         evento_academico (EventoAcademico): Evento académico propietario.
+
     """
 
     __tablename__ = "fecha_plantel"

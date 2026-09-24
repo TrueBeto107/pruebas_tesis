@@ -1,6 +1,6 @@
 """Modelo que representa la asistencia a una actividad académica.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `asistencia`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.

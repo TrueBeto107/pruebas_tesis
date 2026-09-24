@@ -1,6 +1,6 @@
 """Modelo para representar horarios asociados a actividades académicas.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `horario_actividad`
     en la base de datos, incluyendo sus columnas y relaciones con
     otros modelos.
@@ -25,7 +25,7 @@ class HorarioActividad(db.Model):
     (``Actividad`` → ``HorarioActividad``) con borrado en cascada: al eliminar
     una actividad, sus horarios se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_horario_actividad (int): Clave primaria.
         id_actividad (int | None): FK a la actividad académica.
         id_espacio (int): FK al espacio donde se lleva a cabo el horario.

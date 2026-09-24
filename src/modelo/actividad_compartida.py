@@ -1,6 +1,6 @@
-""""Modelo que representa la actividad compartida entre académicos.
+"""Modelo que representa la actividad compartida entre académicos.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `actividad_compartida`
     en la base de datos, incluyendo sus columnas y relaciones con
     otros modelos.
@@ -14,7 +14,7 @@ from src.inicializacion.extenciones import db
 
 
 class ActividadCompartida(db.Model):
-    """"Modelo que representa la actividad compartida entre académicos.
+    """Modelo que representa la actividad compartida entre académicos.
 
     Cada actividad compartida está asociada a una actividad específica,
     y puede tener múltiples remitentes y destinatarios.
@@ -22,7 +22,7 @@ class ActividadCompartida(db.Model):
     con borrado en cascada: al eliminar una actividad, sus
     actividades compartidas se eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_actividad_compartida (int): Clave primaria.
         id_actividad (int): FK a la actividad.
         id_remitente (int): FK al académico remitente.
@@ -30,11 +30,11 @@ class ActividadCompartida(db.Model):
         id_plantel_destinatario (str): FK al plantel del destinatario.
         actividad (Actividad): Actividad asociada a la actividad compartida.
         remitente (PersonaAcademica): Académico remitente de la
-        actividad compartida.
+            actividad compartida.
         destinatario (PersonaAcademica): Académico destinatario
-        de la actividad compartida.
+            de la actividad compartida.
         plantel_destinatario (Plantel): Plantel del destinatario
-        de la actividad compartida.
+            de la actividad compartida.
 
     """
 

@@ -24,11 +24,12 @@ class FechaPreferencial(db.Model):
     al eliminar una actividad, sus fechas preferenciales se
     eliminan automáticamente.
 
-    Atributos:
+    Attributes:
         id_fecha_preferencial (int): Clave primaria.
         id_actividad (int): FK a la actividad académica.
         fecha (date): Fecha preferencial.
-        acrtividad (Actividad): Actividad propietaria.
+        actividad (Actividad): Actividad propietaria.
+
     """
 
     __tablename__ = "fecha_preferencial"

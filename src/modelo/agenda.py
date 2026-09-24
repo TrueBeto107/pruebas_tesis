@@ -1,6 +1,6 @@
 """Modelo que representa la agenda de actividades académicas.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `agenda`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -14,7 +14,7 @@ from src.inicializacion.extenciones import db
 
 
 class Agenda(db.Model):
-    """"Modelo que representa la agenda de actividades académicas.
+    """Modelo que representa la agenda de actividades académicas.
 
     Cada agenda está asociada a un plantel y a una actividad específica.
     La relación es de uno a muchos (``Plantel`` → ``Agenda`` y

@@ -1,4 +1,4 @@
-""""Modelo que representa una actividad académica dentro de un evento.
+"""Modelo que representa una actividad académica dentro de un evento.
 
 Note:
     Este modelo define la estructura de la tabla `actividad`
@@ -15,7 +15,7 @@ from src.inicializacion.extenciones import db
 
 
 class Actividad(db.Model):
-    """"Modelo que representa una actividad académica dentro de un evento.
+    """Modelo que representa una actividad académica dentro de un evento.
 
     Cada actividad está asociada a un evento académico y puede tener
     múltiples agendas, documentos, participantes y otros elementos
@@ -29,7 +29,7 @@ class Actividad(db.Model):
         titulo (str): Título de la actividad.
         descripcion (str): Descripción de la actividad.
         carrera_asociada (CarrerasUACM | None): Carrera asociada a
-        la actividad.
+            la actividad.
         estado_actividad (EstadoActividad): Estado de la actividad.
         numero_dias (int): Número de días de la actividad.
         link_reunion (str | None): Link de la reunión de la actividad.
@@ -37,22 +37,22 @@ class Actividad(db.Model):
         evento_academico (EventoAcademico): Evento propietario de la actividad.
         agendas (list[Agenda]): Agendas asociadas a la actividad.
         actividades_compartidas (list[ActividadCompartida]):
-        Actividades compartidas asociadas a la actividad.
+            Actividades compartidas asociadas a la actividad.
         asistencias (list[Asistencia]): Asistencias asociadas a la actividad.
         horarios_actividad (list[HorarioActividad]): Horarios asociados
-        a la actividad.
+            a la actividad.
         documentos_evento (list[DocumentoEvento]): Documentos asociados
-        a la actividad.
+            a la actividad.
         participantes (list[Participante]): Participantes asociados a
-        la actividad.
+            la actividad.
         convocatorias_actividad (list[ConvocatoriaActividad]):
-        Convocatorias asociadas a la actividad.
+            Convocatorias asociadas a la actividad.
         fechas_preferenciales (list[FechaPreferencial]): Fechas
-        preferenciales asociadas a la actividad.
+            preferenciales asociadas a la actividad.
         palabras_clave_actividad (list[PalabraClaveActividad]): Palabras
-        clave asociadas a la actividad.
+            clave asociadas a la actividad.
         propiedades_actividad (PropiedadesActividad): Propiedades
-        de la actividad.
+            de la actividad.
 
     """
 

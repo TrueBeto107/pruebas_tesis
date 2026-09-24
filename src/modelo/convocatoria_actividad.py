@@ -1,6 +1,6 @@
 """Modelo para representar convocatorias asociadas a actividades.
 
-Nota:
+Note:
     Este modelo define la estructura de la tabla `convocatoria_actividad`
     en la base de datos, incluyendo sus columnas y relaciones
     con otros modelos.
@@ -23,10 +23,10 @@ class ConvocatoriaActividad(db.Model):
     con borrado en cascada: al eliminar
     una actividad, su convocatoria se elimina automáticamente.
 
-    Atributos:
+    Attributes:
         id_convocatoria_actividad (int): Clave primaria.
         id_actividad (int): Clave foránea que referencia a
-        la actividad a la que pertenece.
+            la actividad a la que pertenece.
         fecha_expiracion (date): Fecha de expiración de la convocatoria.
         hora_expiracion (time): Hora de expiración de la convocatoria.
 
