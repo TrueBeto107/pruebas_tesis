@@ -24,7 +24,7 @@
   <label id="color_input" class="block w-fit h-fit group">
     <p>{{ label }}</p>
     <div class="flex items-center justify-center group">
-      <input hx-get="{{ url_for('componentes.color_actualiza_texto') }}"
+      <input hx-get="{{ url_for("componentes.color_actualiza_texto") }}"
              hx-trigger="change"
              hx-target="#color_input"
              hx-swap="outerHTML"
@@ -35,7 +35,7 @@
              placeholder="#FFFFFF"
              pattern="^#[A-Fa-f0-9]{6}$"
              {% if value %}value="{{ value }}"{% endif %}>
-      <input hx-get="{{ url_for('componentes.color_actualiza_texto') }}"
+      <input hx-get="{{ url_for("componentes.color_actualiza_texto") }}"
              hx-trigger="change"
              hx-target="#color_input"
              hx-swap="outerHTML"
