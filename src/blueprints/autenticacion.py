@@ -6,7 +6,7 @@ Note:
 
 """
 
-from flask import Blueprint, Response, request
+from flask import Blueprint, request
 from flask import current_app as app
 
 from src.controlador.autenticacion import AutenticacionControlador
