@@ -5,7 +5,6 @@ from flask import (
     get_template_attribute,
     make_response,
     render_template,
-    render_template_string,
     request,
 )
 

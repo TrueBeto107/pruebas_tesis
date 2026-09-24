@@ -9,10 +9,8 @@ from typing import Generic, TypeVar
 
 from sqlalchemy import select
 
-from src.enums import SubtipoDocumento, TipoDocumento
 from src.inicializacion.extenciones import db
 from src.modelo.comite_evento import ComiteEvento
-from src.modelo.documento_evento import DocumentoEvento
 from src.modelo.persona_academica import PersonaAcademica
 
 ModeloT = TypeVar("ModeloT")
