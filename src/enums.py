@@ -1,4 +1,4 @@
-"""Contiene todas las enumeraciones que se utilizan en las clases del modelo."""
+"""Contiene todas las enumeraciones de las clases del modelo y dominio."""
 
 import enum
 
@@ -12,7 +12,7 @@ class AccesoOrganizador(enum.Enum):
 
 
 class SubtipoDocumento(enum.Enum):
-    """Representa todos los diferentes tipos de documentos específicos que existen."""
+    """Representa todos los tipos de documentos diferentes que existen."""
 
     # TipoDocumento.DOCUMENTO_EVENTO
     PLANEACION_REQUISICIONES = "Planeacion_Requisiciones"
@@ -63,7 +63,7 @@ class TipoDocumento(enum.Enum):
 
 
 class TipoAgenda(enum.Enum):
-    """Representa un conjunto particular de actividades o una agenda del evento."""
+    """Representa un tipo de agenda del evento."""
 
     PONENCIA = "Ponencia"
     TALLER = "Taller"
@@ -78,7 +78,7 @@ class TipoColor(enum.Enum):
 
 
 class TipoTelefono(enum.Enum):
-    """Diferenciador entre teléfonos personales y de cubículos o institucionales."""
+    """Diferenciador entre teléfonos personales o institucionales."""
 
     EMPRESARIAL = "Empresarial"
     PERSONAL = "Personal"
@@ -92,7 +92,7 @@ class TipoPersona(enum.Enum):
 
 
 class SubtipoPersona(enum.Enum):
-    """Tipos específicos de personas del sistema, incluye usuarios y otras personas."""
+    """Tipos específicos de personas del sistema, incluye usuarios."""
 
     PROFESOR = "Profesor"
     ESTUDIANTE = "Estudiante"
@@ -166,13 +166,11 @@ class TipoActividad(enum.Enum):
     GENERICA = "Generica"
 
 
-# TODO(luis): Definir si se van a usar varias enumeraciones o solo una para los subtipos
-# de documentos
 class TipoDocumentoEvento(enum.Enum):
     """Tipos de documentos para un evento.
 
-    Incluye documentos promocionales como logotipos y convocatorias lanzadas para
-    ponentes
+    Incluye documentos promocionales como logotipos y convocatorias lanzadas
+    para ponentes
     """
 
     LOGOTIPO = "Logotipo"
