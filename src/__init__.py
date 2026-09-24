@@ -7,8 +7,8 @@ componentes necesarios.
 
 from flask import Flask
 
-from src.inicializacion.backup import registrar_backup
 from src.inicializacion.base_datos import crear_base
+from src.inicializacion.comandos import registrar_comandos
 from src.inicializacion.config import DevelopmentConfig
 from src.inicializacion.dependencias import componer_de_raiz
 from src.inicializacion.extenciones import db, jwt
@@ -35,6 +35,6 @@ def crear_app() -> Flask:
 
     crear_base(app, db)
     componer_de_raiz(app)
-    registrar_backup(app)
+    registrar_comandos(app)
 
     return app

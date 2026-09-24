@@ -6,19 +6,10 @@ Note:
 
 """
 
-import hashlib
-import secrets
-import subprocess
-from pathlib import Path
-
 from flask import Blueprint, Response
 from flask import current_app as app
-from sqlalchemy import text
 
 from src.controlador.startevent import StarteventControlador
-from src.enums import EstadoActivo
-from src.inicializacion.base_datos import crear_base
-from src.inicializacion.extenciones import db
 
 
 def crear_startevent_blueprint(
@@ -70,64 +61,5 @@ def crear_startevent_blueprint(
 
         """
         return controlador.refrescar_tokens_por_expirar(response)
-
-    @startevent_bp.cli.command("format")
-    def autoformatear() -> None:
-        """Formatea automáticamente el código de todo el proyecto.
-
-        Indica los errores según la configuración de pyproject.toml, corrige
-        los que sea posible y muestra el resto de los errores.
-
-        Note:
-            Equivalente a ejecutar
-            ruff format
-            ruff check --fix
-            djlint . --reformat
-            djlint . --lint
-
-        Examples:
-            flask startevent format
-
-        """
-        print(  # noqa: T201
-            "---------------------------------------------\n"
-            "\tFormateando archivos python...\n"
-            "---------------------------------------------\n"
-        )
-        subprocess.run(["ruff", "format"])
-        print(  # noqa: T201
-            "---------------------------------------------\n"
-            "\tAnalizando archivos python...\n"
-            "---------------------------------------------\n"
-        )
-        subprocess.run(["ruff", "check", "--fix"])
-        print(  # noqa: T201
-            "---------------------------------------------\n"
-            "\tFormateando archivos HTML...\n"
-            "---------------------------------------------\n"
-        )
-        subprocess.run(["djlint", ".", "--reformat"])
-        print(  # noqa: T201
-            "---------------------------------------------\n"
-            "\tAnalizando archivos HTML...\n"
-            "---------------------------------------------\n"
-        )
-        subprocess.run(["djlint", ".", "--lint"])
-        print(  # noqa: T201
-            "-------------------------------------\n"
-            "\tProyecto formateado.\n"
-            "-------------------------------------\n"
-            "Corregir todos los errores encontrados.\n"
-        )
-
-    @startevent_bp.cli.command("crear_base_prueba")
-    def crear_base_prueba() -> None:
-        crear_base(app, db)
-        archivo = Path.open(
-            app.config["DIRECTORIO_BACKUP"] / "backup_prueba.sql"
-        )
-        sql = archivo.read()
-        db.session.execute(text(sql))
-        db.session.commit()
 
     return startevent_bp
