@@ -29,6 +29,7 @@
   
   --color-fondo-startevent:#EFEFFF;
   --color-borde-gris: #828282;
+  --color-link: #3D7A82;
 
   --font-roboto: "Roboto";
   --font-roboto-serif: "Roboto-Serif";
@@ -60,6 +61,9 @@
   }
   hr {
     @apply w-11/12 mx-auto my-5 border-borde-gris/80;
+  }
+  a {
+    @apply text-primario hover:text-link hover:underline;
   }
 }
 
