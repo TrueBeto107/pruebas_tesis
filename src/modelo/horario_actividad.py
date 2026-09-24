@@ -1,3 +1,12 @@
+"""Modelo para representar horarios asociados a actividades académicas.
+
+Nota:
+    Este modelo define la estructura de la tabla `horario_actividad`
+    en la base de datos, incluyendo sus columnas y relaciones con
+    otros modelos.
+
+"""
+
 from datetime import date, time
 
 from sqlalchemy import Date, ForeignKey, Time
@@ -9,6 +18,25 @@ from src.inicializacion.extenciones import db
 # -----------------------NOTA-----------------------
 # Se movieron las ids al borrar tablas, verificar comportamiento
 class HorarioActividad(db.Model):
+    """Modelo que representa un horario asociado a una actividad académica.
+
+    Cada actividad académica puede tener múltiples horarios, y cada horario
+    pertenece a una única actividad. La relación es de uno a muchos
+    (``Actividad`` → ``HorarioActividad``) con borrado en cascada: al eliminar
+    una actividad, sus horarios se eliminan automáticamente.
+
+    Atributos:
+        id_horario_actividad (int): Clave primaria.
+        id_actividad (int | None): FK a la actividad académica.
+        id_espacio (int): FK al espacio donde se lleva a cabo el horario.
+        fecha (date): Fecha del horario.
+        hora_inicio (time): Hora de inicio del horario.
+        hora_fin (time | None): Hora de fin del horario.
+        actividad (Actividad): Actividad propietaria.
+        espacio (Espacio): Espacio asociado al horario.
+
+    """
+
     __tablename__ = "horario_actividad"
 
     id_horario_actividad: Mapped[int] = mapped_column(primary_key=True)
@@ -23,9 +51,9 @@ class HorarioActividad(db.Model):
     hora_fin: Mapped[time | None] = mapped_column(Time, nullable=True)
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship(
+    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
         back_populates="horarios_actividad"
     )
-    espacio: Mapped["Espacio"] = relationship(
+    espacio: Mapped["Espacio"] = relationship( # pyright: ignore[reportUndefinedVariable]
         back_populates="horarios_actividad"
     )

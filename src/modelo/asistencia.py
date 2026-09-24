@@ -1,3 +1,12 @@
+"""Modelo que representa la asistencia a una actividad académica.
+
+Nota:
+    Este modelo define la estructura de la tabla `asistencia`
+    en la base de datos, incluyendo sus columnas y relaciones
+    con otros modelos.
+
+"""
+
 from datetime import date
 
 from sqlalchemy import Date, ForeignKey
@@ -7,6 +16,23 @@ from src.inicializacion.extenciones import db
 
 
 class Asistencia(db.Model):
+    """Modelo que representa la asistencia a una actividad.
+
+    Cada actividad puede tener múltiples asistencias, y cada asistencia
+    pertenece a una única persona académica. La relación es de uno a muchos
+    (``PersonaAcademica`` → ``Asistencia``) con borrado en cascada: al eliminar
+    una persona académica, sus asistencias se eliminan automáticamente.
+
+    Attributes:
+        id_asistencia (int): Clave primaria.
+        id_actividad (int): FK a la actividad.
+        id_persona_academica (int): FK a la persona académica.
+        fecha (date): Fecha de la asistencia.
+        actividad (Actividad): Actividad a la que se asistió.
+        persona_academica (PersonaAcademica): Persona académica que asistió.
+
+    """
+
     __tablename__ = "asistencia"
 
     id_asistencia: Mapped[int] = mapped_column(primary_key=True)
@@ -23,6 +49,6 @@ class Asistencia(db.Model):
 
     # Relaciones
     actividad: Mapped["Actividad"] = relationship(back_populates="asistencias")
-    persona_academica: Mapped["PersonaAcademica"] = relationship(
+    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
         back_populates="asistencias"
     )
