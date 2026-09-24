@@ -20,8 +20,8 @@ class AutenticadorServicio:
         """Inicializa el servicio con su repositorio de personas académicas.
 
         Args:
-            repositorio_persona_academica (PersonaAcademicaRepositorioI): Instancia del
-            repositorio para PersonaAcademica
+            repositorio_persona_academica (PersonaAcademicaRepositorioI):
+                Instancia del repositorio para PersonaAcademica
 
         """
         self._repositorio_persona_academica = repositorio_persona_academica
@@ -32,12 +32,12 @@ class AutenticadorServicio:
         """Verifica las credenciales y devuelve un JWT de ser válidas.
 
         Args:
-            dto (IniciarSesionDto): DTO que contiene correo, contraseña y pimienta para
-            validar credenciales.
+            dto (IniciarSesionDto): DTO que contiene correo, contraseña y
+                pimienta para validar credenciales.
 
         Returns:
-            ValiadarCredencialesDto: DTO con los tokens de acceso y refrescar si las
-            credenciales son válidas, un DTO vacío si no.
+            ValiadarCredencialesDto: DTO con los tokens de acceso y refrescar
+            si las credenciales son válidas, un DTO vacío si no.
 
         """
         persona = self._repositorio_persona_academica.select_by_correo(

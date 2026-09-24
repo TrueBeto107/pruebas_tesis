@@ -1,7 +1,7 @@
 """Interfaces para repositorio para la comunicación entre capas.
 
-Este módulo define la API base para los repositorios y los contratos específicos
-que cada entidad del sistema debe implementar.
+Este módulo define la API base para los repositorios y los contratos
+específicos que cada entidad del sistema debe implementar.
 """
 
 from abc import ABC, abstractmethod
@@ -20,14 +20,14 @@ IdT = TypeVar("IdT")
 
 
 class RepositorioBase(ABC, Generic[ModeloT, IdT]):
-    """Define las operaciones CRUD comunes para todos los repositorios del sistema."""
+    """Define las operaciones comunes para todos los demás repositorios."""
 
     def __init__(self, clase_modelo: type[ModeloT]) -> None:
         """Inicializa el repositorio con la clase de modelo que administrará.
 
         Args:
-            clase_modelo (type[ModeloT]): La clase del modelo que este repositorio
-            manejará.
+            clase_modelo (type[ModeloT]): La clase del modelo que este
+            repositorio manejará.
 
         """
         self._clase_modelo = clase_modelo
@@ -43,14 +43,14 @@ class RepositorioBase(ABC, Generic[ModeloT, IdT]):
         db.session.commit()
 
     def select_by_id(self, id_: IdT) -> ModeloT | None:
-        """Obtiene un registro por su identificador único desde la base de datos.
+        """Obtiene un registro por su identificador único de la base de datos.
 
         Args:
             id_ (IdT): El identificador único del registro a buscar.
 
         Returns:
-            ModeloT | None: La instancia del modelo correspondiente al identificador,
-            None si no se encuentra.
+            ModeloT | None: La instancia del modelo correspondiente al
+            identificador, None si no se encuentra.
 
         """
         return db.session.get(self._clase_modelo, id_)
@@ -59,8 +59,8 @@ class RepositorioBase(ABC, Generic[ModeloT, IdT]):
         """Regresa todos los registros de la entidad desde la base de datos.
 
         Returns:
-            list[ModeloT]: Una lista con todas las instancias del modelo en la base de
-            datos.
+            list[ModeloT]: Una lista con todas las instancias del modelo en la
+            base de datos.
 
         """
         stmt = select(self._clase_modelo)
@@ -70,11 +70,12 @@ class RepositorioBase(ABC, Generic[ModeloT, IdT]):
         """Actualiza un modelo existente y devuelve la versión persistida.
 
         Args:
-            modelo (ModeloT): La instancia del modelo con los cambios a actualizar.
+            modelo (ModeloT): La instancia del modelo con los cambios a
+            actualizar.
 
         Returns:
-            ModeloT: La instancia del modelo después de ser persistida en la base de
-            datos.
+            ModeloT: La instancia del modelo después de ser persistida en la
+            base de datos.
 
         """
         modelo_bd = db.session.merge(modelo)
@@ -108,8 +109,8 @@ class ComiteEventoRepositorioI(RepositorioBase[ComiteEvento, int], ABC):
             id_persona (int): Identificador de la persona académica.
 
         Returns:
-            list[ComiteEvento]: La lista de todos los comités en los que ha participado
-            la persona
+            list[ComiteEvento]: La lista de todos los comités en los que ha
+            participado la persona
 
         """
 
@@ -131,7 +132,7 @@ class PersonaAcademicaRepositorioI(
             correo (str): Correo electrónico de la persona académica.
 
         Returns:
-            PersonaAcademica | None: La persona académica correspondiente al correo,
-            o None si no se encuentra.
+            PersonaAcademica | None: La persona académica correspondiente al
+            correo, o None si no se encuentra.
 
         """

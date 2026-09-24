@@ -27,10 +27,11 @@ class EventosControlador:
         self._servicio = servicio
 
     def _buscar_todos_eventos(self) -> list[MostrarEventoDto]:
-        """Busca todos los eventos en los que el usuario autenticado ha participado.
+        """Busca todos los eventos en los que el usuario ha participado.
 
         Returns:
-            list[MostrarEventoDto]: lista de DTOs con información básica de eventos.
+            list[MostrarEventoDto]: lista de DTOs con información básica de
+            eventos.
 
         """
         dto = BuscarEventosUsuarioDto(

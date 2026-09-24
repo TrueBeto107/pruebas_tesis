@@ -1,4 +1,4 @@
-"""Controlador de autenticación para las peticiones de login y gestión de tokens JWT.
+"""Controlador de autenticación para login y gestión de tokens JWT.
 
 Maneja las peticiones de autenticación de usuarios, validando credenciales
 y estableciendo cookies de sesión (tokens JWT) en la respuesta.
@@ -33,11 +33,11 @@ class AutenticacionControlador:
     def iniciar_sesion(self, correo: str, contrasenia: str) -> str:
         """Inicia sesión con las credenciales proporcionadas.
 
-        Valida el correo electrónico y contraseña del usuario, comparando la contraseña
-        hasehada ingresada por el usuario con la almacenada en la base de datos. Si las
-        credenciales son válidas, genera tokens JWT (acceso y refrescar) y los
-        establece en las cookies de respuesta, redirigiendo al usuario a la página de
-        inicio de StartEvent
+        Valida el correo electrónico y contraseña del usuario, comparando la
+        contraseña hasehada ingresada por el usuario con la almacenada en la
+        base de datos. Si las credenciales son válidas, genera tokens JWT
+        (acceso y refrescar) y los establece en las cookies de respuesta,
+        redirigiendo al usuario a la página de inicio de StartEvent
 
         Si las credenciales son inválidas, retorna una notificación de error.
 
@@ -46,8 +46,8 @@ class AutenticacionControlador:
             contrasenia (str): contraseña del usuario.
 
         Returns:
-            Response: objeto Response con redirección y cookies de sesión si es exitoso,
-                o página de notificación de error si falla.
+            Response: objeto Response con redirección y cookies de sesión si es
+            exitoso, o página de notificación de error si falla.
 
         """
         dto = IniciarSesionDto(
