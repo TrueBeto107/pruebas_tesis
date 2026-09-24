@@ -19,15 +19,17 @@ class Config:
         SQLALCHEMY_DATABASE_URI (str): URI de conexión a PostgreSQL.
         JWT_SECRET_KEY (str): clave secreta para firmar tokens JWT.
         JWT_TOKEN_LOCATION (list): ubicaciones donde se buscan los tokens.
-        JWT_ACCESS_TOKEN_EXPIRES (timedelta): tiempo de expiración del token de acceso.
-        JWT_REFRESH_TOKEN_EXPIRES (timedelta): tiempo de expiración del token de
-        refrescar.
-        JWT_POR_EXPIRAR (timedelta): tiempo antes de que el token se considere próximo
-        a expirar.
+        JWT_ACCESS_TOKEN_EXPIRES (timedelta): tiempo de expiración del token
+        de acceso.
+        JWT_REFRESH_TOKEN_EXPIRES (timedelta): tiempo de expiración del token
+        de refrescar.
+        JWT_POR_EXPIRAR (timedelta): tiempo antes de que el token se considere
+        próximo a expirar.
         DIRECTORIO_DOCUMENTOS (Path): ruta al directorio de documentos.
         DIRECTORIO_BACKUP (Path): ruta al directorio de backups.
         DIRECTORIO_TEMPLATES (Path): ruta al directorio de templates HTML.
-        PIMIENTA (str): clave de encriptación adicional para hash de contraseñas.
+        PIMIENTA (str): clave de encriptación adicional para hash de
+        contraseñas.
 
     """
 

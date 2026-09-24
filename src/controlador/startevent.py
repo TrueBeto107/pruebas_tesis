@@ -29,7 +29,7 @@ class StarteventControlador:
         """
         self._servicio = servicio
 
-    def _esta_por_expirar(self, jwt) -> bool:
+    def _esta_por_expirar(self, jwt: dict) -> bool:
         """Verifica si el token JWT está próximo a expirar.
 
         Args:
@@ -55,14 +55,16 @@ class StarteventControlador:
     def refrescar_tokens_por_expirar(self, response: Response) -> Response:
         """Refresca los tokens JWT de acceso si están próximos a expirar.
 
-        Verifica si el token de acceso actual está próximo a expirar y de ser así
-        genera un nuevo token estableciendolo en las cookies de la respuesta.
+        Verifica si el token de acceso actual está próximo a expirar y de ser
+        así genera un nuevo token estableciendolo en las cookies de la
+        respuesta.
 
         Args:
             response (Response): objeto Response de Flask a modificar.
 
         Returns:
-            Response: objeto Response con las cookies actualizadas si fue el caso.
+            Response: objeto Response con las cookies actualizadas si fue el
+            caso.
 
         """
         try:

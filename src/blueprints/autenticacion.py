@@ -20,8 +20,8 @@ def crear_autenticacion_blueprint(
     Mapea todos los endpoints hacia el controlador
 
     Args:
-        controlador (AutenticacionControlador): Instancia del controlador para atender
-        las peticiones.
+        controlador (AutenticacionControlador): Instancia del controlador para
+        atender las peticiones.
 
     Returns:
         Blueprint: el blueprint configurado con todos los endpoints
@@ -39,8 +39,8 @@ def crear_autenticacion_blueprint(
         """Autentica a un usuario validando las credenciales en un login.
 
         Returns:
-            Response: La respuesta HTTP que valida las credenciales y redirige a otro
-            endpoint o una notificación de error.
+            Response: La respuesta HTTP que valida las credenciales y redirige
+            a otro endpoint o una notificación de error.
 
         """
         correo: str = request.form["correo"]

@@ -14,7 +14,7 @@ class IniciarSesionDto:
     Attributes:
         correo (str): correo electrónico del usuario.
         contrasenia (str): contraseña del usuario.
-        pimienta (str): clave de encriptación adicional para hash de contraseña.
+        pimienta (str): clave de encriptación adicional para hash de contraseña
 
     """
 
@@ -28,8 +28,10 @@ class ValiadarCredencialesDto:
     """DTO para respuesta de validación de credenciales.
 
     Attributes:
-        token_acceso (str | None): token JWT de acceso si es válido, None si no.
-        token_refrescar (str | None): token JWT para refrescar si es válido, None si no.
+        token_acceso (str | None): token JWT de acceso si las credenciales son
+        válidas, None si no.
+        token_refrescar (str | None): token JWT para refrescar si es válido,
+        None si no.
         codigo (int): código de estado HTTP de la validación.
         mensaje (str): mensaje descriptivo del resultado de la validación.
 

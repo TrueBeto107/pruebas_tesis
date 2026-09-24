@@ -14,13 +14,13 @@ class EventosServicio:
         self,
         repositorio_comite_evento: ComiteEventoRepositorioI,
     ) -> None:
-        """Inicializa el servicio con los repositorios necesarios para atender eventos.
+        """Inicializa el servicio con los repositorios necesarios.
 
         Args:
             repositorio_comite_evento (ComiteEventoRepositorioI): Instancia del
-            repositorio para ComiteEvento
-            repositorio_documento_evento (DocumentoEventoREpositorioI): Instancia del
-            repositorio para DocumentoEvento
+                repositorio para ComiteEvento
+            repositorio_documento_evento (DocumentoEventoREpositorioI):
+                Instancia del repositorio para DocumentoEvento
 
         """
         self._repositorio_comite_evento = repositorio_comite_evento
@@ -34,8 +34,8 @@ class EventosServicio:
             dto (BuscarEventosUsuarioDto): DTO que contiene el id del usuario.
 
         Returns:
-            list[MostrarEventoDto]: Lista de DTOs con la información básica de los
-            eventos del usuario
+            list[MostrarEventoDto]: Lista de DTOs con la información básica de
+            los eventos del usuario
 
         """
         lista_comites = self._repositorio_comite_evento.select_by_id_persona(

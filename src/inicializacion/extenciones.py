@@ -18,7 +18,7 @@ jwt = JWTManager()
 
 @jwt.user_identity_loader
 def sustituir_usuario(usuario: "PersonaAcademica") -> str:  # pyright: ignore[reportUndefinedVariable]
-    """Método que sobreescribe la manera de extraer la identidad del usuario para JWT.
+    """Sobreescribe la manera de extraer la identidad del usuario para JWT.
 
     Args:
         usuario: objeto de usuario con atributo id_persona_academica.
@@ -32,15 +32,15 @@ def sustituir_usuario(usuario: "PersonaAcademica") -> str:  # pyright: ignore[re
 
 @jwt.user_lookup_loader
 def definir_current_user(_: dict, jwt_data: dict) -> "PersonaAcademica | None":  # pyright: ignore[reportUndefinedVariable]
-    """Método que sobreescribe la manera de obtener el usuario actual a partir del JWT.
+    """Sobreescribe la manera de obtener el usuario actual a partir del JWT.
 
     Al ejecutarse, este método consulta la base de datos para obtener el objeto
-    PeronaAcademica correspondiente de la base de datosy colocarlo en la variable
-    current_user de Flask-JWT-Extended.
+    PeronaAcademica correspondiente de la base de datosy colocarlo en la
+    variable current_user de Flask-JWT-Extended.
 
     Args:
-        _ : argumento ignorado pero requerido por Flask-JWT-Extended. Representa el
-        header del JWT.
+        _ : argumento ignorado pero requerido por Flask-JWT-Extended.
+        Representa el header del JWT.
         jwt_data: diccionario con el contenido del JWT
 
     Returns:

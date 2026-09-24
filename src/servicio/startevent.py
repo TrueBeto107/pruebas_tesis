@@ -14,9 +14,9 @@ class StarteventServicio:
     def refrescar_token(self, dto: RefrescarTokenDto) -> OtorgarNuevoTokenDto:
         """Genera un nuevo token de acceso JWT para el usuario.
 
-        Crea un nuevo token JWT usando la identidad del usuario contenida en el DTO.
-        El token se genera con la configuración de expiración establecida en la
-        aplicación Flask.
+        Crea un nuevo token JWT usando la identidad del usuario contenida en
+        el DTO. El token se genera con la configuración de expiración
+        establecida en la aplicación Flask.
 
         Args:
             dto (RefrescarTokenDto): DTO que contiene la identidad del usuario

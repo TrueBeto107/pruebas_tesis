@@ -17,12 +17,12 @@ class ComiteEventoRepositorio(ComiteEventoRepositorioI):
             id_persona (int): Identificador de la persona académica.
 
         Returns:
-            list[ComiteEvento]: La lista de todos los comités en los que ha participado
-            la persona
+            list[ComiteEvento]: La lista de todos los comités en los que ha
+            participado la persona
 
         """
-        # .options() sirve para establercer una estrategia para traer los objetos
-        # sin hacer un query mas
+        # .options() sirve para establercer una estrategia para traer los
+        # objetos sin hacer un query mas
         stmt = select(ComiteEvento).where(
             ComiteEvento.id_persona_academica == id_persona
         )  # .options(joinedload(ComiteEvento.evento_academico))
