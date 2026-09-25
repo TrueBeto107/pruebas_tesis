@@ -44,6 +44,6 @@ class ClasificacionPersona(db.Model):
     subtipo_persona: Mapped[SubtipoPersona]
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="clasificaciones_persona"
     )

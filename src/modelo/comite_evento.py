@@ -58,10 +58,10 @@ class ComiteEvento(db.Model):
     acceso_organizador: Mapped[AccesoOrganizador]
 
     # Relaciones
-    plantel: Mapped["Plantel"] = relationship(back_populates="comites_evento") # pyright: ignore[reportUndefinedVariable]
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(back_populates="comites_evento")  # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="comites_evento"
     )
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="comites_evento"
     )

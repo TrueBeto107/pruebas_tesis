@@ -51,6 +51,6 @@ class CodigoContrasenia(db.Model):
     usado: Mapped[bool] = mapped_column(Boolean)
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="codigos_contrasenia"
     )

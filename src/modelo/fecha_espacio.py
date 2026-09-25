@@ -7,7 +7,6 @@ Note:
 
 """
 
-
 from datetime import date
 
 from sqlalchemy import Date, ForeignKey
@@ -42,4 +41,4 @@ class FechaEspacio(db.Model):
     fecha: Mapped[date] = mapped_column(Date)
 
     # Relaciones
-    espacio: Mapped["Espacio"] = relationship(back_populates="fechas_espacio") # pyright: ignore[reportUndefinedVariable]
+    espacio: Mapped["Espacio"] = relationship(back_populates="fechas_espacio")  # pyright: ignore[reportUndefinedVariable]

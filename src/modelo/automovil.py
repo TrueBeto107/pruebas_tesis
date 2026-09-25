@@ -47,6 +47,6 @@ class Automovil(db.Model):
     color: Mapped[str] = mapped_column(String(20))
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="automovil"
     )

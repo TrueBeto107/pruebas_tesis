@@ -41,6 +41,6 @@ class PalabraClaveActividad(db.Model):
     palabra_clave: Mapped[str] = mapped_column(String(30))
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="palabras_clave_actividad"
     )

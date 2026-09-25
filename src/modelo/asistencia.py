@@ -49,6 +49,6 @@ class Asistencia(db.Model):
 
     # Relaciones
     actividad: Mapped["Actividad"] = relationship(back_populates="asistencias")
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="asistencias"
     )

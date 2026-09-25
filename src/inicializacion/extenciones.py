@@ -4,7 +4,6 @@ Define y configura las extensiones de Flask utilizadas en la aplicación.
 SQLAlchemy para ORM y Flask-JWT-Extended para autenticación JWT.
 """
 
-
 from flask import redirect, url_for
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy

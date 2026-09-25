@@ -6,6 +6,7 @@ Note:
     con otros modelos.
 
 """
+
 from datetime import date, time
 
 from sqlalchemy import Date, ForeignKey, String, Time
@@ -67,15 +68,15 @@ class DocumentoEvento(db.Model):
     ruta_archivo: Mapped[str] = mapped_column(String(200))
 
     # Relaciones
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="documentos_evento"
     )
-    plantel: Mapped["Plantel"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="documentos_evento"
     )
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="documentos_evento"
     )
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="documentos_evento"
     )

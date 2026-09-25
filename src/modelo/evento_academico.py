@@ -7,7 +7,6 @@ Note:
 
 """
 
-
 from sqlalchemy import SmallInteger, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -60,37 +59,37 @@ class EventoAcademico(db.Model):
     )
 
     # Relaciones
-    temas_evento: Mapped[list["TemaEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    temas_evento: Mapped[list["TemaEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    documentos_evento: Mapped[list["DocumentoEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    documentos_evento: Mapped[list["DocumentoEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    comites_evento: Mapped[list["ComiteEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    comites_evento: Mapped[list["ComiteEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    actividades: Mapped[list["Actividad"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividades: Mapped[list["Actividad"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    requisiciones: Mapped[list["Requisicion"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    requisiciones: Mapped[list["Requisicion"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    colores_evento: Mapped[list["ColorEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    colores_evento: Mapped[list["ColorEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    fechas_plantel: Mapped[list["FechaPlantel"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    fechas_plantel: Mapped[list["FechaPlantel"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="evento_academico",
         cascade="all, delete-orphan",
         passive_deletes=True,

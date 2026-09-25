@@ -37,7 +37,6 @@ class TemaEvento(db.Model):
     tema: Mapped[str] = mapped_column(String(50))
 
     # Relaciones
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="temas_evento"
     )
-

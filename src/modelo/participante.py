@@ -47,9 +47,9 @@ class Participante(db.Model):
     tipo_participante: Mapped[TipoParticipante]
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="participantes"
     )
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="participantes"
     )

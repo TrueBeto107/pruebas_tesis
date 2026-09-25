@@ -59,17 +59,17 @@ class ActividadCompartida(db.Model):
     )
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividades_compartidas"
     )
-    remitente: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    remitente: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         foreign_keys=[id_remitente],
         back_populates="actividades_compartidas_remitente",
     )
-    destinatario: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    destinatario: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         foreign_keys=[id_destinatario],
         back_populates="actividades_compartidas_destinatario",
     )
-    plantel_destinatario: Mapped["Plantel"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    plantel_destinatario: Mapped["Plantel"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividades_compartidas"
     )

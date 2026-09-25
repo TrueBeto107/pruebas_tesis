@@ -44,6 +44,6 @@ class ColorEvento(db.Model):
     codigo_hexadecimal: Mapped[str] = mapped_column(CHAR(8))
 
     # Relaciones
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="colores_evento"
     )

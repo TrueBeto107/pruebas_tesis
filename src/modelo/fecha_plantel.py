@@ -7,7 +7,6 @@ Note:
 
 """
 
-
 from datetime import date
 
 from sqlalchemy import Date, ForeignKey
@@ -47,8 +46,8 @@ class FechaPlantel(db.Model):
     fecha: Mapped[date] = mapped_column(Date)
 
     # Relaciones
-    plantel: Mapped["Plantel"] = relationship(back_populates="fechas_plantel") # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(back_populates="fechas_plantel")  # pyright: ignore[reportUndefinedVariable]
 
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="fechas_plantel"
     )

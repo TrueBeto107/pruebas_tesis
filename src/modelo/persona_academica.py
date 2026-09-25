@@ -6,6 +6,7 @@ Note:
     con otros modelos.
 
 """
+
 from sqlalchemy import Boolean, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -122,27 +123,27 @@ class PersonaAcademica(db.Model):
     )
 
     # Relaciones
-    telefonos_persona: Mapped[list["TelefonoPersona"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    telefonos_persona: Mapped[list["TelefonoPersona"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    autoridades: Mapped[list["Autoridad"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    autoridades: Mapped[list["Autoridad"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    comites_evento: Mapped[list["ComiteEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    comites_evento: Mapped[list["ComiteEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    documentos_evento: Mapped[list["DocumentoEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    documentos_evento: Mapped[list["DocumentoEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    actividades_compartidas_remitente: Mapped[list["ActividadCompartida"]] = ( # pyright: ignore[reportUndefinedVariable]
+    actividades_compartidas_remitente: Mapped[list["ActividadCompartida"]] = (  # pyright: ignore[reportUndefinedVariable]
         relationship(
             foreign_keys="ActividadCompartida.id_remitente",
             back_populates="remitente",
@@ -151,34 +152,34 @@ class PersonaAcademica(db.Model):
         )
     )
     actividades_compartidas_destinatario: Mapped[
-        list["ActividadCompartida"] # pyright: ignore[reportUndefinedVariable]
+        list["ActividadCompartida"]  # pyright: ignore[reportUndefinedVariable]
     ] = relationship(
         foreign_keys="ActividadCompartida.id_destinatario",
         back_populates="destinatario",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    asistencias: Mapped[list["Asistencia"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    asistencias: Mapped[list["Asistencia"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    automovil: Mapped["Automovil"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    automovil: Mapped["Automovil"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica"
     )
-    clasificaciones_persona: Mapped[list["ClasificacionPersona"]] = ( # pyright: ignore[reportUndefinedVariable]
+    clasificaciones_persona: Mapped[list["ClasificacionPersona"]] = (  # pyright: ignore[reportUndefinedVariable]
         relationship(
             back_populates="persona_academica",
             cascade="all, delete-orphan",
             passive_deletes=True,
         )
     )
-    codigos_contrasenia: Mapped[list["CodigoContrasenia"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    codigos_contrasenia: Mapped[list["CodigoContrasenia"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    participantes: Mapped[list["Participante"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    participantes: Mapped[list["Participante"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,

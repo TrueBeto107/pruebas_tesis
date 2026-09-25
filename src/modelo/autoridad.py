@@ -53,7 +53,7 @@ class Autoridad(db.Model):
     fecha_egreso: Mapped[date | None] = mapped_column(Date, nullable=True)
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="autoridades"
     )
-    plantel: Mapped["Plantel"] = relationship(back_populates="autoridades") # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(back_populates="autoridades")  # pyright: ignore[reportUndefinedVariable]

@@ -6,6 +6,7 @@ Note:
     con otros modelos.
 
 """
+
 from datetime import date, time
 
 from sqlalchemy import Date, ForeignKey, Time
@@ -42,6 +43,6 @@ class ConvocatoriaActividad(db.Model):
     hora_expiracion: Mapped[time] = mapped_column(Time)
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="convocatorias_actividad"
     )

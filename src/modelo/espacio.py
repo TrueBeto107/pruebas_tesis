@@ -7,7 +7,6 @@ Note:
 
 """
 
-
 from sqlalchemy import Boolean, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -43,14 +42,14 @@ class Espacio(db.Model):
     es_principal: Mapped[bool] = mapped_column(Boolean)
 
     # Relaciones
-    plantel: Mapped["Plantel"] = relationship(back_populates="espacios") # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(back_populates="espacios")  # pyright: ignore[reportUndefinedVariable]
 
-    fechas_espacio: Mapped[list["FechaEspacio"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    fechas_espacio: Mapped[list["FechaEspacio"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="espacio",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    horarios_actividad: Mapped[list["HorarioActividad"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    horarios_actividad: Mapped[list["HorarioActividad"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="espacio",
         cascade="all, delete-orphan",
         passive_deletes=True,

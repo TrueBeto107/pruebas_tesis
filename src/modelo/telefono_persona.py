@@ -6,6 +6,7 @@ Note:
     otros modelos.
 
 """
+
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -44,6 +45,6 @@ class TelefonoPersona(db.Model):
     extension: Mapped[str | None] = mapped_column(String(10), nullable=True)
 
     # Relaciones
-    persona_academica: Mapped["PersonaAcademica"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    persona_academica: Mapped["PersonaAcademica"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="telefonos_persona"
     )

@@ -66,7 +66,6 @@ class TestAutomovilSetters:
         auto.placa = None
         assert auto.placa is None
 
-
     def test_set_placa_demasiado_larga(self) -> None:
         """Verifica que el setter de 'placa' rechace cadenas demasiado largas.
 
@@ -82,7 +81,6 @@ class TestAutomovilSetters:
             ValueError, match="La placa no puede tener más de 10 caracteres"
         ):
             auto.placa = "12345678901"  # 11 caracteres
-
 
     def test_set_placa_con_espacios(self) -> None:
         """Verifica que el setter de 'placa' rechace cadenas con espacios.
@@ -100,7 +98,6 @@ class TestAutomovilSetters:
         ):
             auto.placa = "ABC 123"
 
-
     def test_set_placa_caracteres_invalidos(self) -> None:
         """Verifica que el setter de 'placa' rechace caracteres no permitidos.
 
@@ -114,11 +111,9 @@ class TestAutomovilSetters:
         """
         auto = Automovil()
         with pytest.raises(
-            ValueError,
-            match = "La placa solo admite letras, números y guiones"
+            ValueError, match="La placa solo admite letras, números y guiones"
         ):
             auto.placa = "ABC@123"  # @ no permitido
-
 
     # -------- modelo --------
     def test_set_modelo_valido(self) -> None:
@@ -137,7 +132,6 @@ class TestAutomovilSetters:
         auto.modelo = "Toyota Corolla"
         assert auto.modelo == "Toyota Corolla"
 
-
     def test_set_modelo_none(self) -> None:
         """Verifica que el setter de 'modelo' acepte un valor None.
 
@@ -152,7 +146,6 @@ class TestAutomovilSetters:
         auto = Automovil()
         auto.modelo = None
         assert auto.modelo is None
-
 
     def test_set_modelo_demasiado_largo(self) -> None:
         """Verifica que el setter de 'modelo' rechace cadenas demasiado largas.
@@ -169,7 +162,6 @@ class TestAutomovilSetters:
             ValueError, match="El modelo no puede tener más de 50 caracteres"
         ):
             auto.modelo = "A" * 51
-
 
     def test_set_modelo_caracteres_invalidos(self) -> None:
         """Verifica que el setter de 'modelo' rechace caracteres no permitidos.
@@ -189,7 +181,6 @@ class TestAutomovilSetters:
         ):
             auto.modelo = "Toyota@Corolla"
 
-
     # -------- anio --------
     def test_set_anio_valido(self) -> None:
         """Verifica que el setter de 'anio' acepte un valor válido.
@@ -207,7 +198,6 @@ class TestAutomovilSetters:
         auto.anio = "2023"
         assert auto.anio == "2023"
 
-
     def test_set_anio_none(self) -> None:
         """Verifica que el setter de 'anio' acepte un valor None.
 
@@ -222,7 +212,6 @@ class TestAutomovilSetters:
         auto = Automovil()
         auto.anio = None
         assert auto.anio is None
-
 
     def test_set_anio_demasiado_largo(self) -> None:
         """Verifica que el setter de 'anio' rechace cadenas demasiado largas.
@@ -240,7 +229,6 @@ class TestAutomovilSetters:
         ):
             auto.anio = "20201"
 
-
     def test_set_anio_no_numerico(self) -> None:
         """Verifica que el setter de 'anio' rechace caracteres no numéricos.
 
@@ -256,7 +244,6 @@ class TestAutomovilSetters:
             ValueError, match="El año solo puede contener caracteres numéricos"
         ):
             auto.anio = "20A0"
-
 
     # -------- color --------
     def test_set_color_valido(self) -> None:
@@ -275,7 +262,6 @@ class TestAutomovilSetters:
         auto.color = "Rojo oscuro"
         assert auto.color == "Rojo oscuro"
 
-
     def test_set_color_none(self) -> None:
         """Verifica que el setter de 'color' acepte un valor None.
 
@@ -290,7 +276,6 @@ class TestAutomovilSetters:
         auto = Automovil()
         auto.color = None
         assert auto.color is None
-
 
     def test_set_color_demasiado_largo(self) -> None:
         """Verifica que el setter de 'color' rechace cadenas demasiado largas.
@@ -307,7 +292,6 @@ class TestAutomovilSetters:
             ValueError, match="El color no puede tener más de 20 caracteres"
         ):
             auto.color = "Rojo oscuro metalizado brillante"  # >20
-
 
     def test_set_color_caracteres_invalidos(self) -> None:
         """Verifica que el setter de 'color' rechace caracteres no permitidos.

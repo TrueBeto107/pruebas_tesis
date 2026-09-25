@@ -6,6 +6,7 @@ Note:
     otros modelos.
 
 """
+
 from sqlalchemy import ForeignKey, SmallInteger, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -58,6 +59,6 @@ class PropiedadesActividad(db.Model):
     )
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="propiedades_actividad"
     )

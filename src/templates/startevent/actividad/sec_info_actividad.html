@@ -1,10 +1,7 @@
 {% from "componentes/form_inputs.html" import input_texto %}
-
 <div>
   <h3 class="text-xl font-semibold text-white border-b border-white/30 pb-2 mb-4">Información de la actividad</h3>
-  <div class="mb-4">
-    {{ input_texto(label="Nombre de la ponencia", required=true) }}
-  </div>
+  <div class="mb-4">{{ input_texto(label="Nombre de la ponencia", required=true) }}</div>
   <div class="mb-4">
     <label for="resumen" class="block text-white font-medium mb-1">Resumen *</label>
     <textarea id="resumen"

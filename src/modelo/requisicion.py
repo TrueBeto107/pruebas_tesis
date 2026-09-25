@@ -65,7 +65,7 @@ class Requisicion(db.Model):
     ruta_factura: Mapped[str] = mapped_column(String(200))
 
     # Relaciones
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="requisiciones"
     )
-    plantel: Mapped["Plantel"] = relationship(back_populates="requisiciones") # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(back_populates="requisiciones")  # pyright: ignore[reportUndefinedVariable]

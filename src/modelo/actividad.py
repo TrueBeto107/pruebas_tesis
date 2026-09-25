@@ -73,60 +73,60 @@ class Actividad(db.Model):
     token: Mapped[str] = mapped_column(String(64), nullable=True)
 
     # Relaciones
-    evento_academico: Mapped["EventoAcademico"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    evento_academico: Mapped["EventoAcademico"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividades"
     )
-    agendas: Mapped[list["Agenda"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    agendas: Mapped[list["Agenda"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    actividades_compartidas: Mapped[list["ActividadCompartida"]] = ( # pyright: ignore[reportUndefinedVariable]
+    actividades_compartidas: Mapped[list["ActividadCompartida"]] = (  # pyright: ignore[reportUndefinedVariable]
         relationship(
             back_populates="actividad",
             cascade="all, delete-orphan",
             passive_deletes=True,
         )
     )
-    asistencias: Mapped[list["Asistencia"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    asistencias: Mapped[list["Asistencia"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    horarios_actividad: Mapped[list["HorarioActividad"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    horarios_actividad: Mapped[list["HorarioActividad"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    documentos_evento: Mapped[list["DocumentoEvento"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    documentos_evento: Mapped[list["DocumentoEvento"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    participantes: Mapped[list["Participante"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    participantes: Mapped[list["Participante"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    convocatorias_actividad: Mapped[list["ConvocatoriaActividad"]] = ( # pyright: ignore[reportUndefinedVariable]
+    convocatorias_actividad: Mapped[list["ConvocatoriaActividad"]] = (  # pyright: ignore[reportUndefinedVariable]
         relationship(
             back_populates="actividad",
             cascade="all, delete-orphan",
             passive_deletes=True,
         )
     )
-    fechas_preferenciales: Mapped[list["FechaPreferencial"]] = relationship( # pyright: ignore[reportUndefinedVariable]
+    fechas_preferenciales: Mapped[list["FechaPreferencial"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    palabras_clave_actividad: Mapped[list["PalabraClaveActividad"]] = ( # pyright: ignore[reportUndefinedVariable]
+    palabras_clave_actividad: Mapped[list["PalabraClaveActividad"]] = (  # pyright: ignore[reportUndefinedVariable]
         relationship(
             back_populates="actividad",
             cascade="all, delete-orphan",
             passive_deletes=True,
         )
     )
-    propiedades_actividad: Mapped["PropiedadesActividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    propiedades_actividad: Mapped["PropiedadesActividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="actividad"
     )

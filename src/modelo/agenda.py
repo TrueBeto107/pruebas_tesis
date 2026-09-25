@@ -42,5 +42,5 @@ class Agenda(db.Model):
     )
 
     # Relaciones
-    plantel: Mapped["Plantel"] = relationship(back_populates="agendas") # pyright: ignore[reportUndefinedVariable]
-    actividad: Mapped["Actividad"] = relationship(back_populates="agendas") # pyright: ignore[reportUndefinedVariable]
+    plantel: Mapped["Plantel"] = relationship(back_populates="agendas")  # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(back_populates="agendas")  # pyright: ignore[reportUndefinedVariable]

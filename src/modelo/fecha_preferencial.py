@@ -41,6 +41,6 @@ class FechaPreferencial(db.Model):
     fecha: Mapped[date] = mapped_column(Date)
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="fechas_preferenciales"
     )

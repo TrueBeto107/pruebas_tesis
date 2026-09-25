@@ -7,6 +7,7 @@ Nota: Esta clase incluye validaciones para los atributos del automóvil,
 
 """
 
+
 class Automovil:
     """Clase que representa un automóvil en el dominio de la aplicación.
 
@@ -35,11 +36,11 @@ class Automovil:
 
     def __init__(
         self,
-        placa: str ,
+        placa: str,
         modelo: str,
-        anio:str,
-        color:str,
-        id_persona_academica:int,
+        anio: str,
+        color: str,
+        id_persona_academica: int,
     ) -> None:
         """Inicializa una instancia de la clase Automovil."""
         self.id_persona_academica = id_persona_academica

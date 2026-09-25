@@ -51,9 +51,9 @@ class HorarioActividad(db.Model):
     hora_fin: Mapped[time | None] = mapped_column(Time, nullable=True)
 
     # Relaciones
-    actividad: Mapped["Actividad"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    actividad: Mapped["Actividad"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="horarios_actividad"
     )
-    espacio: Mapped["Espacio"] = relationship( # pyright: ignore[reportUndefinedVariable]
+    espacio: Mapped["Espacio"] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="horarios_actividad"
     )
