@@ -1,36 +1,39 @@
 {% extends "base.html" %}
+{% from "componentes/form_inputs.html" import input_texto %}
+
 {% block css %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/animaciones.css') }}">
 {% endblock %}
+
 {% block contenido %}
-  <div class="min-h-screen flex">
+  <main class="h-screen flex">
     <!-- MITAD IZQUIERDA: Contenido visual -->
-    <div class="w-1/2 bg-[#66A5AD] flex flex-col text-white p-4 relative">
+    <section class="w-1/2 bg-[#66A5AD] flex flex-col text-white p-4">
       <!-- Título en la parte superior izquierda -->
-      <div class="flex justify-start">
-        <h1 class="mb-4 text-5xl font-bold">StartEvent</h1>
-      </div>
-      <div class="flex-1 flex flex-col items-center justify-center">
+      <header class="flex justify-start">
+        <h1>StartEvent</h1>
+      </header>
+      <div class="flex-1 flex flex-col items-center justify-center gap-2">
         <img src="{{ url_for('static', filename='img/startevent/logo.png') }}"
              alt="Logotipo de StartEvent"
-             class="w-3/4 h-auto max-w-full object-contain" />
-        <h2 class="text-3xl font-bold mt-6">¡Bienvenido!</h2>
-        <p class="text-white mt-2">Accede a tu cuenta para continuar</p>
+             class="w-3/4 h-auto">
+        <h2>¡Bienvenido!</h2>
+        <p>Accede a tu cuenta para continuar</p>
       </div>
-    </div>
+    </section>
     <!-- MITAD DERECHA: Formulario -->
-    <div class="w-1/2 bg-[#C4DFE6] flex items-center justify-center p-8">
+    <section class="w-1/2 bg-[#C4DFE6] flex items-center justify-center p-4 text-negro">
       <!--  CONTENEDOR CON FONDO GRIS CLARO Y OPACIDAD -->
-      <div class="w-full max-w-md bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50">
-        <div class="flex justify-center mb-4">
-          <img src="https://img.magnific.com/vector-premium/lindo-axolotl-leyendo-ilustracion-vector-dibujos-animados-libro_290315-2277.jpg"
-               alt="Iniciar sesión"
-               class="w-80 h-80 object-contain" />
-        </div>
-        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Iniciar sesión</h2>
+      <div class="flex flex-col justify-center items-center max-w-md gap-2 bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-sm shadow-borde-gris">
+        <img src="https://img.magnific.com/vector-premium/lindo-axolotl-leyendo-ilustracion-vector-dibujos-animados-libro_290315-2277.jpg"
+              alt="Iniciar sesión"
+              class="w-3/4 h-auto">
+        <h2>Iniciar sesión</h2>
         <form hx-post="{{ url_for('startevent.autenticacion.iniciar_sesion') }}"
-              hx-target="#div-notificacion">
+              hx-target="#div-notificacion"
+              class="w-full">
+          <!--{{ input_texto(label="Correo", placeholder="correo@email.com", required=true, importante=true) }}-->
           <div class="mb-4">
             <label class="block text-gray-500 text-lg font-bold mb-2">Correo:</label>
             <input name="correo"
@@ -56,6 +59,6 @@
       </div>
       <!-- FIN DEL CONTENEDOR -->
       <div id="div-notificacion"></div>
-    </div>
-  </div>
+    </section>
+  </main>
 {% endblock %}

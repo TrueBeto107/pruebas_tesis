@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block contenido %}
-  <header class="flex-shrink-0 w-full">
+  <header class="shrink-0 w-full">
     {% include "navbar.html" %}
   </header>
-  <main class="flex-1 flex overflow-hidden">
+  <main class="flex-1 flex overflow-y-auto">
     {% block contenido_bo %}{% endblock %}
   </main>
-  <footer class="flex-shrink-0 w-full">
+  <footer class="shrink-0 w-full">
     {% include "footer.html" %}
   </footer>
 {% endblock %}

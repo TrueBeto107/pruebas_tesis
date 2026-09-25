@@ -49,16 +49,16 @@
     @apply font-roboto-serif text-xl font-semibold font-stretch-semi-condensed my-2;
   }
   p, span, label {
-    @apply text-negro text-base font-stretch-semi-expanded;
+    @apply text-base font-stretch-semi-expanded;
   }
   /*
   button {
     @apply transition duration-300 active:scale-95;
   }*/
   /*Este es un ejemplo*/
-  section {
+  /*section {
     @apply m-2 p-2;
-  }
+  }*/
   hr {
     @apply w-11/12 mx-auto my-5 border-borde-gris/80;
   }

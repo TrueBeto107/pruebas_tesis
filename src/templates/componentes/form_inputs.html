@@ -1,7 +1,7 @@
 {% set clases_input = "h-10 w-60 px-4 bg-white border border-borde-gris rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95" %}
-{% macro input_texto(label, value="", placeholder="", required=false) %}
+{% macro input_texto(label, value="", placeholder="", required=false, importante=false) %}
   <label class="block w-fit h-fit group">
-    <p>{{ label }}</p>
+    <p {% if importante %}class="text-bold"{% endif %}>{{ label }}</p>
     <input type="text"
            class="h-10 w-60 px-4 bg-white border border-borde-gris rounded-xl placeholder:text-placeholder group-hover:border-primario group-hover:border-2 transition duration-200 focus:outline-0 active:scale-95"
            {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
