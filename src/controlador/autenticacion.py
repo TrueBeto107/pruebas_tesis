@@ -4,8 +4,8 @@ Maneja las peticiones de autenticación de usuarios, validando credenciales
 y estableciendo cookies de sesión (tokens JWT) en la respuesta.
 """
 
-from flask import Response, make_response, render_template, url_for
 from flask import current_app as app
+from flask import make_response, render_template, url_for
 from flask_jwt_extended import set_access_cookies, set_refresh_cookies
 
 from src.dto.autenticacion import IniciarSesionDto

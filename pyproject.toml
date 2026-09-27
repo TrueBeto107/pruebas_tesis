@@ -13,6 +13,7 @@ select = [
     "COM819",	#Coma inecesaria
     "EM",	#Mensajes en excepciones
     "FIX",	#Comentarios TODO
+    "F401", #Import sin usar
     "ISC",	#Concatenacion de strings
     "ICN",	#Nombres convencionales de imports
     "PIE",	#Instrucciones inecesarias o repetidas
@@ -36,6 +37,7 @@ select = [
     "PGH",	#Comentarios ignore, noqa3
     "TRY",	#Try-except
 ]
+
 #Reglas que se excluyen
 ignore = [
     "EXE002",   #Todos los scripts deberian indicar la versión del compilador en la primera linea
@@ -46,6 +48,10 @@ ignore = [
     "D203",     #Incompatible con D211, Docstrings de clases deben tener una linea en blanco antes
     "D213",     #Incompatible con D212, Docstrings deben empezar en la misma línea que las comillas de apertura
     ]
+
+#Reglas que se excluyen pero solo en un archivo específico
+[tool.ruff.lint.per-file-ignores]
+"src/inicializacion/base_datos.py" = ["F401"]   #Se necesitan los import aunque no se usen
 
 #Reglas sobre el analisis de código de HTML
 [tool.djlint]
