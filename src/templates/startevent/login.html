@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% from "componentes/form_inputs.html" import input_texto %}
-
 {% block css %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/animaciones.css') }}">
 {% endblock %}
-
 {% block contenido %}
   <main class="h-screen flex">
     <!-- MITAD IZQUIERDA: Contenido visual -->
@@ -27,8 +25,8 @@
       <!--  CONTENEDOR CON FONDO GRIS CLARO Y OPACIDAD -->
       <div class="flex flex-col justify-center items-center max-w-md gap-2 bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-sm shadow-borde-gris">
         <img src="https://img.magnific.com/vector-premium/lindo-axolotl-leyendo-ilustracion-vector-dibujos-animados-libro_290315-2277.jpg"
-              alt="Iniciar sesión"
-              class="w-3/4 h-auto">
+             alt="Iniciar sesión"
+             class="w-3/4 h-auto">
         <h2>Iniciar sesión</h2>
         <form hx-post="{{ url_for('startevent.autenticacion.iniciar_sesion') }}"
               hx-target="#div-notificacion"
