@@ -1,5 +1,4 @@
-<!-- Barra de navegación -->
-<nav class="bg-primario px-6 py-4 flex justify-between items-center relative z-10">
+<div class="bg-primario px-6 py-4 flex justify-between items-center relative z-10">
   {% if usuario %}
     <span class="text-black text-[28px] font-light">{{ usuario.nombre_completo }}</span>
   {% else %}
@@ -21,4 +20,4 @@
   <!-- Overlay que cierra el menú al hacer clic fuera -->
   <label for="menu-toggle"
          class="fixed inset-0 z-40 hidden peer-checked:block cursor-default"></label>
-</nav>
+</div>
