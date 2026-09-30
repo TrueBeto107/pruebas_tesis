@@ -1,16 +1,19 @@
 {% extends "base.html" %}
-{% from "componentes/form_inputs.html" import input_texto %}
+{% from "componentes/form_inputs.html" import input_correo, input_password %}
 {% block css %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/animaciones.css') }}">
 {% endblock %}
 {% block contenido %}
+  <div class="-z-10 absolute w-full h-full bg-fondo-startevent">
+    <div class="absolute w-full h-full [clip-path:polygon(0%_0%,100%_0%,100%_10%,0%_90%,0%_100%)] bg-[#66A5AD]"></div>
+  </div>
   <main class="h-screen flex">
     <!-- MITAD IZQUIERDA: Contenido visual -->
-    <section class="w-1/2 bg-[#66A5AD] flex flex-col text-white p-4">
+    <section class="w-1/2 flex flex-col text-negro p-4">
       <!-- Título en la parte superior izquierda -->
       <header class="flex justify-start">
-        <h1>StartEvent</h1>
+        <h1 class="text-white text-shadow-negro/60 text-shadow-sm italic">StartEvent</h1>
       </header>
       <div class="flex-1 flex flex-col items-center justify-center gap-2">
         <img src="{{ url_for('static', filename='img/startevent/logo.png') }}"
@@ -21,7 +24,7 @@
       </div>
     </section>
     <!-- MITAD DERECHA: Formulario -->
-    <section class="w-1/2 bg-[#C4DFE6] flex items-center justify-center p-4 text-negro">
+    <section class="w-1/2 flex items-center justify-center p-4 text-negro">
       <!--  CONTENEDOR CON FONDO GRIS CLARO Y OPACIDAD -->
       <div class="flex flex-col justify-center items-center max-w-md gap-2 bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-sm shadow-borde-gris">
         <img src="https://img.magnific.com/vector-premium/lindo-axolotl-leyendo-ilustracion-vector-dibujos-animados-libro_290315-2277.jpg"
@@ -30,22 +33,10 @@
         <h2>Iniciar sesión</h2>
         <form hx-post="{{ url_for('startevent.autenticacion.iniciar_sesion') }}"
               hx-target="#div-notificacion"
-              class="w-full">
-          <!--{{ input_texto(label="Correo", placeholder="correo@email.com", required=true, importante=true) }}-->
-          <div class="mb-4">
-            <label class="block text-gray-500 text-lg font-bold mb-2">Correo:</label>
-            <input name="correo"
-                   type="email"
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#66A5AD] focus:border-transparent bg-white/80"
-                   placeholder="algo@gmail.com" />
-          </div>
-          <div class="mb-5">
-            <label class="block text-gray-500 text-lg font-semibold mb-2">Contraseña:</label>
-            <input name="password"
-                   type="password"
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#66A5AD] focus:border-transparent bg-white/80"
-                   required />
-          </div>
+              class="w-full flex flex-col gap-2">
+          {{ input_correo(label="Correo", placeholder="correo@email.com", required=true, name="correo", importante=true) }}
+          {{ input_password(label="Contraseña", required=true, name="password", importante=true) }}
+          <br>
           <button type="submit"
                   class="mb-5 w-full bg-[#52969E] hover:bg-[#3D7A82] text-white font-bold py-3 px-4 rounded-lg transition duration-200">
             Iniciar sesión
