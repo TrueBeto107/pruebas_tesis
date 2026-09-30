@@ -108,19 +108,13 @@ class PersonaAcademica(db.Model):
     )
     cubiculo: Mapped[str | None] = mapped_column(String(10), nullable=True)
     ruta_foto_perfil: Mapped[str] = mapped_column(String(200), nullable=True)
-    semblanza: Mapped[str | None] = mapped_column(String(1700), nullable=True)
-    intereses: Mapped[str | None] = mapped_column(String(250), nullable=True)
-    institucion_procedencia: Mapped[str | None] = mapped_column(
-        String(200), nullable=True
-    )
-    tipo_institucion: Mapped[TipoInstitucion | None]
+
+
     nivel_estudios: Mapped[NivelEstudios | None]
     discapacidad: Mapped[str | None] = mapped_column(
         String(200), nullable=True
     )
-    ruta_foto_ponente: Mapped[str | None] = mapped_column(
-        String(200), nullable=True
-    )
+
 
     # Relaciones
     telefonos_persona: Mapped[list["TelefonoPersona"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
@@ -180,6 +174,12 @@ class PersonaAcademica(db.Model):
         passive_deletes=True,
     )
     participantes: Mapped[list["Participante"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
+        back_populates="persona_academica",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
+
+    biografias_ponente:  Mapped[list["BiografiaPonente"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
         back_populates="persona_academica",
         cascade="all, delete-orphan",
         passive_deletes=True,

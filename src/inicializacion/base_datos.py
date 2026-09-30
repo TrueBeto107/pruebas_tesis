@@ -42,5 +42,6 @@ def crear_base(app: Flask, db: SQLAlchemy) -> None:
         from src.modelo.requisicion import Requisicion
         from src.modelo.telefono_persona import TelefonoPersona
         from src.modelo.tema_evento import TemaEvento
+        from src.modelo.bibliografia_ponente import BiografiaPonente
 
         db.create_all()

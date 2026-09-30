@@ -94,3 +94,9 @@ class EventoAcademico(db.Model):
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
+
+    biografias_ponente:  Mapped[list["BiografiaPonente"]] = relationship(  # pyright: ignore[reportUndefinedVariable]
+        back_populates="evento_academico",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
