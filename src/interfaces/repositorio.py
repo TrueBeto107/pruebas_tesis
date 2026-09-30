@@ -9,8 +9,10 @@ from typing import Generic, TypeVar
 
 from sqlalchemy import select
 
+from src.enums import SubtipoDocumento, TipoDocumento
 from src.inicializacion.extenciones import db
 from src.modelo.comite_evento import ComiteEvento
+from src.modelo.documento_evento import DocumentoEvento
 from src.modelo.persona_academica import PersonaAcademica
 
 ModeloT = TypeVar("ModeloT")
@@ -109,6 +111,34 @@ class ComiteEventoRepositorioI(RepositorioBase[ComiteEvento, int], ABC):
         Returns:
             list[ComiteEvento]: La lista de todos los comités en los que ha
             participado la persona
+
+        """
+
+
+class DocumentoEventoRepositorioI(RepositorioBase[DocumentoEvento, int], ABC):
+    """Interfaz de repositorio para el modelo de DocumentoEvento."""
+
+    def __init__(self) -> None:
+        """Inicializa el repositorio con el modelo correspondiente."""
+        super().__init__(DocumentoEvento)
+
+    @abstractmethod
+    def select_by_edicion_y_subtipo(
+        self,
+        id_evento_academico: int,
+        tipo: TipoDocumento,
+        subtipo: SubtipoDocumento,
+    ) -> list[DocumentoEvento]:
+        """Busca documentos por evento, tipo y subtipo.
+
+        Args:
+            id_evento_academico (int): El identificador del evento académico
+            tipo (TipoDocumento): El tipo del documento a buscar
+            subtipo (SubtipoDocumento): El subtipo del documento a buscar
+
+        Returns:
+            list[DocumentoEvento]: Una lista de todos los documentos que
+            cumplen las condiciones
 
         """
 
