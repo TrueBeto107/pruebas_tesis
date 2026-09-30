@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% from "componentes/form_inputs.html" import input_correo, input_password %}
-{% block css %}
-  <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/animaciones.css') }}">
-{% endblock %}
-{% block contenido %}
+{% from "componentes/botones.html" import boton %}
+{% block body %}
   <div class="-z-10 absolute w-full h-full bg-fondo-startevent">
-    <div class="absolute w-full h-full [clip-path:polygon(0%_0%,100%_0%,100%_10%,0%_90%,0%_100%)] bg-[#66A5AD]"></div>
+    <div class="absolute w-full h-full [clip-path:polygon(0%_0%,100%_0%,100%_10%,0%_90%,0%_100%)] bg-fondo-primario"></div>
   </div>
   <main class="h-screen flex">
     <!-- MITAD IZQUIERDA: Contenido visual -->
@@ -37,11 +34,8 @@
           {{ input_correo(label="Correo", placeholder="correo@email.com", required=true, name="correo", importante=true) }}
           {{ input_password(label="Contraseña", required=true, name="password", importante=true) }}
           <br>
-          <button type="submit"
-                  class="mb-5 w-full bg-[#52969E] hover:bg-[#3D7A82] text-white font-bold py-3 px-4 rounded-lg transition duration-200">
-            Iniciar sesión
-          </button>
-          <div class="text-center mb-6">
+          {{ boton(texto="Iniciar Sesión", tipo="submit", tam="lg") }}
+          <div class="text-center">
             <a href="#" class="text-sm">¿Olvidaste tu contraseña?</a>
           </div>
         </form>

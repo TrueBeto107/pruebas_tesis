@@ -27,9 +27,13 @@
   --color-sombra: #57a0a9;
   --color-sombra-secundario: #618999;
   
-  --color-fondo-startevent:#EFEFFF;
+  --color-fondo:#EFEFFF;
+  --color-fondo-primario: #66A5AD;
+  --color-fondo-secundario: #C4DFE6;
   --color-borde-gris: #828282;
   --color-link: #3D7A82;
+  --color-peligro: #fa4949;
+  --color-sombra-peligro: #d84a4a;
 
   --font-roboto: "Roboto";
   --font-roboto-serif: "Roboto-Serif";
@@ -37,7 +41,7 @@
 
 @layer base {
   body {
-    @apply h-screen w-full flex flex-col font-roboto;
+    @apply h-screen w-full flex flex-col font-roboto bg-fondo;
   }
   h1 {
     @apply font-roboto-serif text-5xl font-bold font-stretch-condensed text-center my-5;
